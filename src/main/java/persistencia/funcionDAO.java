@@ -35,7 +35,7 @@ public class funcionDAO implements IFuncionDAO{
             List<FuncionEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select p.titulo, f.fecha_hora, f.disponibilidad, s.nombre, p.costo, f.idFuncion from peliculas p\n" +
+            String codigoSQL = "select p.titulo, f.fecha_hora, f.disponibilidad, s.nombre, p.costo, f.idFuncion, f.dia, f.horaInicio, f.horaFin, f.horaFinPelicula from peliculas p\n" +
                                "inner join funciones f on p.idPelicula = f.idPelicula\n" +
                                "inner join salas s on s.idSala = f.idSala\n" +
                                "inner join sucursales sa on s.idSucursal = sa.idSucursal\n" + 

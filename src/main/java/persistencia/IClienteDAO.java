@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import entidades.ClienteBuscarEntidad;
 import entidades.ClienteEntidad;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,8 +24,10 @@ public interface IClienteDAO {
     
     public void comprarBoleto(int id, int cant) throws PersistenciaException;
     
-    public List<ClienteEntidad> buscarClientesTabla() throws PersistenciaException;
+    public List<ClienteBuscarEntidad> buscarClientesTabla() throws PersistenciaException;
 
-    public ClienteEntidad convertirAEntidad(ResultSet resultado) throws SQLException ;
+    public ClienteEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException;
+    
+    public ClienteBuscarEntidad convertirCBAEntidad(ResultSet resultado) throws PersistenciaException;
     
 }

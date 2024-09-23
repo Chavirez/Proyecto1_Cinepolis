@@ -15,11 +15,12 @@ public class ClienteEntidad {
     private int idCiudad;
     private String contraseña;
     private Date fechaNacimiento;
+    private Double coordenadas;
 
     public ClienteEntidad() {
     }
 
-    public ClienteEntidad(int idCliente, String nombre, String apellido, String email, int idCiudad, String contraseña, Date fechaNacimiento) {
+    public ClienteEntidad(int idCliente, String nombre, String apellido, String email, int idCiudad, String contraseña, Date fechaNacimiento, Double coordenadas) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -27,6 +28,7 @@ public class ClienteEntidad {
         this.idCiudad = idCiudad;
         this.contraseña = contraseña;
         this.fechaNacimiento = fechaNacimiento;
+        this.coordenadas = coordenadas;
     }
 
     public int getIdCliente() {
@@ -85,5 +87,19 @@ public class ClienteEntidad {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public Double getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(Double coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+
+    @Override
+    public String toString() {
+        return "ClienteEntidad{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", idCiudad=" + idCiudad + ", contrase\u00f1a=" + contraseña + ", fechaNacimiento=" + fechaNacimiento + ", coordenadas=" + coordenadas + '}';
+    }
+
+    
 
 }

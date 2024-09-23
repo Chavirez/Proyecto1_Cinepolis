@@ -12,24 +12,23 @@ public class ClienteDTO {
     private String nombre;
     private String apellido;
     private String email;
-    private int ciudad;
+    private String ciudad;
     private String contraseña;
     private Date fechaNacimiento;
+    private Double coordenadas;
 
     public ClienteDTO() {
     }
 
-    public ClienteDTO(
-            String nombre, 
-            String apellido, 
-            String email, 
-            int ciudad, 
-            Date fechaNacimiento) {
+    public ClienteDTO(int idCliente, String nombre, String apellido, String email, String ciudad, String contraseña, Date fechaNacimiento, Double coordenadas) {
+        this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.ciudad = ciudad;
+        this.contraseña = contraseña;
         this.fechaNacimiento = fechaNacimiento;
+        this.coordenadas = coordenadas;
     }
 
     public int getIdCliente() {
@@ -64,15 +63,13 @@ public class ClienteDTO {
         this.email = email;
     }
 
-    public int getCiudad() {
+    public String getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(int ciudad) {
+    public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
-
 
     public String getContraseña() {
         return contraseña;
@@ -90,11 +87,18 @@ public class ClienteDTO {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    @Override
-    public String toString() {
-        return "ClienteDTO{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", ciudad=" + ciudad + ", contrase\u00f1a=" + contraseña + ", fechaNacimiento=" + fechaNacimiento + '}';
+    public Double getCoordenadas() {
+        return coordenadas;
     }
 
+    public void setCoordenadas(Double coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+
+    @Override
+    public String toString() {
+        return "ClienteDTO{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", ciudad=" + ciudad + ", contrase\u00f1a=" + contraseña + ", fechaNacimiento=" + fechaNacimiento + ", coordenadas=" + coordenadas + '}';
+    }
     
     
 }

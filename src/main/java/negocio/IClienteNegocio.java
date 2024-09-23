@@ -7,6 +7,7 @@ package negocio;
 import dtos.ClienteDTO;
 import dtos.registrarClienteDTO;
 import dtos.validarClienteDTO;
+import entidades.ClienteBuscarEntidad;
 import entidades.ClienteEntidad;
 import java.util.List;
 
@@ -20,6 +21,6 @@ public interface IClienteNegocio {
     public int buscarIdCliente(validarClienteDTO cliente) throws NegocioException;
         public void comprarBoleto(int id, int cant) throws NegocioException ;
         public List<ClienteDTO> buscarClientesTabla() throws NegocioException;
-            public List<ClienteDTO> convertirClientesTablaDTO(List<ClienteEntidad> clientes) throws NegocioException ;
+            public List<ClienteDTO> convertirClientesTablaDTO(List<ClienteBuscarEntidad> clientes) throws NegocioException ;
             
 }

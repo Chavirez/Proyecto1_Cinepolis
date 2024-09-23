@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -53,12 +55,16 @@ public class CiudadDAO implements ICiudadDAO{
         
         
     @Override
-    public CiudadEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
-        int idCiudad = resultado.getInt("idCiudad");
-        String nombre = resultado.getString("nombre");
-        double coordenadas = resultado.getDouble("coordenadas");
-        int idPais = resultado.getInt("idPais");
-        return new CiudadEntidad(idCiudad, nombre, coordenadas, idPais);
+    public CiudadEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException {
+        try {
+            int idCiudad = resultado.getInt("idCiudad");
+            String nombre = resultado.getString("nombre");
+            int idPais = resultado.getInt("idPais");
+            return new CiudadEntidad(idCiudad, nombre, idPais);
+        } catch (SQLException ex) {
+            Logger.getLogger(CiudadDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Error al convertir la ciudad a Entidad");
+        }
     }    
     
 }

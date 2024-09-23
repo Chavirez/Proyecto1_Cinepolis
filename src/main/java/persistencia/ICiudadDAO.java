@@ -17,5 +17,5 @@ public interface ICiudadDAO {
     
     List<CiudadEntidad> buscarCiudadTabla() throws PersistenciaException;
     
-    CiudadEntidad convertirAEntidad(ResultSet resultado) throws SQLException;    
+    CiudadEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException;    
 }

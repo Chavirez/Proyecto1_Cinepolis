@@ -1,33 +1,42 @@
-package dtos;
+package entidades;
 
 import java.sql.Date;
+import java.time.LocalTime;
 
 /**
  *
  * @author eduar
  */
-public class registrarClienteDTO {
-
-    
+public class ClienteBuscarEntidad {
+    private int idCliente;
     private String nombre;
     private String apellido;
     private String email;
-    private int ciudad;
+    private String Ciudad;
     private String contraseña;
     private Date fechaNacimiento;
     private Double coordenadas;
 
-    public registrarClienteDTO() {
+    public ClienteBuscarEntidad() {
     }
 
-    public registrarClienteDTO(String nombre, String apellido, String email, int ciudad, String contraseña, Date fechaNacimiento, Double coordenadas) {
+    public ClienteBuscarEntidad(int idCliente, String nombre, String apellido, String email, String Ciudad, String contraseña, Date fechaNacimiento, Double coordenadas) {
+        this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.ciudad = ciudad;
+        this.Ciudad = Ciudad;
         this.contraseña = contraseña;
         this.fechaNacimiento = fechaNacimiento;
         this.coordenadas = coordenadas;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombre() {
@@ -54,12 +63,12 @@ public class registrarClienteDTO {
         this.email = email;
     }
 
-    public int getCiudad() {
-        return ciudad;
+    public String getCiudad() {
+        return Ciudad;
     }
 
-    public void setCiudad(int ciudad) {
-        this.ciudad = ciudad;
+    public void setCiudad(String Ciudad) {
+        this.Ciudad = Ciudad;
     }
 
     public String getContraseña() {
@@ -87,4 +96,7 @@ public class registrarClienteDTO {
     }
 
     
+
+    
+
 }

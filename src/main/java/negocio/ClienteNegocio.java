@@ -7,6 +7,7 @@ package negocio;
 import dtos.ClienteDTO;
 import dtos.registrarClienteDTO;
 import dtos.validarClienteDTO;
+import entidades.ClienteBuscarEntidad;
 import entidades.ClienteEntidad;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ClienteNegocio implements IClienteNegocio{
     @Override
     public void registrarCliente(registrarClienteDTO cliente) throws NegocioException{
             try {
-            this.clienteDAO.registrarCliente(cliente);            
+            this.clienteDAO.registrarCliente(convertirDTOaEntidad(cliente));            
             } catch (PersistenciaException ex) {
             // hacer uso de Logger
             System.out.println(ex.getMessage());
@@ -40,7 +41,7 @@ public class ClienteNegocio implements IClienteNegocio{
     @Override
     public boolean validarCliente(validarClienteDTO cliente) throws NegocioException{
             try {
-            return this.clienteDAO.validarCliente(cliente);            
+            return this.clienteDAO.validarCliente(convertirDTOaEntidad(cliente));            
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
             System.out.println(ex.getMessage());
@@ -50,7 +51,7 @@ public class ClienteNegocio implements IClienteNegocio{
 
     public int buscarIdCliente(validarClienteDTO cliente) throws NegocioException {
         try {
-            return this.clienteDAO.buscarIdCliente(cliente);            
+            return this.clienteDAO.buscarIdCliente(convertirDTOaEntidad(cliente));            
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
             System.out.println(ex.getMessage());
@@ -60,7 +61,7 @@ public class ClienteNegocio implements IClienteNegocio{
     
     public List<ClienteDTO> buscarClientesTabla() throws NegocioException{
         try {
-            List<ClienteEntidad> clientes = this.clienteDAO.buscarClientesTabla();
+            List<ClienteBuscarEntidad> clientes = this.clienteDAO.buscarClientesTabla();
             return this.convertirClientesTablaDTO(clientes);         
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
@@ -69,13 +70,14 @@ public class ClienteNegocio implements IClienteNegocio{
         }    
     }    
     
-    public List<ClienteDTO> convertirClientesTablaDTO(List<ClienteEntidad> clientes) throws NegocioException {
+    @Override
+    public List<ClienteDTO> convertirClientesTablaDTO(List<ClienteBuscarEntidad> clientes) throws NegocioException {
         if (clientes == null) {
             throw new NegocioException("No se pudieron obtener las funciones");
         }
 
         List<ClienteDTO> clienteDTO = new ArrayList<>();
-        for (ClienteEntidad cliente : clientes) {
+        for (ClienteBuscarEntidad cliente : clientes) {
             ClienteDTO dto = new ClienteDTO();
             dto.setIdCliente(cliente.getIdCliente());
             dto.setNombre(cliente.getNombre());
@@ -83,7 +85,7 @@ public class ClienteNegocio implements IClienteNegocio{
             dto.setFechaNacimiento(cliente.getFechaNacimiento());
             dto.setContraseña(cliente.getContraseña());
             dto.setEmail(cliente.getEmail());
-            dto.setCiudad(cliente.getIdCiudad());
+            dto.setCiudad(cliente.getCiudad());
             clienteDTO.add(dto);
         }
         return clienteDTO;
@@ -99,5 +101,31 @@ public class ClienteNegocio implements IClienteNegocio{
             throw new NegocioException(ex.getMessage());
         }
     }   
+    
+    public ClienteEntidad convertirDTOaEntidad(registrarClienteDTO dto){
+    
+        ClienteEntidad cliente = new ClienteEntidad();
+        
+        cliente.setNombre(dto.getNombre());
+        cliente.setApellido(dto.getApellido());
+        cliente.setEmail(dto.getEmail());
+        cliente.setContraseña(dto.getContraseña());
+        cliente.setFechaNacimiento(dto.getFechaNacimiento());
+        cliente.setIdCiudad(dto.getCiudad());
+        
+        return cliente;
+        
+    }
+    
+    public ClienteEntidad convertirDTOaEntidad(validarClienteDTO dto){
+    
+        ClienteEntidad cliente = new ClienteEntidad();
+        
+        cliente.setEmail(dto.getEmail());
+        cliente.setContraseña(dto.getContraseña());
+        
+        return cliente;
+        
+    }    
     
 }

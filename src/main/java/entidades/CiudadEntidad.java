@@ -11,16 +11,14 @@ package entidades;
 public class CiudadEntidad {
     private int idCiudad;
     private String nombre;
-    private Double coordenadas;
     private int idPais; 
 
     public CiudadEntidad() {
     }
 
-    public CiudadEntidad(int idCiudad, String nombre, Double coordenadas, int idPais) {
+    public CiudadEntidad(int idCiudad, String nombre, int idPais) {
         this.idCiudad = idCiudad;
         this.nombre = nombre;
-        this.coordenadas = coordenadas;
         this.idPais = idPais;
     }
 
@@ -40,14 +38,6 @@ public class CiudadEntidad {
         this.nombre = nombre;
     }
 
-    public Double getCoordenadas() {
-        return coordenadas;
-    }
-
-    public void setCoordenadas(Double coordenadas) {
-        this.coordenadas = coordenadas;
-    }
-
     public int getIdPais() {
         return idPais;
     }
@@ -58,10 +48,7 @@ public class CiudadEntidad {
 
     @Override
     public String toString() {
-        return "CiudadEntidad{" + "idCiudad=" + idCiudad + ", nombre=" + nombre + ", coordenadas=" + coordenadas + ", idPais=" + idPais + '}';
+        return "CiudadEntidad{" + "idCiudad=" + idCiudad + ", nombre=" + nombre + ", idPais=" + idPais + '}';
     }
-
-
-
-
+    
 }

@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -114,9 +116,9 @@ public class ClienteDAO implements IClienteDAO{
     }
         
         @Override
-        public List<ClienteEntidad> buscarClientesTabla() throws PersistenciaException {
+        public List<ClienteBuscarEntidad> buscarClientesTabla() throws PersistenciaException {
         try {
-            List<ClienteEntidad> clienteLista = null;
+            List<ClienteBuscarEntidad> clienteLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
             String codigoSQL = "Select idCliente, cl.nombre,apellido,contraseña,fecha_nacimiento,email,c.nombre as nc \n" +
@@ -128,7 +130,7 @@ public class ClienteDAO implements IClienteDAO{
                 if (clienteLista == null) {
                     clienteLista = new ArrayList<>();
                 }
-                ClienteEntidad cliente = this.convertirAEntidad(resultado);
+                ClienteBuscarEntidad cliente = this.convertirCBAEntidad(resultado);
                 clienteLista.add(cliente);
             }
             conexion.close();
@@ -142,14 +144,37 @@ public class ClienteDAO implements IClienteDAO{
     }
     
         @Override
-        public ClienteEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
+        public ClienteEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException {
+        try {
             int idCliente = resultado.getInt("idCliente");
             String nombre = resultado.getString("nombre");
             String apellido = resultado.getString("apellido");
             Date fn = resultado.getDate("fecha_nacimiento");
             String contraseña = resultado.getString("contraseña");
             String email = resultado.getString("email");
-            String nc = resultado.getString("nc");
-            return new ClienteEntidad(idCliente, nombre, apellido, email, idCliente, contraseña, fn);
+            Double coordenadas = resultado.getDouble("coordenadas");
+
+            return new ClienteEntidad(idCliente, nombre, apellido, email, idCliente, contraseña, fn, coordenadas);
+        } catch (SQLException ex) {
+             throw new PersistenciaException("Error al convertir de Resultado a Entidad");
+        }
     }  
+        
+        @Override
+        public ClienteBuscarEntidad convertirCBAEntidad(ResultSet resultado) throws PersistenciaException {
+        try {
+            int idCliente = resultado.getInt("idCliente");
+            String nombre = resultado.getString("nombre");
+            String apellido = resultado.getString("apellido");
+            Date fn = resultado.getDate("fecha_nacimiento");
+            String contraseña = resultado.getString("contraseña");
+            String email = resultado.getString("email");
+            Double coordenadas = resultado.getDouble("coordenadas");
+            String ciudad = resultado.getString("nc");
+
+            return new ClienteBuscarEntidad(idCliente, nombre, apellido, email, ciudad, contraseña, fn, coordenadas);
+        } catch (SQLException ex) {
+             throw new PersistenciaException("Error al convertir de Resultado a Entidad");
+        }
+    }          
 }
