@@ -11,6 +11,6 @@ package com.mycompany.proyecto1_ia;
 public class Proyecto1_IA {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Q LO Q");
     }
 }
