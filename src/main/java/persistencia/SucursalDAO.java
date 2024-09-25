@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import dtos.SucursalDTO;
 import entidades.CiudadEntidad;
 import entidades.SucursalEntidad;
 import java.sql.Connection;
@@ -27,14 +28,14 @@ public class SucursalDAO implements ISucursalDAO{
     
     
         @Override
-        public List<SucursalEntidad> buscarSucursalTabla(int idCiudad) throws PersistenciaException {
+        public List<SucursalEntidad> buscarSucursalTabla(SucursalDTO sucursal) throws PersistenciaException {
         try {
             List<SucursalEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
             String codigoSQL = "select idSucursal, nombre, direccion, idCiudad from sucursales where idCiudad = ?;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
-            preparedStatement.setInt(1, idCiudad);
+            preparedStatement.setInt(1, sucursal.getIdSucursal());
             ResultSet resultado = preparedStatement.executeQuery();
             while (resultado.next()) {
                 if (sucursalLista == null) {
@@ -56,7 +57,7 @@ public class SucursalDAO implements ISucursalDAO{
     public SucursalEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         int idSucursal = resultado.getInt("idSucursal");
         String nombre = resultado.getString("nombre");
-        String direccion = resultado.getString("nombre");
+        Double direccion = resultado.getDouble("nombre");
         int idCiudad = resultado.getInt("idCiudad");
         return new SucursalEntidad(idSucursal, nombre, direccion, idCiudad);
     }    

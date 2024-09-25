@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import dtos.SucursalDTO;
 import entidades.SucursalEntidad;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public interface ISucursalDAO {
     
-        public List<SucursalEntidad> buscarSucursalTabla(int idCiudad) throws PersistenciaException;    
+    public List<SucursalEntidad> buscarSucursalTabla(SucursalDTO sucursal) throws PersistenciaException;    
     
     public SucursalEntidad convertirAEntidad(ResultSet resultado) throws SQLException;    
     

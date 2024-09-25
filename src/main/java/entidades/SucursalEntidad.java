@@ -11,25 +11,17 @@ package entidades;
 public class SucursalEntidad {
     private int idSucursal;
     private String nombre;
-    private String direccion;
+    private Double direccion;
     private int idCiudad; 
 
     public SucursalEntidad() {
     }
 
-    public SucursalEntidad(int idCiudad, String nombre, String direccion, int idPais) {
-        this.idSucursal = idCiudad;
+    public SucursalEntidad(int idSucursal, String nombre, Double direccion, int idCiudad) {
+        this.idSucursal = idSucursal;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.idCiudad = idPais;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.idCiudad = idCiudad;
     }
 
     public int getIdSucursal() {
@@ -40,21 +32,30 @@ public class SucursalEntidad {
         this.idSucursal = idSucursal;
     }
 
-    public String getDireccion() {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Double getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(Double direccion) {
         this.direccion = direccion;
     }
-    
-    public int getIdPais() {
+
+    public int getIdCiudad() {
         return idCiudad;
     }
 
-    public void setIdPais(int idPais) {
-        this.idCiudad = idPais;
+    public void setIdCiudad(int idCiudad) {
+        this.idCiudad = idCiudad;
     }
+
 
 
 }

@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import dtos.FuncionDTO;
 import entidades.FuncionEntidad;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,11 +17,11 @@ import java.util.List;
  */
 public interface IFuncionDAO {
     
-        public List<FuncionEntidad> buscarFuncionesTabla(String pelicula1, String nSala) throws PersistenciaException;
+        public List<FuncionEntidad> buscarFuncionesTabla(FuncionDTO funcion) throws PersistenciaException;
         
         public FuncionEntidad convertirAEntidad(ResultSet resultado) throws SQLException;
             
-        public int buscarIdFuncion(Timestamp fechahora, String nombre, String titulo) throws PersistenciaException ;
+        public FuncionEntidad buscarIdFuncion(FuncionDTO funcion) throws PersistenciaException ;
         
         public List<FuncionEntidad> buscarFuncionesTablaT() throws PersistenciaException;
 }

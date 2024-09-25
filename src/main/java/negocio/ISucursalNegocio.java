@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface ISucursalNegocio {
     
-List<SucursalDTO> buscarSucursalTabla(int idCiudad) throws NegocioException;    
+List<SucursalDTO> buscarSucursalTabla(SucursalDTO sucursal) throws NegocioException;    
 
 List<SucursalDTO> convertirSucursalTablaDTO(List<SucursalEntidad> sucursales) throws NegocioException;
     

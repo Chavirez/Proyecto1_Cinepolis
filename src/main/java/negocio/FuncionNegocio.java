@@ -25,9 +25,9 @@ public class FuncionNegocio implements IFuncionNegocio{
     }
     
     @Override
-    public List<FuncionDTO> buscarFuncionesTabla(String pelicula1, String nSala) throws NegocioException {
+    public List<FuncionDTO> buscarFuncionesTabla(FuncionDTO funcion) throws NegocioException {
          try {
-            List<FuncionEntidad> funciones = this.funcionDAO. buscarFuncionesTabla(pelicula1, nSala);
+            List<FuncionEntidad> funciones = this.funcionDAO. buscarFuncionesTabla(funcion);
             return this.convertirFuncionesTablaDTO(funciones);
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
@@ -36,11 +36,12 @@ public class FuncionNegocio implements IFuncionNegocio{
         }
     }
     
-    public int buscarIdFuncion (Timestamp fechahora, String nombre, String titulo) throws NegocioException {
+    public FuncionDTO buscarIdFuncion (FuncionDTO funcion) throws NegocioException {
       
         try {
-            int idFuncion = this.funcionDAO.buscarIdFuncion(fechahora, nombre, titulo);
-            return idFuncion;
+            FuncionDTO funcionID = new FuncionDTO();
+            funcionID.setIdFuncion(this.funcionDAO.buscarIdFuncion(funcion).getIdFuncion());
+            return funcionID;
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
             System.out.println(ex.getMessage());
@@ -56,8 +57,11 @@ public class FuncionNegocio implements IFuncionNegocio{
         List<FuncionDTO> funcionDTO = new ArrayList<>();
         for (FuncionEntidad funcion : funciones) {
             FuncionDTO dto = new FuncionDTO();
+            dto.setDia(funcion.getDia());
             dto.setTitulo(funcion.getTitulo());
-            dto.setDuracion(funcion.getDuracion());
+            dto.setHoraFin(funcion.getHoraFin());
+            dto.setHoraInicio(funcion.getHoraInicio());
+            dto.setHoraFinPelicula(funcion.getHoraFinPelicula());
             dto.setAsientosdisponibles(funcion.getAsientosdisponibles());
             dto.setSala(funcion.getSala());
             dto.setPrecio(funcion.getPrecio());

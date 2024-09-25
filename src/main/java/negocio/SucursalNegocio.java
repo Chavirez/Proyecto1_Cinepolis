@@ -27,9 +27,9 @@ public class SucursalNegocio implements ISucursalNegocio{
     }
     
     @Override
-    public List<SucursalDTO> buscarSucursalTabla(int idCiudad) throws NegocioException {
+    public List<SucursalDTO> buscarSucursalTabla(SucursalDTO sucursal) throws NegocioException {
          try {
-            List<SucursalEntidad> Sucursales = this.SucursalDAO.buscarSucursalTabla(idCiudad);            
+            List<SucursalEntidad> Sucursales = this.SucursalDAO.buscarSucursalTabla(sucursal);            
             return this.convertirSucursalTablaDTO(Sucursales);
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
@@ -49,7 +49,7 @@ public class SucursalNegocio implements ISucursalNegocio{
             dto.setIdSucursal(sucursal.getIdSucursal());
             dto.setNombre(sucursal.getNombre());
             dto.setDireccion(sucursal.getDireccion());
-            dto.setIdPais(sucursal.getIdPais());
+            dto.setIdCiudad(sucursal.getIdCiudad());
             sucursalDTO.add(dto);
         }
         return sucursalDTO;

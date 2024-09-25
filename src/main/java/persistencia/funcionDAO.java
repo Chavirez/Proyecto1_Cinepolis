@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import dtos.FuncionDTO;
 import entidades.FuncionEntidad;
 import entidades.PeliculaEntidad;
 import java.sql.Connection;
@@ -30,19 +31,19 @@ public class funcionDAO implements IFuncionDAO{
     
     
         @Override
-        public List<FuncionEntidad> buscarFuncionesTabla(String pelicula1, String nSucursal) throws PersistenciaException {
+        public List<FuncionEntidad> buscarFuncionesTabla(FuncionDTO funcion) throws PersistenciaException {
         try {
             List<FuncionEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select p.titulo, f.fecha_hora, f.disponibilidad, s.nombre, p.costo, f.idFuncion, f.dia, f.horaInicio, f.horaFin, f.horaFinPelicula from peliculas p\n" +
+            String codigoSQL = "select p.titulo, f.dia, f.horaFin, f.horaInicio, f.horaFinPelicula, f.disponibilidad, s.nombre, p.costo, f.idFuncion, f.dia, f.horaInicio, f.horaFin, f.horaFinPelicula from peliculas p\n" +
                                "inner join funciones f on p.idPelicula = f.idPelicula\n" +
                                "inner join salas s on s.idSala = f.idSala\n" +
                                "inner join sucursales sa on s.idSucursal = sa.idSucursal\n" + 
                                 "where ? = p.titulo and ? = sa.nombre;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
-            preparedStatement.setString(1, pelicula1);
-            preparedStatement.setString(2, nSucursal);
+            preparedStatement.setString(1, funcion.getTitulo());
+            preparedStatement.setString(2, funcion.getSala());
             ResultSet resultado = preparedStatement.executeQuery();
             while (resultado.next()) {
                 if (sucursalLista == null) {
@@ -61,7 +62,7 @@ public class funcionDAO implements IFuncionDAO{
     }
 
         @Override
-        public int buscarIdFuncion(Timestamp fechahora, String nombre, String titulo) throws PersistenciaException {
+        public FuncionEntidad buscarIdFuncion(FuncionDTO funcion) throws PersistenciaException {
         try {
 
             int idFuncion;    
@@ -71,14 +72,17 @@ public class funcionDAO implements IFuncionDAO{
                                 "inner join peliculas p on p.idPelicula = f.idPelicula\n" +
                                 "where ? = f.fecha_hora and ? = s.nombre and ? = p.titulo;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
-            preparedStatement.setTimestamp(1, fechahora);
-            preparedStatement.setString(2, nombre);
-            preparedStatement.setString(3, titulo);
+            preparedStatement.setTimestamp(1, funcion.getHoraInicio());
+            preparedStatement.setString(2, funcion.getSala());
+            preparedStatement.setString(3, funcion.getTitulo());
             ResultSet resultado = preparedStatement.executeQuery();
             idFuncion = resultado.getInt("idFuncion");
             
             conexion.close();
-            return idFuncion;
+            
+            FuncionEntidad funcionID = new FuncionEntidad();
+            funcionID.setIdFuncion(idFuncion);
+            return funcionID;
         } catch (SQLException ex) {
             // hacer uso de Logger
             System.out.println(ex.getMessage());
@@ -89,12 +93,15 @@ public class funcionDAO implements IFuncionDAO{
     @Override
     public FuncionEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         String titulo = resultado.getString("titulo");
-        Timestamp duracion = resultado.getTimestamp("fecha_hora");
+        Timestamp horaFin = resultado.getTimestamp("horaFin");
+        Timestamp horaFinPelicula = resultado.getTimestamp("horaFinPelucla");
+        Timestamp horaInicio = resultado.getTimestamp("horaInicio");
+        String dia = resultado.getString("dia");
         String sala = resultado.getString("nombre");
         int disponibilidad = resultado.getInt("disponibilidad");
         int costo = resultado.getInt("costo");
         int idFuncion = resultado.getInt("idFuncion");
-        return new FuncionEntidad(titulo, duracion, disponibilidad, sala, costo, idFuncion);
+        return new FuncionEntidad(idFuncion, titulo, dia, horaInicio, horaFin, horaFinPelicula, disponibilidad, sala, costo);
     }    
     
         @Override

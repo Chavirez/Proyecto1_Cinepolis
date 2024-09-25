@@ -14,18 +14,35 @@ public class FuncionEntidad {
     
     private int idFuncion;
     private String titulo;
-    private Timestamp duracion;
+    private String dia;
+    private Timestamp horaInicio;
+    private Timestamp horaFin;
+    private Timestamp horaFinPelicula;
     private int asientosdisponibles;
     private String sala;
     private int precio;  
-    
-    public FuncionEntidad (String titulo, Timestamp duracion, int asientosdisponibles, String sala, int precio, int idFuncion) {
-    this.titulo = titulo;
-    this.duracion = duracion;
-    this.asientosdisponibles = asientosdisponibles;
-    this.sala = sala;
-    this.precio = precio;
-    this.idFuncion = idFuncion;
+
+    public FuncionEntidad() {
+    }
+
+    public FuncionEntidad(int idFuncion, String titulo, String dia, Timestamp horaInicio, Timestamp horaFin, Timestamp horaFinPelicula, int asientosdisponibles, String sala, int precio) {
+        this.idFuncion = idFuncion;
+        this.titulo = titulo;
+        this.dia = dia;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.horaFinPelicula = horaFinPelicula;
+        this.asientosdisponibles = asientosdisponibles;
+        this.sala = sala;
+        this.precio = precio;
+    }
+
+    public int getIdFuncion() {
+        return idFuncion;
+    }
+
+    public void setIdFuncion(int idFuncion) {
+        this.idFuncion = idFuncion;
     }
 
     public String getTitulo() {
@@ -36,12 +53,36 @@ public class FuncionEntidad {
         this.titulo = titulo;
     }
 
-    public Timestamp getDuracion() {
-        return duracion;
+    public String getDia() {
+        return dia;
     }
 
-    public void setDuracion(Timestamp duracion) {
-        this.duracion = duracion;
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public Timestamp getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Timestamp horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Timestamp getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(Timestamp horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    public Timestamp getHoraFinPelicula() {
+        return horaFinPelicula;
+    }
+
+    public void setHoraFinPelicula(Timestamp horaFinPelicula) {
+        this.horaFinPelicula = horaFinPelicula;
     }
 
     public int getAsientosdisponibles() {
@@ -67,15 +108,6 @@ public class FuncionEntidad {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-
-    public int getIdFuncion() {
-        return idFuncion;
-    }
-
-    public void setIdFuncion(int idFuncion) {
-        this.idFuncion = idFuncion;
-    }
-    
     
     
     
