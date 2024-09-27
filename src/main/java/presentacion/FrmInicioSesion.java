@@ -6,7 +6,6 @@ package presentacion;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import javax.swing.JTextField;
 
 /**
  *
@@ -22,6 +21,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         textoPlaceholders();
     }
 
+    /**
+     * Este metodo sirve para darle un formato a los campos de texto de correo y
+     * de contraseña, poniendoles un texto de placeholder.
+     */
     public void textoPlaceholders() {
         //Agregar placeholder a Correo Electronico
         // Configurar el marcador de posición
@@ -82,6 +85,8 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private void initComponents() {
 
         content = new javax.swing.JPanel();
+        btn_close = new javax.swing.JPanel();
+        close_icon = new javax.swing.JLabel();
         mail_icon = new javax.swing.JLabel();
         lock_icon = new javax.swing.JLabel();
         txt_correo = new javax.swing.JTextField();
@@ -92,14 +97,37 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(815, 600));
+        setTitle("Cinepolis App");
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         content.setBackground(new java.awt.Color(47, 48, 55));
         content.setForeground(new java.awt.Color(255, 255, 255));
+        content.setMinimumSize(new java.awt.Dimension(800, 600));
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_close.setBackground(new java.awt.Color(47, 48, 55));
+        btn_close.setForeground(new java.awt.Color(47, 48, 55));
+        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_close.setPreferredSize(new java.awt.Dimension(20, 20));
+        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_closeMouseClicked(evt);
+            }
+        });
+        btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        close_icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\close_icon.png")); // NOI18N
+        btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
+
+        content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
+
+        mail_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mail_icon.png"))); // NOI18N
         content.add(mail_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
+
+        lock_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lock_icon.png"))); // NOI18N
         content.add(lock_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
         content.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 300, 30));
         content.add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 300, 30));
@@ -123,8 +151,12 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         );
 
         content.add(btn_continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 300, 30));
+
+        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
         content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
+        background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
+        background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
         content.add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
@@ -142,6 +174,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
+        dispose();
+    }//GEN-LAST:event_btn_closeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -180,7 +216,9 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_img;
+    private javax.swing.JPanel btn_close;
     private javax.swing.JPanel btn_continuar;
+    private javax.swing.JLabel close_icon;
     private javax.swing.JPanel content;
     private javax.swing.JLabel lbl_continuar;
     private javax.swing.JLabel lock_icon;
