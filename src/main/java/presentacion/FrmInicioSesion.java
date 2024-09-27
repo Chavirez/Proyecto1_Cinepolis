@@ -4,6 +4,10 @@
  */
 package presentacion;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import javax.swing.JTextField;
+
 /**
  *
  * @author nomar
@@ -15,6 +19,57 @@ public class FrmInicioSesion extends javax.swing.JFrame {
      */
     public FrmInicioSesion() {
         initComponents();
+        textoPlaceholders();
+    }
+
+    public void textoPlaceholders() {
+        //Agregar placeholder a Correo Electronico
+        // Configurar el marcador de posición
+        txt_correo.setText("Correo electrónico");
+        txt_correo.setForeground(java.awt.Color.GRAY); // Color del texto de marcador de posición
+
+        // Agregar un FocusListener
+        txt_correo.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (txt_correo.getText().equals("Correo electrónico")) {
+                    txt_correo.setText("");
+                    txt_correo.setForeground(java.awt.Color.BLACK); // Cambiar el color del texto
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (txt_correo.getText().isEmpty()) {
+                    txt_correo.setForeground(java.awt.Color.GRAY); // Color del texto de marcador de posición
+                    txt_correo.setText("Correo electrónico");
+                }
+            }
+        });
+
+        //Agregar placeholder a Contraseña
+        // Configurar el marcador de posición
+        txt_contrasenia.setText("Contraseña");
+        txt_contrasenia.setForeground(java.awt.Color.GRAY); // Color del texto de marcador de posición
+
+        // Agregar un FocusListener
+        txt_contrasenia.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (txt_contrasenia.getText().equals("Contraseña")) {
+                    txt_contrasenia.setText("");
+                    txt_contrasenia.setForeground(java.awt.Color.BLACK); // Cambiar el color del texto
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (txt_contrasenia.getText().isEmpty()) {
+                    txt_contrasenia.setForeground(java.awt.Color.GRAY); // Color del texto de marcador de posición
+                    txt_contrasenia.setText("Contraseña");
+                }
+            }
+        });
     }
 
     /**
@@ -26,39 +81,73 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        content = new javax.swing.JPanel();
+        mail_icon = new javax.swing.JLabel();
+        lock_icon = new javax.swing.JLabel();
+        txt_correo = new javax.swing.JTextField();
+        txt_contrasenia = new javax.swing.JTextField();
+        btn_continuar = new javax.swing.JPanel();
+        lbl_continuar = new javax.swing.JLabel();
+        logo_img = new javax.swing.JLabel();
+        background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(815, 600));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(47, 48, 55));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+        content.setBackground(new java.awt.Color(47, 48, 55));
+        content.setForeground(new java.awt.Color(255, 255, 255));
+        content.setPreferredSize(new java.awt.Dimension(800, 600));
+        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+        mail_icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\mail_icon.png")); // NOI18N
+        content.add(mail_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
+
+        lock_icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\lock_icon.png")); // NOI18N
+        content.add(lock_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+        content.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 300, 30));
+        content.add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 300, 30));
+
+        btn_continuar.setBackground(new java.awt.Color(83, 85, 96));
+
+        lbl_continuar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_continuar.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_continuar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_continuar.setText("Continuar");
+
+        javax.swing.GroupLayout btn_continuarLayout = new javax.swing.GroupLayout(btn_continuar);
+        btn_continuar.setLayout(btn_continuarLayout);
+        btn_continuarLayout.setHorizontalGroup(
+            btn_continuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_continuar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+        btn_continuarLayout.setVerticalGroup(
+            btn_continuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_continuar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
+
+        content.add(btn_continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 300, 30));
+
+        logo_img.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\logoCinepolis.png")); // NOI18N
+        content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+
+        background_img.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\background.png")); // NOI18N
+        background_img.setPreferredSize(new java.awt.Dimension(815, 600));
+        content.add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -97,6 +186,14 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel background_img;
+    private javax.swing.JPanel btn_continuar;
+    private javax.swing.JPanel content;
+    private javax.swing.JLabel lbl_continuar;
+    private javax.swing.JLabel lock_icon;
+    private javax.swing.JLabel logo_img;
+    private javax.swing.JLabel mail_icon;
+    private javax.swing.JTextField txt_contrasenia;
+    private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables
 }
