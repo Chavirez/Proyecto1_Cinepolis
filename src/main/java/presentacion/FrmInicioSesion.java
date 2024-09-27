@@ -99,7 +99,6 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cinepolis App");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         content.setBackground(new java.awt.Color(47, 48, 55));
@@ -119,7 +118,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         });
         btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        close_icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\close_icon.png")); // NOI18N
+        close_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close_icon.png"))); // NOI18N
         btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
