@@ -26,18 +26,25 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        BatosImg = new javax.swing.JLabel();
+        CinepolisLogo = new javax.swing.JLabel();
+        fondoEncabezado = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BatosImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\resources\\BatosLocos.png")); // NOI18N
+        getContentPane().add(BatosImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
+
+        CinepolisLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\resources\\logoCinepolis.png")); // NOI18N
+        getContentPane().add(CinepolisLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+
+        fondoEncabezado.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\resources\\Screenshot 2024-09-26 174145.png")); // NOI18N
+        getContentPane().add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\resources\\background.png")); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +85,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BatosImg;
+    private javax.swing.JLabel CinepolisLogo;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fondoEncabezado;
     // End of variables declaration//GEN-END:variables
 }
