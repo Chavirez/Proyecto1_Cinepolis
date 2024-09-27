@@ -42,9 +42,15 @@ public class FrmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         btnUsuario = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        UsuarioIcon = new javax.swing.JLabel();
+        FondoPromo = new javax.swing.JPanel();
         imgPromo = new javax.swing.JLabel();
+        ConoceLaRopa = new javax.swing.JLabel();
+        todasTus = new javax.swing.JLabel();
+        ClubCinepolis = new javax.swing.JLabel();
         CinepolisLogo = new javax.swing.JLabel();
+        btnAdquiere = new javax.swing.JButton();
+        Cinépolis = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
@@ -55,16 +61,52 @@ public class FrmMenu extends javax.swing.JFrame {
 
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\UsuarioIcon.png")); // NOI18N
-        btnUsuario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        UsuarioIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\UsuarioIcon.png")); // NOI18N
+        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
 
+        FondoPromo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         imgPromo.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\ImgPromo.png")); // NOI18N
-        getContentPane().add(imgPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 360, 250));
+        FondoPromo.add(imgPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 260));
+
+        getContentPane().add(FondoPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 350, 258));
+
+        ConoceLaRopa.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
+        ConoceLaRopa.setForeground(new java.awt.Color(255, 255, 255));
+        ConoceLaRopa.setText("Conoce la ropa"); // NOI18N
+        ConoceLaRopa.setToolTipText("");
+        getContentPane().add(ConoceLaRopa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 270, -1));
+
+        todasTus.setForeground(new java.awt.Color(255, 255, 255));
+        todasTus.setText("Todas tus compras acumulan puntos para");
+        getContentPane().add(todasTus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+
+        ClubCinepolis.setForeground(new java.awt.Color(255, 255, 255));
+        ClubCinepolis.setText(" Club Cinépolis®");
+        getContentPane().add(ClubCinepolis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         CinepolisLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
         getContentPane().add(CinepolisLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
+        btnAdquiere.setBackground(new java.awt.Color(54, 54, 54));
+        btnAdquiere.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAdquiere.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdquiere.setText("Adquiere la tuya");
+        btnAdquiere.setToolTipText("");
+        btnAdquiere.setBorderPainted(false);
+        btnAdquiere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdquiereActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdquiere, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, 30));
+
+        Cinépolis.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
+        Cinépolis.setForeground(new java.awt.Color(255, 255, 255));
+        Cinépolis.setText("Cinépolis");
+        getContentPane().add(Cinépolis, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
         getContentPane().add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
@@ -78,6 +120,10 @@ public class FrmMenu extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAdquiereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdquiereActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdquiereActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,10 +162,16 @@ public class FrmMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CinepolisLogo;
+    private javax.swing.JLabel Cinépolis;
+    private javax.swing.JLabel ClubCinepolis;
+    private javax.swing.JLabel ConoceLaRopa;
+    private javax.swing.JPanel FondoPromo;
+    private javax.swing.JLabel UsuarioIcon;
+    private javax.swing.JButton btnAdquiere;
     private javax.swing.JPanel btnUsuario;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel imgPromo;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel todasTus;
     // End of variables declaration//GEN-END:variables
 }
