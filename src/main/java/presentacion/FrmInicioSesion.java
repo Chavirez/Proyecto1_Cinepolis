@@ -104,7 +104,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         content.setBackground(new java.awt.Color(47, 48, 55));
         content.setForeground(new java.awt.Color(255, 255, 255));
-        content.setMinimumSize(new java.awt.Dimension(815, 600));
+        content.setMinimumSize(new java.awt.Dimension(800, 600));
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -124,10 +124,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
 
-        mail_icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\mail_icon.png")); // NOI18N
+        mail_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mail_icon.png"))); // NOI18N
         content.add(mail_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
-        lock_icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\lock_icon.png")); // NOI18N
+        lock_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lock_icon.png"))); // NOI18N
         content.add(lock_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
         content.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 300, 30));
         content.add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 300, 30));
@@ -152,10 +152,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         content.add(btn_continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 300, 30));
 
-        logo_img.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\logoCinepolis.png")); // NOI18N
+        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
         content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
-        background_img.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Desktop\\Cosas\\Git Repositories\\Proyecto1_IA\\src\\main\\resources\\background.png")); // NOI18N
+        background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
         content.add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
