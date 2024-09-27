@@ -4,6 +4,11 @@
  */
 package presentacion;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import java.awt.Image;
+
 /**
  *
  * @author nomar
@@ -15,8 +20,18 @@ public class FrmMenu extends javax.swing.JFrame {
      */
     public FrmMenu() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        
+        SetImageLabel(imgPromo, "\"C:\\Users\\nomar\\Downloads\\Cinepolis.png\"");
     }
 
+    private void SetImageLabel(JLabel labelname, String root){
+        ImageIcon image = new ImageIcon(root);
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(labelname.getWidth(), labelname.getHeight(), Image.SCALE_DEFAULT));
+        labelname.setIcon(icon);
+        this.repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,7 +41,9 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BatosImg = new javax.swing.JLabel();
+        btnUsuario = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        imgPromo = new javax.swing.JLabel();
         CinepolisLogo = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
@@ -36,8 +53,15 @@ public class FrmMenu extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BatosImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BatosLocos.png"))); // NOI18N
-        getContentPane().add(BatosImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
+        btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\UsuarioIcon.png")); // NOI18N
+        btnUsuario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
+
+        imgPromo.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\ImgPromo.png")); // NOI18N
+        getContentPane().add(imgPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 360, 250));
 
         CinepolisLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
         getContentPane().add(CinepolisLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
@@ -91,9 +115,11 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BatosImg;
     private javax.swing.JLabel CinepolisLogo;
+    private javax.swing.JPanel btnUsuario;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
+    private javax.swing.JLabel imgPromo;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
