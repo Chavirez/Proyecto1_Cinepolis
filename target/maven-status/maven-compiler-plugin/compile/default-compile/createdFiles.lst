@@ -2,9 +2,11 @@ negocio\CiudadNegocio.class
 negocio\ClienteNegocio.class
 presentacion\FrmInicioSesion$4.class
 presentacion\FrmInicioSesion.class
+presentacion\FrmCartelera.class
 presentacion\FrmMenu.class
 negocio\PeliculaNegocio.class
 persistencia\peliculasDAO.class
+presentacion\FrmCartelera$1.class
 presentacion\FrmInicioSesion$1.class
 persistencia\IPeliculasDAO.class
 negocio\ICiudadNegocio.class
@@ -13,6 +15,7 @@ entidades\CiudadEntidad.class
 persistencia\IClienteDAO.class
 persistencia\ICiudadDAO.class
 persistencia\CiudadDAO.class
+presentacion\FrmMenu$3.class
 negocio\ISucursalNegocio.class
 dtos\ReporteSucursalDTO.class
 persistencia\ClienteDAO.class
@@ -21,12 +24,14 @@ negocio\SucursalNegocio.class
 dtos\SucursalDTO.class
 entidades\ReporteSucursalEntidad.class
 negocio\IClienteNegocio.class
+presentacion\FrmMenu$4.class
 persistencia\ISucursalDAO.class
 dtos\ReportePeliculaDTO.class
 presentacion\FrmInicioSesion$3.class
 persistencia\IConexionBD.class
 persistencia\IFuncionDAO.class
 negocio\ReporteNegocio.class
+presentacion\FrmCartelera$3.class
 negocio\IReporteNegocio.class
 persistencia\ReporteDAO.class
 presentacion\FrmMenu$1.class
@@ -34,6 +39,7 @@ entidades\FuncionEntidad.class
 dtos\PeliculaDTO.class
 dtos\FuncionDTO.class
 persistencia\funcionDAO.class
+presentacion\FrmCartelera$2.class
 dtos\ciudadDTO.class
 presentacion\FrmInicioSesion$2.class
 entidades\ClienteEntidad.class
@@ -43,8 +49,10 @@ negocio\IFuncionNegocio.class
 com\mycompany\proyecto1_ia\Proyecto1_IA.class
 dtos\registrarClienteDTO.class
 negocio\FuncionNegocio.class
+presentacion\FrmMenu$2.class
 persistencia\PersistenciaException.class
 persistencia\IReporteDAO.class
+presentacion\FrmInicioSesion$5.class
 persistencia\SucursalDAO.class
 entidades\ReportePeliculaEntidad.class
 dtos\ClienteDTO.class
