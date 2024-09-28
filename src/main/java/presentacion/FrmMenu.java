@@ -22,7 +22,7 @@ public class FrmMenu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
-        SetImageLabel(imgPromo, "\"C:\\Users\\nomar\\Downloads\\Cinepolis.png\"");
+        //SetImageLabel(imgPromo, "\"C:\\Users\\nomar\\Downloads\\Cinepolis.png\"");
     }
 
     private void SetImageLabel(JLabel labelname, String root){
@@ -72,10 +72,12 @@ public class FrmMenu extends javax.swing.JFrame {
         FondoPromo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgPromo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgPromo.png"))); // NOI18N
-        FondoPromo.add(imgPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 260));
+        FondoPromo.add(imgPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 260));
 
         getContentPane().add(FondoPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 350, 258));
 
+        Encabezado.setMinimumSize(new java.awt.Dimension(800, 100));
+        Encabezado.setPreferredSize(new java.awt.Dimension(800, 100));
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CinepolisLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
@@ -112,6 +114,7 @@ public class FrmMenu extends javax.swing.JFrame {
         Encabezado.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
 
         fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
+        fondoEncabezado.setMaximumSize(new java.awt.Dimension(800, 102));
         Encabezado.add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         getContentPane().add(Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
@@ -152,7 +155,7 @@ public class FrmMenu extends javax.swing.JFrame {
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
         fondo.setMinimumSize(new java.awt.Dimension(800, 600));
         fondo.setPreferredSize(new java.awt.Dimension(800, 600));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 801, -1));
 
         pack();
         setLocationRelativeTo(null);
