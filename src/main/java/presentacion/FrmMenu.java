@@ -62,19 +62,16 @@ public class FrmMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        UsuarioIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\UsuarioIcon.png")); // NOI18N
         btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
 
         FondoPromo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imgPromo.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\ImgPromo.png")); // NOI18N
+        imgPromo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgPromo.png"))); // NOI18N
         FondoPromo.add(imgPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 260));
 
         getContentPane().add(FondoPromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 350, 258));
@@ -108,8 +105,6 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         Encabezado.add(btnPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-
-        UbicacionIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\icons8-gps-25.png")); // NOI18N
         Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
 
         jTextField1.setBackground(new java.awt.Color(54, 54, 54));

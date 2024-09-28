@@ -42,13 +42,12 @@ public class FrmCartelera extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        UsuarioIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\UsuarioIcon.png")); // NOI18N
+        UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
         btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
@@ -86,7 +85,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         });
         Encabezado.add(btnPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
-        UbicacionIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\nomar\\OneDrive\\Documentos\\GitHub\\Proyecto1_Cinepolis\\src\\main\\java\\utilerias\\icons8-gps-25.png")); // NOI18N
+        UbicacionIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gps_icon.png"))); // NOI18N
         Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
         Encabezado.add(LogoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
