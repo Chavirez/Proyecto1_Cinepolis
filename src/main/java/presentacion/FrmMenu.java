@@ -87,7 +87,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnCatalago.setBackground(new java.awt.Color(54, 54, 54));
         btnCatalago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCatalago.setForeground(new java.awt.Color(255, 255, 255));
-        btnCatalago.setText("Catalogo");
+        btnCatalago.setText("Cartelera");
         btnCatalago.setBorderPainted(false);
         btnCatalago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

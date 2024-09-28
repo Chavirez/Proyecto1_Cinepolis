@@ -109,7 +109,8 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         txt_contrasenia = new javax.swing.JTextField();
         btn_continuar = new javax.swing.JPanel();
         lbl_continuar = new javax.swing.JLabel();
-        logo_img = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnRegistrarse = new javax.swing.JButton();
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,7 +135,9 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         });
         btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        close_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close_icon.png"))); // NOI18N
+        close_icon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        close_icon.setForeground(new java.awt.Color(255, 255, 255));
+        close_icon.setText("X");
         btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
@@ -173,8 +176,22 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         content.add(btn_continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 300, 30));
 
-        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
-        content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Cinépolis");
+        content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
+
+        btnRegistrarse.setBackground(new java.awt.Color(47, 48, 55));
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("Registarse");
+        btnRegistrarse.setBorderPainted(false);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
+        content.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 100, 30));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
@@ -228,6 +245,14 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_continuarMouseClicked
 
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+        // TODO add your handling code here:
+        
+        new FrmRegistro().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,13 +290,14 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_img;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JPanel btn_close;
     private javax.swing.JPanel btn_continuar;
     private javax.swing.JLabel close_icon;
     private javax.swing.JPanel content;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbl_continuar;
     private javax.swing.JLabel lock_icon;
-    private javax.swing.JLabel logo_img;
     private javax.swing.JLabel mail_icon;
     private javax.swing.JTextField txt_contrasenia;
     private javax.swing.JTextField txt_correo;
