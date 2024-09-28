@@ -10,6 +10,7 @@ import presentacion.Catálogos.FrmCatalogoClientes;
 import presentacion.Catálogos.FrmCatalogoFunciones;
 import presentacion.Catálogos.FrmCatalogoPeliculas;
 import presentacion.Catálogos.FrmCatalogoSalas;
+import presentacion.Reportes.FrmReportes;
 
 /**
  *
@@ -271,7 +272,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         content.add(btn_cFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 200, 80));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTabla.png"))); // NOI18N
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
         content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 790, 500));
 
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -350,7 +351,9 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cPeliculasMouseClicked
 
     private void btn_ReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ReportesMouseClicked
-        // TODO add your handling code here:
+        // Abre frame Reportes
+        new FrmReportes().setVisible(true);
+        this.dispose();   
     }//GEN-LAST:event_btn_ReportesMouseClicked
 
     /**

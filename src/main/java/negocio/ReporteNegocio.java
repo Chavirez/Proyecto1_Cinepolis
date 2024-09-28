@@ -6,8 +6,10 @@ package negocio;
 
 import dtos.ReportePeliculaDTO;
 import dtos.ReporteSucursalDTO;
+import dtos.ReporteTipoPagoDTO;
 import entidades.ReportePeliculaEntidad;
 import entidades.ReporteSucursalEntidad;
+import entidades.ReporteTipoPagoEntidad;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,4 +84,32 @@ public class ReporteNegocio implements IReporteNegocio{
         }
         return reporteDTO;
     }      
+    
+    @Override
+    public List<ReporteTipoPagoDTO> buscarReporteTipoPagoTabla(Timestamp desde, Timestamp hasta) throws NegocioException {
+         try {
+            List<ReporteTipoPagoEntidad> reportes = this.reporteDAO.buscarReporteTipoPagoTabla(desde, hasta);            
+            return this.convertirReporteTipoPagoTablaDTO(reportes);
+        } catch (PersistenciaException ex) {
+            // hacer uso de Logger
+            System.out.println(ex.getMessage());
+            throw new NegocioException(ex.getMessage());
+        }
+    }    
+    
+    public List<ReporteTipoPagoDTO> convertirReporteTipoPagoTablaDTO(List<ReporteTipoPagoEntidad> reportes) throws NegocioException {
+        if (reportes == null) {
+            throw new NegocioException("No se pudieron obtener los tipos de pago");
+        }
+
+        List<ReporteTipoPagoDTO> reporteDTO = new ArrayList<>();
+        for (ReporteTipoPagoEntidad reporte : reportes) {
+            ReporteTipoPagoDTO dto = new ReporteTipoPagoDTO();
+            dto.setCosto(reporte.getCosto());
+            dto.setCantidad(reporte.getCantidad());
+            dto.setTipo(reporte.getTipo());
+            reporteDTO.add(dto);
+        }
+        return reporteDTO;
+    }          
 }

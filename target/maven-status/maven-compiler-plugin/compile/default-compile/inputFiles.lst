@@ -40,6 +40,7 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\registrar
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\IClienteNegocio.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\ReporteSucursalEntidad.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\IFuncionNegocio.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Reportes\FrmReportes.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\SucursalNegocio.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\FrmCatalogoPeliculas.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\FrmCatalogoFunciones.java
@@ -49,7 +50,9 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\Pelicu
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\validarClienteDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\ICiudadNegocio.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\com\mycompany\proyecto1_ia\Proyecto1_IA.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\ReporteTipoPagoEntidad.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\peliculasDAO.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\ReporteTipoPagoDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\ClienteEntidad.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\FuncionDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\SucursalDTO.java
