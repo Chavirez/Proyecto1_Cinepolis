@@ -118,7 +118,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         lbl_atras = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
-        logo_img = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
         fondoEncabezado1 = new javax.swing.JLabel();
@@ -240,11 +240,13 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
 
-        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
-        content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Cinépolis");
+        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 0, 0));
         lbl_cPeliculas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
@@ -495,6 +497,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel fondoEncabezado6;
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
@@ -506,7 +509,6 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_continuar1;
     private javax.swing.JLabel lbl_continuar2;
     private javax.swing.JLabel lblfondoTabla;
-    private javax.swing.JLabel logo_img;
     private javax.swing.JTable tblFunciones;
     // End of variables declaration//GEN-END:variables
 }

@@ -46,12 +46,12 @@ public class FrmMenu extends javax.swing.JFrame {
         FondoPromo = new javax.swing.JPanel();
         imgPromo = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
-        CinepolisLogo = new javax.swing.JLabel();
         LogoC = new javax.swing.JLabel();
-        btnCatalago = new javax.swing.JButton();
+        btnCartelera = new javax.swing.JButton();
         btnPromos = new javax.swing.JButton();
         UbicacionIcon = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
         ConoceLaRopa = new javax.swing.JLabel();
         todasTus = new javax.swing.JLabel();
@@ -64,8 +64,9 @@ public class FrmMenu extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnUsuario.setBackground(new java.awt.Color(53, 53, 53));
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 10, 10));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
 
@@ -79,22 +80,19 @@ public class FrmMenu extends javax.swing.JFrame {
         Encabezado.setMinimumSize(new java.awt.Dimension(800, 100));
         Encabezado.setPreferredSize(new java.awt.Dimension(800, 100));
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CinepolisLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
-        Encabezado.add(CinepolisLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
         Encabezado.add(LogoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
-        btnCatalago.setBackground(new java.awt.Color(54, 54, 54));
-        btnCatalago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCatalago.setForeground(new java.awt.Color(255, 255, 255));
-        btnCatalago.setText("Cartelera");
-        btnCatalago.setBorderPainted(false);
-        btnCatalago.addActionListener(new java.awt.event.ActionListener() {
+        btnCartelera.setBackground(new java.awt.Color(54, 54, 54));
+        btnCartelera.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
+        btnCartelera.setText("Cartelera");
+        btnCartelera.setBorderPainted(false);
+        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCatalagoActionPerformed(evt);
+                btnCarteleraActionPerformed(evt);
             }
         });
-        Encabezado.add(btnCatalago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
         btnPromos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -112,6 +110,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(54, 54, 54));
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(54, 54, 54)));
         Encabezado.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Cinépolis");
+        Encabezado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
         fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
         fondoEncabezado.setMaximumSize(new java.awt.Dimension(800, 102));
@@ -169,9 +172,9 @@ public class FrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPromosActionPerformed
 
-    private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
+    private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCatalagoActionPerformed
+    }//GEN-LAST:event_btnCarteleraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,7 +212,6 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CinepolisLogo;
     private javax.swing.JLabel Cinépolis;
     private javax.swing.JLabel ClubCinepolis;
     private javax.swing.JLabel ConoceLaRopa;
@@ -219,12 +221,13 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel UbicacionIcon;
     private javax.swing.JLabel UsuarioIcon;
     private javax.swing.JButton btnAdquiere;
-    private javax.swing.JButton btnCatalago;
+    private javax.swing.JButton btnCartelera;
     private javax.swing.JButton btnPromos;
     private javax.swing.JPanel btnUsuario;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel imgPromo;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel todasTus;
     // End of variables declaration//GEN-END:variables
