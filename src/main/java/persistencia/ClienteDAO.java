@@ -164,15 +164,16 @@ public class ClienteDAO implements IClienteDAO{
         public ClienteBuscarEntidad convertirCBAEntidad(ResultSet resultado) throws PersistenciaException {
         try {
             int idCliente = resultado.getInt("idCliente");
+            
             String nombre = resultado.getString("nombre");
             String apellido = resultado.getString("apellido");
             Date fn = resultado.getDate("fecha_nacimiento");
             String contraseña = resultado.getString("contraseña");
             String email = resultado.getString("email");
-            Double coordenadas = resultado.getDouble("coordenadas");
+            System.out.println(idCliente + nombre + apellido + email + fn.toString());
             String ciudad = resultado.getString("nc");
 
-            return new ClienteBuscarEntidad(idCliente, nombre, apellido, email, ciudad, contraseña, fn, coordenadas);
+            return new ClienteBuscarEntidad(idCliente, nombre, apellido, email, ciudad, contraseña, fn, 0.0);
         } catch (SQLException ex) {
              throw new PersistenciaException("Error al convertir de Resultado a Entidad");
         }

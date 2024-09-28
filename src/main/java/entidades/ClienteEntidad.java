@@ -20,7 +20,7 @@ public class ClienteEntidad {
     public ClienteEntidad() {
     }
 
-    public ClienteEntidad(int idCliente, String nombre, String apellido, String email, int idCiudad, String contraseña, Date fechaNacimiento, Double coordenadas) {
+    public ClienteEntidad(int idCliente, String nombre, String apellido, String email, int idCiudad, String contraseña, Date fechaNacimiento) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -28,7 +28,6 @@ public class ClienteEntidad {
         this.idCiudad = idCiudad;
         this.contraseña = contraseña;
         this.fechaNacimiento = fechaNacimiento;
-        this.coordenadas = coordenadas;
     }
 
     public int getIdCliente() {
