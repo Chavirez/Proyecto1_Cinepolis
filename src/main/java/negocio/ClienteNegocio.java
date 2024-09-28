@@ -66,7 +66,7 @@ public class ClienteNegocio implements IClienteNegocio{
         } catch (PersistenciaException ex) {
             // hacer uso de Logger
             System.out.println(ex.getMessage());
-            throw new NegocioException(ex.getMessage());
+            throw new NegocioException("NEGOCIO: "+ex.getMessage());
         }    
     }    
     

@@ -6,6 +6,10 @@ package presentacion;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import presentacion.Catálogos.FrmCatalogoClientes;
+import presentacion.Catálogos.FrmCatalogoFunciones;
+import presentacion.Catálogos.FrmCatalogoPeliculas;
+import presentacion.Catálogos.FrmCatalogoSalas;
 
 /**
  *
@@ -105,6 +109,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Reportes.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Reportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ReportesMouseClicked(evt);
+            }
+        });
 
         lbl_cPeliculas3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cPeliculas3.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,6 +158,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         btn_cSalas.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cSalas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cSalasMouseClicked(evt);
+            }
+        });
 
         lbl_cSalas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cSalas.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,14 +179,19 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         );
         btn_cSalasLayout.setVerticalGroup(
             btn_cSalasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_cSalasLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lbl_cSalas))
+            .addGroup(btn_cSalasLayout.createSequentialGroup()
+                .addComponent(lbl_cSalas)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         content.add(btn_cSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 200, 80));
 
         btn_cPeliculas.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cPeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cPeliculasMouseClicked(evt);
+            }
+        });
 
         lbl_cPeliculas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cPeliculas.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,6 +216,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.add(btn_cPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 200, 80));
 
         btn_cClientes.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cClientesMouseClicked(evt);
+            }
+        });
 
         lbl_cClientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cClientes.setForeground(new java.awt.Color(255, 255, 255));
@@ -213,14 +237,19 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         );
         btn_cClientesLayout.setVerticalGroup(
             btn_cClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_cClientesLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lbl_cClientes))
+            .addGroup(btn_cClientesLayout.createSequentialGroup()
+                .addComponent(lbl_cClientes)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         content.add(btn_cClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 200, 80));
 
         btn_cFunciones.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cFunciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cFuncionesMouseClicked(evt);
+            }
+        });
 
         lbl_cFunciones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cFunciones.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,6 +324,34 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
         dispose();
     }//GEN-LAST:event_btn_closeMouseClicked
+
+    private void btn_cClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cClientesMouseClicked
+        // Abre frame Catálogo Clientes
+        new FrmCatalogoClientes().setVisible(true);
+        this.dispose();  
+    }//GEN-LAST:event_btn_cClientesMouseClicked
+
+    private void btn_cFuncionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cFuncionesMouseClicked
+        // Abre frame Catálogo Funciones
+        new FrmCatalogoFunciones().setVisible(true);
+        this.dispose();  
+    }//GEN-LAST:event_btn_cFuncionesMouseClicked
+
+    private void btn_cSalasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cSalasMouseClicked
+        // Abre frame Catálogo Salas
+        new FrmCatalogoSalas().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_cSalasMouseClicked
+
+    private void btn_cPeliculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cPeliculasMouseClicked
+        // Abre frame Catálogo Películas
+        new FrmCatalogoPeliculas().setVisible(true);
+        this.dispose();        
+    }//GEN-LAST:event_btn_cPeliculasMouseClicked
+
+    private void btn_ReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ReportesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ReportesMouseClicked
 
     /**
      * @param args the command line arguments
