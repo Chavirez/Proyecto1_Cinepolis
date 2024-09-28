@@ -4,14 +4,30 @@
  */
 package presentacion;
 
+import dtos.validarClienteDTO;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import negocio.ClienteNegocio;
+import negocio.IClienteNegocio;
+import negocio.NegocioException;
+import persistencia.ClienteDAO;
+import persistencia.ConexionBD;
+import persistencia.IClienteDAO;
+import persistencia.IConexionBD;
 
 /**
  *
- * @author nomar
+ * @author PC
  */
 public class FrmInicioSesion extends javax.swing.JFrame {
+
+    // Conexion obligatoria cuando se interactua con la base de datos.
+    IConexionBD conexionBD = new ConexionBD();
+    IClienteDAO clienteDAO = new ClienteDAO(conexionBD);
+    IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);
 
     /**
      * Creates new form FrmInicioSesion
@@ -132,6 +148,12 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         content.add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 300, 30));
 
         btn_continuar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_continuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_continuar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_continuarMouseClicked(evt);
+            }
+        });
 
         lbl_continuar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_continuar.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,6 +199,34 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
         dispose();
     }//GEN-LAST:event_btn_closeMouseClicked
+
+    /**
+     * Metodo para iniciar sesion. Si el usuario existe en la base de datos
+     * inicia sesion, error en caso contrario.
+     *
+     * @param evt Presionar el JPanel con un click
+     */
+    private void btn_continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_continuarMouseClicked
+        String correo = txt_correo.getText();
+        String contrasenia = txt_contrasenia.getText();
+
+        try {
+            validarClienteDTO cliente = new validarClienteDTO(correo, contrasenia);
+            if (validarCliente(cliente) == true) {
+                JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                // PLACEHOLDER
+                // Aqui se agregara que se desea que se realiza cuando el
+                // usuario inicialize sesion.
+                System.out.println("Se inicia la sesion");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al iniciar sesión", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NegocioException ex) {
+            Logger.getLogger(FrmInicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_btn_continuarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -226,4 +276,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private javax.swing.JTextField txt_contrasenia;
     private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables
+    private boolean validarCliente(validarClienteDTO cliente) throws NegocioException {
+
+        return this.clienteNegocio.validarCliente(cliente);
+
+    }
+
 }
