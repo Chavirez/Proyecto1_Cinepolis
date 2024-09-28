@@ -101,6 +101,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private void initComponents() {
 
         content = new javax.swing.JPanel();
+        lbl_o = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
         mail_icon = new javax.swing.JLabel();
@@ -123,6 +124,13 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         content.setMinimumSize(new java.awt.Dimension(800, 600));
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_o.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbl_o.setForeground(new java.awt.Color(153, 153, 153));
+        lbl_o.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_o.setText("ó");
+        lbl_o.setToolTipText("");
+        content.add(lbl_o, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 20, -1));
 
         btn_close.setBackground(new java.awt.Color(47, 48, 55));
         btn_close.setForeground(new java.awt.Color(47, 48, 55));
@@ -191,7 +199,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        content.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 100, 30));
+        content.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 100, 30));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
@@ -297,6 +305,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbl_continuar;
+    private javax.swing.JLabel lbl_o;
     private javax.swing.JLabel lock_icon;
     private javax.swing.JLabel mail_icon;
     private javax.swing.JTextField txt_contrasenia;

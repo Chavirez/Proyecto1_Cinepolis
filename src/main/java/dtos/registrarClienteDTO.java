@@ -8,7 +8,6 @@ import java.sql.Date;
  */
 public class registrarClienteDTO {
 
-    
     private String nombre;
     private String apellido;
     private String email;
@@ -20,14 +19,15 @@ public class registrarClienteDTO {
     public registrarClienteDTO() {
     }
 
-    public registrarClienteDTO(String nombre, String apellido, String email, int ciudad, String contraseña, Date fechaNacimiento, Double coordenadas) {
+    // Este constructor contaba con un Double coordenadas, al final, se elimino.
+    public registrarClienteDTO(String nombre, String apellido, String email, int ciudad, String contraseña, Date fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.ciudad = ciudad;
         this.contraseña = contraseña;
         this.fechaNacimiento = fechaNacimiento;
-        this.coordenadas = coordenadas;
+        //this.coordenadas = coordenadas;
     }
 
     public String getNombre() {
@@ -86,5 +86,4 @@ public class registrarClienteDTO {
         this.coordenadas = coordenadas;
     }
 
-    
 }

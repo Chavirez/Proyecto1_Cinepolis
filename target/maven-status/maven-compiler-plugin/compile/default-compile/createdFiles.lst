@@ -68,6 +68,7 @@ persistencia\CiudadDAO.class
 presentacion\FrmMenuAdmin$1.class
 presentacion\FrmMenuAdmin$4.class
 presentacion\Catálogos\FrmCatalogoFunciones.class
+negocio\ControlRegistros.class
 negocio\IPeliculaNegocio.class
 negocio\SucursalNegocio.class
 entidades\SalaEntidad.class
