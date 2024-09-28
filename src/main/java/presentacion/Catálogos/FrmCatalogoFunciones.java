@@ -4,9 +4,26 @@
  */
 package presentacion.Catálogos;
 
+import dtos.ClienteDTO;
+import dtos.FuncionDTO;
 import presentacion.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.ClienteNegocio;
+import negocio.FuncionNegocio;
+import negocio.IClienteNegocio;
+import negocio.IFuncionNegocio;
+import negocio.NegocioException;
+import persistencia.ClienteDAO;
+import persistencia.ConexionBD;
+import persistencia.IClienteDAO;
+import persistencia.IConexionBD;
+import persistencia.IFuncionDAO;
+import persistencia.funcionDAO;
 import presentacion.Catálogos.FrmCatalogoFunciones;
 
 /**
@@ -15,14 +32,71 @@ import presentacion.Catálogos.FrmCatalogoFunciones;
  */
 public class FrmCatalogoFunciones extends javax.swing.JFrame {
 
+        IConexionBD conexionBD = new ConexionBD();
+        IFuncionDAO funcionDAO =  new funcionDAO(conexionBD);
+        IFuncionNegocio funcionNegocio = new FuncionNegocio(funcionDAO);       
+        private int pagina=0;
+        private int LIMITE=3;
+    
     /**
      * Creates new form FrmInicioSesion
      */
     public FrmCatalogoFunciones() {
         initComponents();
+        
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
     }
 
+    private List<FuncionDTO> buscarFuncionesTabla(){
+        List<FuncionDTO> funcionesLista = null;
+        try {
+            
+            funcionesLista = this.funcionNegocio.buscarFuncionesTablaT();
 
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return funcionesLista;
+    }          
+    
+    private void llenarTablaFunciones(List<FuncionDTO> funcionesLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblFunciones.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (funcionesLista != null) {
+            funcionesLista.forEach(row -> {
+                Object[] fila = new Object[8];
+                fila[0] = row.getTitulo();
+                fila[1] = row.getDia();
+                fila[3] = row.getHoraFin();
+                fila[4] = row.getHoraFinPelicula();
+                fila[2] = row.getHoraInicio();
+                fila[5] = row.getSala();
+                fila[6] = row.getPrecio();
+                fila[7] = row.getAsientosdisponibles();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }    
+    
+    private List<FuncionDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<FuncionDTO> todas= buscarFuncionesTabla();
+        List<FuncionDTO> todasLasPaginas = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todas.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            todasLasPaginas.add(todas.get(i));
+        }
+        return todasLasPaginas;
+    }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,7 +130,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblSalas = new javax.swing.JTable();
+        tblFunciones = new javax.swing.JTable();
         btn_Eliminar = new javax.swing.JPanel();
         lblEliminar = new javax.swing.JLabel();
         btn_Agregar = new javax.swing.JPanel();
@@ -226,20 +300,21 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
 
         content.add(btn_Siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 470, 240, -1));
 
-        tblSalas.setBackground(java.awt.SystemColor.controlDkShadow);
-        tblSalas.setForeground(java.awt.SystemColor.controlShadow);
-        tblSalas.setModel(new javax.swing.table.DefaultTableModel(
+        tblFunciones.setBackground(java.awt.SystemColor.controlDkShadow);
+        tblFunciones.setForeground(java.awt.SystemColor.controlShadow);
+        tblFunciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sala", "Película", "Disponibilidad", "Día", "Hora Inicio", "Hora Fin", "Hora Fin Película"
+                "Título", "Día", "Hora Inicio", "Hora Fin", "Hora Fin Película", "Sala", "Precio", "Asientos Disponibles"
             }
         ));
-        jScrollPane2.setViewportView(tblSalas);
+        tblFunciones.setRowHeight(81);
+        jScrollPane2.setViewportView(tblFunciones);
 
         content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
 
@@ -293,7 +368,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
 
         content.add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTabla.png"))); // NOI18N
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
         content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 790, 500));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
@@ -322,10 +397,25 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
 
     private void btn_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtrasMouseClicked
         // TODO add your handling code here:
+        if (pagina -3 < 0)
+        {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        }
+        else
+        {
+        pagina -= 3;
+        LIMITE -= 3;   
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+        } 
+
+
     }//GEN-LAST:event_btn_AtrasMouseClicked
 
     private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
         // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;   
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_btn_SiguienteMouseClicked
 
     private void btn_AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarMouseClicked
@@ -361,6 +451,14 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmCatalogoFunciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -409,6 +507,6 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_continuar2;
     private javax.swing.JLabel lblfondoTabla;
     private javax.swing.JLabel logo_img;
-    private javax.swing.JTable tblSalas;
+    private javax.swing.JTable tblFunciones;
     // End of variables declaration//GEN-END:variables
 }

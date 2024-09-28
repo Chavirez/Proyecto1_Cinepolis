@@ -4,9 +4,28 @@
  */
 package presentacion.Catálogos;
 
+import dtos.ClienteDTO;
+import dtos.SalaDTO;
 import presentacion.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.ClienteNegocio;
+import negocio.IClienteNegocio;
+import negocio.ISalasNegocio;
+import negocio.NegocioException;
+import negocio.SalasNegocio;
+import persistencia.ClienteDAO;
+import persistencia.ConexionBD;
+import persistencia.IClienteDAO;
+import persistencia.IConexionBD;
+import persistencia.ISalasDAO;
+import persistencia.salasDAO;
 import presentacion.Catálogos.FrmCatalogoSalas;
 
 /**
@@ -15,14 +34,67 @@ import presentacion.Catálogos.FrmCatalogoSalas;
  */
 public class FrmCatalogoSalas extends javax.swing.JFrame {
 
+        IConexionBD conexionBD = new ConexionBD();
+        ISalasDAO salasDAO =  new salasDAO(conexionBD);
+        ISalasNegocio salasNegocio = new SalasNegocio(salasDAO);       
+        private int pagina=0;
+        private int LIMITE=3;
+    
     /**
      * Creates new form FrmInicioSesion
      */
     public FrmCatalogoSalas() {
         initComponents();
+        
+        llenarTablaSalas(obtenerPagina(pagina, LIMITE));
     }
 
+    private List<SalaDTO> buscarSalasTabla(){
+            List<SalaDTO> salasLista = null;
+            try {
 
+                salasLista = this.salasNegocio.buscarSalasTabla();
+                
+
+            } catch (NegocioException ex) {
+                Logger.getLogger(FrmCatalogoSalas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            return salasLista;
+    }          
+    
+    private void llenarTablaSalas(List<SalaDTO> salasLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblSalas.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (salasLista != null) {
+            salasLista.forEach(row -> {
+                Object[] fila = new Object[4];
+                fila[0] = row.getNombre();
+                fila[1] = row.getCapacidad();
+                fila[2] = row.getNSucursal();
+                fila[3] = row.getNCiudad();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }    
+    
+    private List<SalaDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<SalaDTO> todas= buscarSalasTabla();
+        List<SalaDTO> todasLasPaginas = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todas.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            todasLasPaginas.add(todas.get(i));
+        }
+        return todasLasPaginas;
+    }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -232,15 +304,16 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
         tblSalas.setForeground(java.awt.SystemColor.controlShadow);
         tblSalas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Sala", "Capacidad", "Sucursal", "Ciudad"
+                "Nombre", "Apellido", "Contraseña", "Fecha de Nacimiento", "Email", "Ciudad Establecida"
             }
         ));
+        tblSalas.setRowHeight(81);
         jScrollPane2.setViewportView(tblSalas);
 
         content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
@@ -322,7 +395,7 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
 
         content.add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTabla.png"))); // NOI18N
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
         content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 790, 500));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
@@ -351,10 +424,25 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
 
     private void btn_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtrasMouseClicked
         // TODO add your handling code here:
+        if (pagina -3 < 0)
+        {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        }
+        else
+        {
+        pagina -= 3;
+        LIMITE -= 3;   
+        llenarTablaSalas(obtenerPagina(pagina, LIMITE));
+        } 
+
+
     }//GEN-LAST:event_btn_AtrasMouseClicked
 
     private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
         // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;   
+        llenarTablaSalas(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_btn_SiguienteMouseClicked
 
     private void btn_AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarMouseClicked
@@ -394,6 +482,18 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmCatalogoSalas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

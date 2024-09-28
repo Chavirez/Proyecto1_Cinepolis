@@ -4,9 +4,26 @@
  */
 package presentacion.Catálogos;
 
+import dtos.ClienteDTO;
+import dtos.PeliculaDTO;
 import presentacion.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.ClienteNegocio;
+import negocio.IClienteNegocio;
+import negocio.IPeliculaNegocio;
+import negocio.NegocioException;
+import negocio.PeliculaNegocio;
+import persistencia.ClienteDAO;
+import persistencia.ConexionBD;
+import persistencia.IClienteDAO;
+import persistencia.IConexionBD;
+import persistencia.IPeliculasDAO;
+import persistencia.peliculasDAO;
 import presentacion.Catálogos.FrmCatalogoPeliculas;
 
 /**
@@ -15,14 +32,70 @@ import presentacion.Catálogos.FrmCatalogoPeliculas;
  */
 public class FrmCatalogoPeliculas extends javax.swing.JFrame {
 
+        IConexionBD conexionBD = new ConexionBD();
+        IPeliculasDAO peliculasDAO =  new peliculasDAO(conexionBD);
+        IPeliculaNegocio peliculasNegocio = new PeliculaNegocio(peliculasDAO);       
+        private int pagina=0;
+        private int LIMITE=3;
+    
     /**
      * Creates new form FrmInicioSesion
      */
     public FrmCatalogoPeliculas() {
         initComponents();
+        
+        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
     }
 
+    private List<PeliculaDTO> buscarPeliculasTabla(){
+        List<PeliculaDTO> PeliculasLista = null;
+        try {
+            
+            PeliculasLista = this.peliculasNegocio.buscarPeliculaTablaT();
 
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return PeliculasLista;
+    }          
+    
+    private void llenarTablaPeliculas(List<PeliculaDTO> PeliculasLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblPeliculas.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (PeliculasLista != null) {
+            PeliculasLista.forEach(row -> {
+                Object[] fila = new Object[7];
+                fila[0] = row.getTitulo();
+                fila[1] = row.getClasificacion();
+                fila[2] = row.getGenero();
+                fila[3] = row.getDuracion();
+                fila[6] = row.getSinopsis();
+                fila[4] = row.getPais();
+                fila[5] = row.getTrailer();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }    
+    
+    private List<PeliculaDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<PeliculaDTO> todas= buscarPeliculasTabla();
+        List<PeliculaDTO> todasLasPaginas = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todas.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            todasLasPaginas.add(todas.get(i));
+        }
+        return todasLasPaginas;
+    }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,7 +129,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblSalas = new javax.swing.JTable();
+        tblPeliculas = new javax.swing.JTable();
         btn_Editar = new javax.swing.JPanel();
         lblEditar = new javax.swing.JLabel();
         btn_Eliminar = new javax.swing.JPanel();
@@ -228,20 +301,21 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
 
         content.add(btn_Siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 470, 240, -1));
 
-        tblSalas.setBackground(java.awt.SystemColor.controlDkShadow);
-        tblSalas.setForeground(java.awt.SystemColor.controlShadow);
-        tblSalas.setModel(new javax.swing.table.DefaultTableModel(
+        tblPeliculas.setBackground(java.awt.SystemColor.controlDkShadow);
+        tblPeliculas.setForeground(java.awt.SystemColor.controlShadow);
+        tblPeliculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Título", "Clasificación", "Género", "Duración", "Sinopsis", "Link Trailer", "Costo", "País de Origen"
+                "Título", "Clasificación", "Género", "Duración", "País", "Trailer", "Sinopsis"
             }
         ));
-        jScrollPane2.setViewportView(tblSalas);
+        tblPeliculas.setRowHeight(81);
+        jScrollPane2.setViewportView(tblPeliculas);
 
         content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
 
@@ -351,10 +425,25 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
 
     private void btn_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtrasMouseClicked
         // TODO add your handling code here:
+        if (pagina -3 < 0)
+        {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        }
+        else
+        {
+        pagina -= 3;
+        LIMITE -= 3;   
+        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
+        } 
+
+
     }//GEN-LAST:event_btn_AtrasMouseClicked
 
     private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
         // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;   
+        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_btn_SiguienteMouseClicked
 
     private void btn_AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarMouseClicked
@@ -452,6 +541,6 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_continuar2;
     private javax.swing.JLabel lblfondoTabla;
     private javax.swing.JLabel logo_img;
-    private javax.swing.JTable tblSalas;
+    private javax.swing.JTable tblPeliculas;
     // End of variables declaration//GEN-END:variables
 }

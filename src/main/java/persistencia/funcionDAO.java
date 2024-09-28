@@ -94,7 +94,7 @@ public class funcionDAO implements IFuncionDAO{
     public FuncionEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         String titulo = resultado.getString("titulo");
         Timestamp horaFin = resultado.getTimestamp("horaFin");
-        Timestamp horaFinPelicula = resultado.getTimestamp("horaFinPelucla");
+        Timestamp horaFinPelicula = resultado.getTimestamp("horaFinPelicula");
         Timestamp horaInicio = resultado.getTimestamp("horaInicio");
         String dia = resultado.getString("dia");
         String sala = resultado.getString("nombre");
@@ -110,11 +110,10 @@ public class funcionDAO implements IFuncionDAO{
             List<FuncionEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select p.titulo, f.fecha_hora, f.disponibilidad, s.nombre, p.costo, f.idFuncion from peliculas p\n" +
+            String codigoSQL = "select p.titulo, f.dia, f.horaFin, f.horaInicio, f.horaFinPelicula, f.disponibilidad, s.nombre, p.costo, f.idFuncion from peliculas p\n" +
                                "inner join funciones f on p.idPelicula = f.idPelicula\n" +
                                "inner join salas s on s.idSala = f.idSala\n" +
-                               "inner join sucursales sa on s.idSucursal = sa.idSucursal\n" + 
-                                ";";
+                               "inner join sucursales sa on s.idSucursal = sa.idSucursal";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
 
             ResultSet resultado = preparedStatement.executeQuery();

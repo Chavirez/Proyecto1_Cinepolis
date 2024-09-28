@@ -153,6 +153,7 @@ public class ClienteDAO implements IClienteDAO{
             String contraseña = resultado.getString("contraseña");
             String email = resultado.getString("email");
 
+
             return new ClienteEntidad(idCliente, nombre, apellido, email, idCliente, contraseña, fn);
         } catch (SQLException ex) {
              throw new PersistenciaException("Error al convertir de Resultado a Entidad");
