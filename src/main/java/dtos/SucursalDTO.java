@@ -56,4 +56,10 @@ public class SucursalDTO {
         this.idCiudad = idCiudad;
     }
 
+    @Override
+    public String toString() {
+        return "SucursalDTO{" + "idSucursal=" + idSucursal + ", nombre=" + nombre + ", direccion=" + direccion + ", idCiudad=" + idCiudad + '}';
+    }
+
+    
 }
