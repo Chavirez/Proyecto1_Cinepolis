@@ -21,17 +21,17 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu() {
         initComponents();
         this.setLocationRelativeTo(this);
-        
+
         //SetImageLabel(imgPromo, "\"C:\\Users\\nomar\\Downloads\\Cinepolis.png\"");
     }
 
-    private void SetImageLabel(JLabel labelname, String root){
+    private void SetImageLabel(JLabel labelname, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(labelname.getWidth(), labelname.getHeight(), Image.SCALE_DEFAULT));
         labelname.setIcon(icon);
         this.repaint();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +41,8 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_close = new javax.swing.JPanel();
+        close_icon = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JPanel();
         UsuarioIcon = new javax.swing.JLabel();
         FondoPromo = new javax.swing.JPanel();
@@ -62,9 +64,29 @@ public class FrmMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_close.setBackground(new java.awt.Color(47, 48, 55));
+        btn_close.setForeground(new java.awt.Color(47, 48, 55));
+        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_close.setPreferredSize(new java.awt.Dimension(20, 20));
+        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_closeMouseClicked(evt);
+            }
+        });
+        btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        close_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close_icon.png"))); // NOI18N
+        btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
+
+        getContentPane().add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
+
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
         btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
@@ -107,6 +129,8 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         Encabezado.add(btnPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        UbicacionIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gps_icon.png"))); // NOI18N
         Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
 
         jTextField1.setBackground(new java.awt.Color(54, 54, 54));
@@ -170,8 +194,14 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPromosActionPerformed
 
     private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
-        // TODO add your handling code here:
+        FrmCartelera cartelera = new FrmCartelera();
+        cartelera.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCatalagoActionPerformed
+
+    private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
+        dispose();
+    }//GEN-LAST:event_btn_closeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -222,6 +252,8 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCatalago;
     private javax.swing.JButton btnPromos;
     private javax.swing.JPanel btnUsuario;
+    private javax.swing.JPanel btn_close;
+    private javax.swing.JLabel close_icon;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel imgPromo;

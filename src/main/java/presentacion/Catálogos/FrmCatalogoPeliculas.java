@@ -113,6 +113,8 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         content = new javax.swing.JPanel();
+        btnRegresar2 = new javax.swing.JPanel();
+        Regresar2 = new javax.swing.JLabel();
         btn_Atras = new javax.swing.JPanel();
         lbl_atras = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
@@ -195,6 +197,24 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         content.setMinimumSize(new java.awt.Dimension(800, 600));
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRegresar2.setBackground(new java.awt.Color(47, 48, 55));
+        btnRegresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresar2MouseClicked(evt);
+            }
+        });
+        btnRegresar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Regresar2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Regresar2.setForeground(new java.awt.Color(255, 255, 255));
+        Regresar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Regresar2.setText("<");
+        Regresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar2.add(Regresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -5, 20, 20));
+
+        content.add(btnRegresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 20, 20));
 
         btn_Atras.setBackground(new java.awt.Color(83, 85, 96));
         btn_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -458,6 +478,13 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_EditarMouseClicked
 
+    private void btnRegresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar2MouseClicked
+        // TODO add your handling code here:
+
+        new FrmMenuAdmin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresar2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -509,7 +536,9 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Regresar2;
     private javax.swing.JLabel background_img;
+    private javax.swing.JPanel btnRegresar2;
     private javax.swing.JPanel btn_Agregar;
     private javax.swing.JPanel btn_Atras;
     private javax.swing.JPanel btn_Editar;

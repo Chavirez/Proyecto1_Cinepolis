@@ -109,6 +109,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Reportes.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Reportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Reportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_ReportesMouseClicked(evt);
@@ -124,10 +125,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         btn_Reportes.setLayout(btn_ReportesLayout);
         btn_ReportesLayout.setHorizontalGroup(
             btn_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_ReportesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_cPeliculas3, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lbl_cPeliculas3, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         btn_ReportesLayout.setVerticalGroup(
             btn_ReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +134,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        content.add(btn_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 670, 80));
+        content.add(btn_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 210, 80));
 
         btn_close.setBackground(new java.awt.Color(47, 48, 55));
         btn_close.setForeground(new java.awt.Color(47, 48, 55));
@@ -158,6 +156,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         btn_cSalas.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cSalas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cSalasMouseClicked(evt);
@@ -187,6 +186,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.add(btn_cSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 200, 80));
 
         btn_cPeliculas.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cPeliculas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cPeliculasMouseClicked(evt);
@@ -216,6 +216,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.add(btn_cPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 200, 80));
 
         btn_cClientes.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cClientesMouseClicked(evt);
@@ -226,6 +227,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         lbl_cClientes.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnCatalogoClientes.png"))); // NOI18N
+        lbl_cClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout btn_cClientesLayout = new javax.swing.GroupLayout(btn_cClientes);
         btn_cClientes.setLayout(btn_cClientesLayout);
@@ -245,6 +247,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         content.add(btn_cClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 200, 80));
 
         btn_cFunciones.setBackground(new java.awt.Color(83, 85, 96));
+        btn_cFunciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cFunciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cFuncionesMouseClicked(evt);
@@ -255,6 +258,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         lbl_cFunciones.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cFunciones.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cFunciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnCatalogoFunciones.png"))); // NOI18N
+        lbl_cFunciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout btn_cFuncionesLayout = new javax.swing.GroupLayout(btn_cFunciones);
         btn_cFunciones.setLayout(btn_cFuncionesLayout);

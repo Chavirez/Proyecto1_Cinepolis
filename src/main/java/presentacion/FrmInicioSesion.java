@@ -238,11 +238,15 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         try {
             validarClienteDTO cliente = new validarClienteDTO(correo, contrasenia);
             if (validarCliente(cliente) == true) {
-                JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
                 // PLACEHOLDER
                 // Aqui se agregara que se desea que se realiza cuando el
                 // usuario inicialize sesion.
+                JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Se inicia la sesion");
+                FrmMenu menu = new FrmMenu();
+                menu.setVisible(true);
+                dispose();
+
             } else {
                 JOptionPane.showMessageDialog(this, "Error al iniciar sesión", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -255,10 +259,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
-        
+
         new FrmRegistro().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**

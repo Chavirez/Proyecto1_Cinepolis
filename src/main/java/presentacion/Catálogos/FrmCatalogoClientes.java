@@ -27,35 +27,34 @@ import presentacion.Catálogos.FrmCatalogoClientes;
  */
 public class FrmCatalogoClientes extends javax.swing.JFrame {
 
-        IConexionBD conexionBD = new ConexionBD();
-        IClienteDAO clienteDAO =  new ClienteDAO(conexionBD);
-        IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);       
-        private int pagina=0;
-        private int LIMITE=3;
-    
+    IConexionBD conexionBD = new ConexionBD();
+    IClienteDAO clienteDAO = new ClienteDAO(conexionBD);
+    IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);
+    private int pagina = 0;
+    private int LIMITE = 3;
+
     /**
      * Creates new form FrmInicioSesion
      */
     public FrmCatalogoClientes() {
         initComponents();
-        
+
         llenarTablaClientes(obtenerPagina(pagina, LIMITE));
     }
 
-    private List<ClienteDTO> buscarClientesTabla(){
+    private List<ClienteDTO> buscarClientesTabla() {
         List<ClienteDTO> clientesLista = null;
         try {
-            
-            clientesLista = this.clienteNegocio.buscarClientesTabla();
 
+            clientesLista = this.clienteNegocio.buscarClientesTabla();
 
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
         }
 
         return clientesLista;
-    }          
-    
+    }
+
     private void llenarTablaClientes(List<ClienteDTO> clientesLista) {
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblClientes.getModel();
 
@@ -79,18 +78,18 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
                 modeloTabla.addRow(fila);
             });
         }
-    }    
-    
+    }
+
     private List<ClienteDTO> obtenerPagina(int indiceInicio, int indiceFin) {
-        List<ClienteDTO> todas= buscarClientesTabla();
+        List<ClienteDTO> todas = buscarClientesTabla();
         List<ClienteDTO> todasLasPaginas = new ArrayList<>();
         indiceFin = Math.min(indiceFin, todas.size());
         for (int i = indiceInicio; i < indiceFin; i++) {
             todasLasPaginas.add(todas.get(i));
         }
         return todasLasPaginas;
-    }    
-    
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,6 +107,8 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         content = new javax.swing.JPanel();
+        btnRegresar2 = new javax.swing.JPanel();
+        Regresar2 = new javax.swing.JLabel();
         btn_Atras = new javax.swing.JPanel();
         lbl_atras = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
@@ -190,6 +191,24 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.setMinimumSize(new java.awt.Dimension(800, 600));
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRegresar2.setBackground(new java.awt.Color(47, 48, 55));
+        btnRegresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresar2MouseClicked(evt);
+            }
+        });
+        btnRegresar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Regresar2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Regresar2.setForeground(new java.awt.Color(255, 255, 255));
+        Regresar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Regresar2.setText("<");
+        Regresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar2.add(Regresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -5, 20, 20));
+
+        content.add(btnRegresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 20, 20));
 
         btn_Atras.setBackground(new java.awt.Color(83, 85, 96));
         btn_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -420,16 +439,13 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
 
     private void btn_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtrasMouseClicked
         // TODO add your handling code here:
-        if (pagina -3 < 0)
-        {
+        if (pagina - 3 < 0) {
             JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        } else {
+            pagina -= 3;
+            LIMITE -= 3;
+            llenarTablaClientes(obtenerPagina(pagina, LIMITE));
         }
-        else
-        {
-        pagina -= 3;
-        LIMITE -= 3;   
-        llenarTablaClientes(obtenerPagina(pagina, LIMITE));
-        } 
 
 
     }//GEN-LAST:event_btn_AtrasMouseClicked
@@ -437,7 +453,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
     private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
         // TODO add your handling code here:
         pagina += 3;
-        LIMITE += 3;   
+        LIMITE += 3;
         llenarTablaClientes(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_btn_SiguienteMouseClicked
 
@@ -452,6 +468,13 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
     private void btn_EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_EditarMouseClicked
+
+    private void btnRegresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar2MouseClicked
+        // TODO add your handling code here:
+
+        new FrmMenuAdmin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresar2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -496,7 +519,13 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Regresar;
+    private javax.swing.JLabel Regresar1;
+    private javax.swing.JLabel Regresar2;
     private javax.swing.JLabel background_img;
+    private javax.swing.JPanel btnRegresar;
+    private javax.swing.JPanel btnRegresar1;
+    private javax.swing.JPanel btnRegresar2;
     private javax.swing.JPanel btn_Agregar;
     private javax.swing.JPanel btn_Atras;
     private javax.swing.JPanel btn_Editar;

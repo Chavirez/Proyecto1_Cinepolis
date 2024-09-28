@@ -26,6 +26,8 @@ public class FrmCartelera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_close = new javax.swing.JPanel();
+        close_icon = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JPanel();
         UsuarioIcon = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
@@ -43,9 +45,29 @@ public class FrmCartelera extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cartelera");
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_close.setBackground(new java.awt.Color(47, 48, 55));
+        btn_close.setForeground(new java.awt.Color(47, 48, 55));
+        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_close.setPreferredSize(new java.awt.Dimension(20, 20));
+        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_closeMouseClicked(evt);
+            }
+        });
+        btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        close_icon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        close_icon.setForeground(new java.awt.Color(255, 255, 255));
+        close_icon.setText("X");
+        btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
+
+        getContentPane().add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
+
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
@@ -118,11 +140,12 @@ public class FrmCartelera extends javax.swing.JFrame {
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
         fondo.setMinimumSize(new java.awt.Dimension(800, 600));
         fondo.setPreferredSize(new java.awt.Dimension(800, 600));
-        Contenedor.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
+        Contenedor.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 801, 500));
 
         getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
@@ -140,6 +163,10 @@ public class FrmCartelera extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnPromosActionPerformed
+
+    private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
+        dispose();
+    }//GEN-LAST:event_btn_closeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,6 +213,8 @@ public class FrmCartelera extends javax.swing.JFrame {
     private javax.swing.JButton btnCatalago;
     private javax.swing.JButton btnPromos;
     private javax.swing.JPanel btnUsuario;
+    private javax.swing.JPanel btn_close;
+    private javax.swing.JLabel close_icon;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JScrollPane jScrollPane1;
