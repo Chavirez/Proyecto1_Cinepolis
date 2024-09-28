@@ -325,8 +325,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-<<<<<<< Updated upstream
-=======
+
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
@@ -347,7 +346,6 @@ public class FrmRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boxCiudadActionPerformed
 
->>>>>>> Stashed changes
     private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
         // TODO add your handling code here:
 
