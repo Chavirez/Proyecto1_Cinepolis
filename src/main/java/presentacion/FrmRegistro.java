@@ -4,17 +4,127 @@
  */
 package presentacion;
 
+import dtos.ciudadDTO;
+import dtos.registrarClienteDTO;
+import dtos.validarClienteDTO;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import negocio.CiudadNegocio;
+import negocio.ClienteNegocio;
+import negocio.ControlRegistros;
+import negocio.ICiudadNegocio;
+import negocio.IClienteNegocio;
+import negocio.NegocioException;
+import persistencia.CiudadDAO;
+import persistencia.ClienteDAO;
+import persistencia.ConexionBD;
+import persistencia.ICiudadDAO;
+import persistencia.IClienteDAO;
+import persistencia.IConexionBD;
+
 /**
  *
  * @author nomar
  */
 public class FrmRegistro extends javax.swing.JFrame {
 
+    // Conexion obligatoria cuando se interactua con la base de datos.
+    IConexionBD conexionBD = new ConexionBD();
+    IClienteDAO clienteDAO = new ClienteDAO(conexionBD);
+    ICiudadDAO ciudadDAO = new CiudadDAO(conexionBD);
+    IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);
+    ICiudadNegocio ciudad = new CiudadNegocio(ciudadDAO);
+
     /**
      * Creates new form FrmRegistro
      */
     public FrmRegistro() {
         initComponents();
+        llenarBoxCiudades(buscarCiudadTabla());
+    }
+
+    /**
+     * Metodo que se encarga de llenar de informacion el comboBox de Ciudad.
+     *
+     * @param ciudadLista lista con las ciudades.
+     */
+    private void llenarBoxCiudades(List<ciudadDTO> ciudadLista) {
+        int i = 0;
+        while (ciudadLista.size() > i) {
+            boxCiudad.addItem(ciudadLista.get(i).getNombre());
+            i++;
+        }
+    }
+
+    /**
+     * Metodo que se encarga de hacer la lista de las ciudades con la info de la
+     * base de datos.
+     *
+     * @return lista con las ciudades de la base de datos.
+     */
+    private List<ciudadDTO> buscarCiudadTabla() {
+        List<ciudadDTO> ciudadLista = null;
+        try {
+
+            ciudadLista = this.ciudad.buscarCiudadTabla();
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return ciudadLista;
+    }
+
+    /**
+     * Metodo que convierte el texto de la fecha en un formato fecha para SQL.
+     *
+     * @param dateText fecha en formato texto.
+     * @return fecha en formato fecha para SQL.
+     */
+    private static java.sql.Date getSQLDate(String dateText) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        format.setLenient(false); // To ensure strict date parsing
+        try {
+            // Parse the date string to a java.util.Date
+            java.util.Date parsedDate = format.parse(dateText);
+            // Convert java.util.Date to java.sql.Date
+            return new java.sql.Date(parsedDate.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * Metodo para registrar cliente en la base de datos
+     *
+     * @param cliente clienteDTO
+     * @throws NegocioException Posible Excepcion
+     */
+    private void registrarCliente(registrarClienteDTO cliente) throws NegocioException {
+        try {
+            clienteNegocio.registrarCliente(cliente);
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, "No se pudo registrar el cliente \n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Metodo para verificar si el cliente existe en la base de datos.
+     *
+     * @param cliente clienteDTO
+     * @return true si el cliente existe en la base de datos, false en caso
+     * contrario.
+     * @throws NegocioException Posible Excepcion
+     */
+    private boolean validarCliente(validarClienteDTO cliente) throws NegocioException {
+        return clienteNegocio.validarCliente(cliente);
     }
 
     /**
@@ -26,6 +136,7 @@ public class FrmRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_camposObligatorios = new javax.swing.JLabel();
         btn_close2 = new javax.swing.JPanel();
         close_icon2 = new javax.swing.JLabel();
         mail_icon = new javax.swing.JLabel();
@@ -35,24 +146,30 @@ public class FrmRegistro extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JTextField();
-        Registro = new javax.swing.JLabel();
+        lbl_registro = new javax.swing.JLabel();
         btnRegistro = new javax.swing.JButton();
         txtNacimiento = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_fecha_nacimiento = new javax.swing.JLabel();
         Contraseña = new javax.swing.JLabel();
         Correo1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_nombre = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         Apellido = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_ciudad = new javax.swing.JLabel();
         boxCiudad = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_camposObligatorios.setBackground(new java.awt.Color(153, 153, 153));
+        lbl_camposObligatorios.setForeground(new java.awt.Color(153, 153, 153));
+        lbl_camposObligatorios.setText("(*) Campos obligatorios.");
+        getContentPane().add(lbl_camposObligatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, -1, -1));
 
         btn_close2.setBackground(new java.awt.Color(47, 48, 55));
         btn_close2.setForeground(new java.awt.Color(47, 48, 55));
@@ -86,38 +203,21 @@ public class FrmRegistro extends javax.swing.JFrame {
         Regresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Regresar.setForeground(new java.awt.Color(255, 255, 255));
         Regresar.setText("<");
+        Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegresar.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 17, -1));
 
         getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 20, -1));
 
         lock_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lock_icon.png"))); // NOI18N
         getContentPane().add(lock_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
-
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 300, 30));
-
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 300, 30));
-
-        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraseñaActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 300, 30));
 
-        Registro.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        Registro.setForeground(new java.awt.Color(255, 255, 255));
-        Registro.setText("Registro");
-        getContentPane().add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
+        lbl_registro.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_registro.setText("Registro");
+        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
 
         btnRegistro.setBackground(new java.awt.Color(53, 53, 53));
         btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -129,65 +229,47 @@ public class FrmRegistro extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, -1, -1));
-
-        txtNacimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNacimientoActionPerformed(evt);
-            }
-        });
+        getContentPane().add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, -1, -1));
         getContentPane().add(txtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 300, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Fecha de nacimiento (YYYY-MM-DD)");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        lbl_fecha_nacimiento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_fecha_nacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_fecha_nacimiento.setText("Fecha de nacimiento (YYYY-MM-DD) *");
+        getContentPane().add(lbl_fecha_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
         Contraseña.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Contraseña.setForeground(new java.awt.Color(255, 255, 255));
-        Contraseña.setText("Contraseña");
+        Contraseña.setText("Contraseña *");
         getContentPane().add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
 
         Correo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Correo1.setForeground(new java.awt.Color(255, 255, 255));
-        Correo1.setText("Correo");
+        Correo1.setText("Correo *");
         getContentPane().add(Correo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
-
-        txtApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoActionPerformed(evt);
-            }
-        });
+        lbl_nombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_nombre.setText("Nombre(s) *");
+        getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 300, 30));
 
         Apellido.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Apellido.setForeground(new java.awt.Color(255, 255, 255));
-        Apellido.setText("Apellido");
+        Apellido.setText("Apellido(s) *");
         getContentPane().add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ciudad");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
+        lbl_ciudad.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_ciudad.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_ciudad.setText("Ciudad *");
+        getContentPane().add(lbl_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
 
-        boxCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         boxCiudad.setSelectedIndex(-1);
-        boxCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxCiudadActionPerformed(evt);
-            }
-        });
         getContentPane().add(boxCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 300, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Cinépolis");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
+        logo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        logo.setForeground(new java.awt.Color(255, 255, 255));
+        logo.setText("Cinépolis");
+        getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
@@ -203,39 +285,52 @@ public class FrmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_close2MouseClicked
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            String correo = txtCorreo.getText();
+            String contrasenia = txtContraseña.getText();
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            String fechaTexto = txtNacimiento.getText();
+            Date fechaSql = getSQLDate(fechaTexto);
+            int ciudad = boxCiudad.getSelectedIndex();
+            int ciudadSql = 1 + boxCiudad.getSelectedIndex();
+
+            ControlRegistros cRegistro = new ControlRegistros();
+            //cRegistro.validarCampos(correo, contrasenia, nombre, apellido, fechaTexto, ciudad);
+            boolean verificacionValidacion = cRegistro.validarCampos(correo,
+                    contrasenia, nombre, apellido, fechaTexto,
+                    ciudad); // Regresa true si todas las validaciones son satisfactorias, false en caso contrario.
+
+            // Revisa las validaciones de ControlRegistros
+            if (verificacionValidacion == true) {
+                System.out.println("SE REGISTRA");
+                validarClienteDTO clienteAV = new validarClienteDTO(correo, contrasenia);
+                registrarClienteDTO cliente = new registrarClienteDTO(nombre, apellido, correo, ciudadSql, contrasenia, fechaSql);
+                // Revisa si el cliente existe
+                if (validarCliente(clienteAV) != true) {
+                    registrarCliente(cliente);
+                    JOptionPane.showMessageDialog(this, "Cliente agregado correctamente");
+                    new FrmInicioSesion().setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "El cliente ya existe!");
+                }
+            } else {
+                System.out.println("NO SE REGISTRA");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(FrmRegistro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btnRegistroActionPerformed
-
-    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseñaActionPerformed
-
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoActionPerformed
-
-    private void txtNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNacimientoActionPerformed
-
-    private void boxCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCiudadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boxCiudadActionPerformed
 
     private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
         // TODO add your handling code here:
-        
+
         new FrmInicioSesion().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnRegresarMouseClicked
 
     /**
@@ -277,23 +372,20 @@ public class FrmRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel Apellido;
     private javax.swing.JLabel Contraseña;
     private javax.swing.JLabel Correo1;
-    private javax.swing.JLabel Registro;
     private javax.swing.JLabel Regresar;
     private javax.swing.JLabel background_img;
     private javax.swing.JComboBox<String> boxCiudad;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JPanel btnRegresar;
-    private javax.swing.JPanel btn_close;
-    private javax.swing.JPanel btn_close1;
     private javax.swing.JPanel btn_close2;
-    private javax.swing.JLabel close_icon;
-    private javax.swing.JLabel close_icon1;
     private javax.swing.JLabel close_icon2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbl_camposObligatorios;
+    private javax.swing.JLabel lbl_ciudad;
+    private javax.swing.JLabel lbl_fecha_nacimiento;
+    private javax.swing.JLabel lbl_nombre;
+    private javax.swing.JLabel lbl_registro;
     private javax.swing.JLabel lock_icon;
+    private javax.swing.JLabel logo;
     private javax.swing.JLabel mail_icon;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtContraseña;
