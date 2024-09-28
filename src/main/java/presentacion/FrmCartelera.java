@@ -42,6 +42,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cartelera");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -126,10 +127,18 @@ public class FrmCartelera extends javax.swing.JFrame {
 
     private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
         // TODO add your handling code here:
+        
+        new FrmCartelera().setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnCatalagoActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
+        
+        new FrmMenu().setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnPromosActionPerformed
 
     /**
