@@ -119,13 +119,6 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         close_icon = new javax.swing.JLabel();
         logo_img = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
-        fondoEncabezado = new javax.swing.JLabel();
-        fondoEncabezado1 = new javax.swing.JLabel();
-        fondoEncabezado2 = new javax.swing.JLabel();
-        fondoEncabezado3 = new javax.swing.JLabel();
-        fondoEncabezado4 = new javax.swing.JLabel();
-        fondoEncabezado5 = new javax.swing.JLabel();
-        fondoEncabezado6 = new javax.swing.JLabel();
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -134,9 +127,12 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         lblEditar = new javax.swing.JLabel();
         btn_Eliminar = new javax.swing.JPanel();
         lblEliminar = new javax.swing.JLabel();
+        lblfondoTabla = new javax.swing.JLabel();
         btn_Agregar = new javax.swing.JPanel();
         lblAgregar = new javax.swing.JLabel();
-        lblfondoTabla = new javax.swing.JLabel();
+        lblatras = new javax.swing.JLabel();
+        btn_anterior = new javax.swing.JPanel();
+        fondoEncabezado6 = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
 
         lbl_continuar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -250,27 +246,6 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
-        fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
         btn_Siguiente.setBackground(new java.awt.Color(83, 85, 96));
         btn_Siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -371,6 +346,9 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
 
         content.add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, -1));
 
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
+        content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 790, 500));
+
         btn_Agregar.setBackground(new java.awt.Color(83, 85, 96));
         btn_Agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -396,8 +374,26 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
 
         content.add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTabla.png"))); // NOI18N
-        content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 790, 500));
+        lblatras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblatras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblatras.setText("<");
+        lblatras.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        content.add(lblatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
+
+        btn_anterior.setBackground(new java.awt.Color(47, 48, 55));
+        btn_anterior.setForeground(new java.awt.Color(47, 48, 55));
+        btn_anterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_anterior.setPreferredSize(new java.awt.Dimension(20, 20));
+        btn_anterior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_anteriorMouseClicked(evt);
+            }
+        });
+        btn_anterior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content.add(btn_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
+
+        fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
+        content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
@@ -419,6 +415,25 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AgregarMouseClicked
+
+    private void btn_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EliminarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EliminarMouseClicked
+
+    private void btn_EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EditarMouseClicked
+
+    private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
+        // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;
+        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
+    }//GEN-LAST:event_btn_SiguienteMouseClicked
+
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
         dispose();
     }//GEN-LAST:event_btn_closeMouseClicked
@@ -431,32 +446,18 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         }
         else
         {
-        pagina -= 3;
-        LIMITE -= 3;   
-        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
-        } 
-
+            pagina -= 3;
+            LIMITE -= 3;
+            llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
+        }
 
     }//GEN-LAST:event_btn_AtrasMouseClicked
 
-    private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
+    private void btn_anteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anteriorMouseClicked
         // TODO add your handling code here:
-        pagina += 3;
-        LIMITE += 3;   
-        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
-    }//GEN-LAST:event_btn_SiguienteMouseClicked
-
-    private void btn_AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_AgregarMouseClicked
-
-    private void btn_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EliminarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_EliminarMouseClicked
-
-    private void btn_EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_EditarMouseClicked
+        new FrmMenuAdmin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_anteriorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -515,16 +516,11 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
     private javax.swing.JPanel btn_Editar;
     private javax.swing.JPanel btn_Eliminar;
     private javax.swing.JPanel btn_Siguiente;
+    private javax.swing.JPanel btn_anterior;
     private javax.swing.JPanel btn_close;
     private javax.swing.JPanel btn_continuar1;
     private javax.swing.JLabel close_icon;
     private javax.swing.JPanel content;
-    private javax.swing.JLabel fondoEncabezado;
-    private javax.swing.JLabel fondoEncabezado1;
-    private javax.swing.JLabel fondoEncabezado2;
-    private javax.swing.JLabel fondoEncabezado3;
-    private javax.swing.JLabel fondoEncabezado4;
-    private javax.swing.JLabel fondoEncabezado5;
     private javax.swing.JLabel fondoEncabezado6;
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
@@ -539,6 +535,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_cPeliculas1;
     private javax.swing.JLabel lbl_continuar1;
     private javax.swing.JLabel lbl_continuar2;
+    private javax.swing.JLabel lblatras;
     private javax.swing.JLabel lblfondoTabla;
     private javax.swing.JLabel logo_img;
     private javax.swing.JTable tblPeliculas;
