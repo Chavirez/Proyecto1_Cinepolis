@@ -20,6 +20,7 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\ISucur
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\NegocioException.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\ciudadDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\IReporteNegocio.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmCartelera.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\ConexionBD.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\PeliculaEntidad.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\ICiudadDAO.java
@@ -28,6 +29,7 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\I
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\FrmCatalogoClientes.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmMenu.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\CiudadEntidad.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmRegistro.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\salasDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\CiudadNegocio.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\ClienteBuscarEntidad.java
