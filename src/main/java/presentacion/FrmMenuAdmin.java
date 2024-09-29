@@ -44,7 +44,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         lbl_cPeliculas3 = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
-        logo_img = new javax.swing.JLabel();
         btn_cSalas = new javax.swing.JPanel();
         lbl_cSalas = new javax.swing.JLabel();
         btn_cPeliculas = new javax.swing.JPanel();
@@ -54,6 +53,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         btn_cFunciones = new javax.swing.JPanel();
         lbl_cFunciones = new javax.swing.JLabel();
         lblfondoTabla = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
@@ -151,9 +151,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
-
-        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
-        content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         btn_cSalas.setBackground(new java.awt.Color(83, 85, 96));
         btn_cSalas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -278,8 +275,13 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTabla.png"))); // NOI18N
         content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 790, 500));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Cinépolis");
+        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 0, 51));
         lbl_cPeliculas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
@@ -413,6 +415,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel fondoEncabezado6;
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_cClientes;
     private javax.swing.JLabel lbl_cFunciones;
     private javax.swing.JLabel lbl_cPeliculas;
@@ -422,6 +425,5 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_continuar1;
     private javax.swing.JLabel lbl_continuar2;
     private javax.swing.JLabel lblfondoTabla;
-    private javax.swing.JLabel logo_img;
     // End of variables declaration//GEN-END:variables
 }

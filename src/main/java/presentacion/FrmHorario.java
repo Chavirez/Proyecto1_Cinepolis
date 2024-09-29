@@ -8,12 +8,12 @@ package presentacion;
  *
  * @author nomar
  */
-public class FrmCartelera extends javax.swing.JFrame {
+public class FrmHorario extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmCartelera
+     * Creates new form FrmHorario
      */
-    public FrmCartelera() {
+    public FrmHorario() {
         initComponents();
     }
 
@@ -26,57 +26,24 @@ public class FrmCartelera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_close = new javax.swing.JPanel();
-        close_icon = new javax.swing.JLabel();
-        btnUsuario = new javax.swing.JPanel();
-        UsuarioIcon = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        btnCartelera = new javax.swing.JButton();
+        btnCatalago = new javax.swing.JButton();
         btnPromos = new javax.swing.JButton();
         UbicacionIcon = new javax.swing.JLabel();
         LogoC = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaHorario = new javax.swing.JTable();
+        btnAnterior = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
         panelRegresar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaCartelera = new javax.swing.JTable();
-        fondo = new javax.swing.JLabel();
+        background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cartelera");
-        setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btn_close.setBackground(new java.awt.Color(47, 48, 55));
-        btn_close.setForeground(new java.awt.Color(47, 48, 55));
-        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_close.setPreferredSize(new java.awt.Dimension(20, 20));
-        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_closeMouseClicked(evt);
-            }
-        });
-        btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        close_icon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        close_icon.setForeground(new java.awt.Color(255, 255, 255));
-        close_icon.setText("X");
-        btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
-
-        getContentPane().add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
-
-        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
-        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
 
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -84,17 +51,17 @@ public class FrmCartelera extends javax.swing.JFrame {
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(54, 54, 54)));
         Encabezado.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
 
-        btnCartelera.setBackground(new java.awt.Color(54, 54, 54));
-        btnCartelera.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
-        btnCartelera.setText("Cartelera");
-        btnCartelera.setBorderPainted(false);
-        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
+        btnCatalago.setBackground(new java.awt.Color(54, 54, 54));
+        btnCatalago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCatalago.setForeground(new java.awt.Color(255, 255, 255));
+        btnCatalago.setText("Catalogo");
+        btnCatalago.setBorderPainted(false);
+        btnCatalago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarteleraActionPerformed(evt);
+                btnCatalagoActionPerformed(evt);
             }
         });
-        Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        Encabezado.add(btnCatalago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
         btnPromos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -121,6 +88,47 @@ public class FrmCartelera extends javax.swing.JFrame {
         Encabezado.add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, -1));
 
         getContentPane().add(Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
+
+        jScrollPane1.setBackground(new java.awt.Color(54, 54, 54));
+        jScrollPane1.setForeground(new java.awt.Color(54, 54, 54));
+
+        tablaHorario.setBackground(new java.awt.Color(54, 54, 54));
+        tablaHorario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Pelicula", "Horario", "Sala", "Comprar"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaHorario);
+        if (tablaHorario.getColumnModel().getColumnCount() > 0) {
+            tablaHorario.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 650, 280));
+
+        btnAnterior.setBackground(new java.awt.Color(54, 54, 54));
+        btnAnterior.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnAnterior.setText("Anterior");
+        btnAnterior.setBorderPainted(false);
+        getContentPane().add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 140, 30));
+
+        btnSiguiente.setBackground(new java.awt.Color(54, 54, 54));
+        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnSiguiente.setForeground(new java.awt.Color(255, 255, 255));
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.setBorderPainted(false);
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 140, 30));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
         panelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,70 +157,44 @@ public class FrmCartelera extends javax.swing.JFrame {
                 .addGap(0, 7, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 40, 40));
+        getContentPane().add(panelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 40, 40));
 
-        jButton1.setBackground(new java.awt.Color(54, 54, 54));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Siguiente");
-        jButton1.setBorderPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 140, 30));
-
-        jButton2.setBackground(new java.awt.Color(54, 54, 54));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Anterior");
-        jButton2.setBorderPainted(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 140, 30));
-
-        tablaCartelera.setBackground(new java.awt.Color(54, 54, 54));
-        tablaCartelera.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Duracion", "Genero", "Descripcion", "Trailer", "Pais"
-            }
-        ));
-        tablaCartelera.setGridColor(new java.awt.Color(50, 50, 50));
-        jScrollPane1.setViewportView(tablaCartelera);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 760, 330));
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
-        fondo.setMaximumSize(new java.awt.Dimension(800, 600));
-        fondo.setMinimumSize(new java.awt.Dimension(800, 600));
-        fondo.setPreferredSize(new java.awt.Dimension(800, 600));
-        Contenedor.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 801, 500));
-
-        getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 500));
+        background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
+        background_img.setMaximumSize(new java.awt.Dimension(815, 600));
+        background_img.setPreferredSize(new java.awt.Dimension(815, 600));
+        getContentPane().add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
+    private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
+        // TODO add your handling code here:
+
+        new FrmCartelera().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnCatalagoActionPerformed
+
+    private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
+        // TODO add your handling code here:
+
+        new FrmMenu().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnPromosActionPerformed
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
         // TODO add your handling code here:
         
         new FrmCartelera().setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_btnCarteleraActionPerformed
-
-    private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
-        // TODO add your handling code here:
-        
-        new FrmMenu().setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_btnPromosActionPerformed
-
-    private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
-        dispose();
-    }//GEN-LAST:event_btn_closeMouseClicked
+    }//GEN-LAST:event_panelRegresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -231,20 +213,20 @@ public class FrmCartelera extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCartelera().setVisible(true);
+                new FrmHorario().setVisible(true);
             }
         });
     }
@@ -253,21 +235,17 @@ public class FrmCartelera extends javax.swing.JFrame {
     private javax.swing.JPanel Encabezado;
     private javax.swing.JLabel LogoC;
     private javax.swing.JLabel UbicacionIcon;
-    private javax.swing.JLabel UsuarioIcon;
-    private javax.swing.JButton btnCartelera;
+    private javax.swing.JLabel background_img;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnCatalago;
     private javax.swing.JButton btnPromos;
-    private javax.swing.JPanel btnUsuario;
-    private javax.swing.JPanel btn_close;
-    private javax.swing.JLabel close_icon;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel fondoEncabezado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelRegresar;
-    private javax.swing.JTable tablaCartelera;
+    private javax.swing.JTable tablaHorario;
     // End of variables declaration//GEN-END:variables
 }

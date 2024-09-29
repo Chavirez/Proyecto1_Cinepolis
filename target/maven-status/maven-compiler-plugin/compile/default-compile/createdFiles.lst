@@ -8,7 +8,9 @@ presentacion\FrmInicioSesion$1.class
 presentacion\Catálogos\FrmCatalogoSalas.class
 persistencia\IPeliculasDAO.class
 negocio\ICiudadNegocio.class
+presentacion\FrmSinopsis.class
 negocio\SalasNegocio.class
+presentacion\FrmSinopsis$2.class
 presentacion\Catálogos\FrmCatalogoPeliculas$4.class
 presentacion\Catálogos\FrmCatalogoSalas$3.class
 negocio\ISucursalNegocio.class
@@ -19,6 +21,7 @@ dtos\SucursalDTO.class
 entidades\ReporteSucursalEntidad.class
 negocio\IClienteNegocio.class
 presentacion\Catálogos\FrmCatalogoClientes$1.class
+presentacion\FrmHorario$3.class
 presentacion\Catálogos\FrmCatalogoClientes$4.class
 presentacion\Catálogos\FrmCatalogoPeliculas$7.class
 presentacion\Catálogos\FrmCatalogoPeliculas$1.class
@@ -27,14 +30,17 @@ presentacion\Catálogos\FrmCatalogoFunciones$2.class
 persistencia\IConexionBD.class
 negocio\ReporteNegocio.class
 persistencia\ReporteDAO.class
+presentacion\FrmBoleto.class
 presentacion\FrmMenu$1.class
 persistencia\ISalasDAO.class
+presentacion\FrmHorario$5.class
 entidades\FuncionEntidad.class
 dtos\FuncionDTO.class
 presentacion\FrmMenuAdmin$3.class
 persistencia\funcionDAO.class
 presentacion\Catálogos\FrmCatalogoSalas$6.class
 presentacion\FrmInicioSesion$2.class
+presentacion\FrmSinopsis$5.class
 negocio\ISalasNegocio.class
 negocio\NegocioException.class
 presentacion\Catálogos\FrmCatalogoFunciones$6.class
@@ -49,6 +55,7 @@ presentacion\Catálogos\FrmCatalogoSalas$5.class
 presentacion\Catálogos\FrmCatalogoFunciones$7.class
 entidades\ReportePeliculaEntidad.class
 dtos\ClienteDTO.class
+presentacion\FrmSinopsis$4.class
 presentacion\FrmMenuAdmin$2.class
 presentacion\Catálogos\FrmCatalogoClientes.class
 entidades\ClienteBuscarEntidad.class
@@ -58,6 +65,7 @@ negocio\CiudadNegocio.class
 presentacion\Catálogos\FrmCatalogoPeliculas$3.class
 presentacion\Catálogos\FrmCatalogoClientes$2.class
 presentacion\Catálogos\FrmCatalogoClientes$5.class
+presentacion\FrmBoleto$3.class
 negocio\PeliculaNegocio.class
 persistencia\peliculasDAO.class
 presentacion\Catálogos\FrmCatalogoSalas$4.class
@@ -70,6 +78,7 @@ persistencia\ICiudadDAO.class
 persistencia\CiudadDAO.class
 presentacion\Catálogos\FrmCatalogoClientes$8.class
 presentacion\FrmMenuAdmin$1.class
+presentacion\FrmSinopsis$3.class
 presentacion\FrmMenuAdmin$4.class
 presentacion\Catálogos\FrmCatalogoFunciones.class
 negocio\ControlRegistros.class
@@ -86,6 +95,7 @@ presentacion\Catálogos\FrmCatalogoSalas$7.class
 presentacion\Catálogos\FrmCatalogoClientes$7.class
 negocio\IReporteNegocio.class
 dtos\SalaDTO.class
+presentacion\FrmSinopsis$1.class
 dtos\PeliculaDTO.class
 dtos\ciudadDTO.class
 entidades\ClienteEntidad.class
@@ -102,4 +112,5 @@ persistencia\SucursalDAO.class
 presentacion\Catálogos\FrmCatalogoPeliculas$6.class
 presentacion\FrmMenuAdmin$5.class
 presentacion\Catálogos\FrmCatalogoSalas$2.class
+presentacion\FrmBoleto$1.class
 entidades\SucursalEntidad.class
