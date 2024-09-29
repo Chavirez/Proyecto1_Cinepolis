@@ -118,6 +118,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
@@ -243,6 +244,11 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         jLabel2.setText("Cinépolis");
         content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Catalago Pelicula");
+        content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
+
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cPeliculas1.setForeground(new java.awt.Color(255, 0, 0));
         lbl_cPeliculas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -296,7 +302,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         tblPeliculas.setRowHeight(81);
         jScrollPane2.setViewportView(tblPeliculas);
 
-        content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
+        content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 202, 650, 250));
 
         btn_Editar.setBackground(new java.awt.Color(83, 85, 96));
         btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -483,6 +489,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
