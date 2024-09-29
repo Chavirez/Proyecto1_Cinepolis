@@ -26,6 +26,8 @@ public class FrmCartelera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_close = new javax.swing.JPanel();
+        close_icon = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JPanel();
         UsuarioIcon = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
@@ -46,9 +48,29 @@ public class FrmCartelera extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cartelera");
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_close.setBackground(new java.awt.Color(47, 48, 55));
+        btn_close.setForeground(new java.awt.Color(47, 48, 55));
+        btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_close.setPreferredSize(new java.awt.Dimension(20, 20));
+        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_closeMouseClicked(evt);
+            }
+        });
+        btn_close.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        close_icon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        close_icon.setForeground(new java.awt.Color(255, 255, 255));
+        close_icon.setText("X");
+        btn_close.add(close_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 20, 20));
+
+        getContentPane().add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
+
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
@@ -67,11 +89,6 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
         btnCartelera.setText("Cartelera");
         btnCartelera.setBorderPainted(false);
-        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarteleraActionPerformed(evt);
-            }
-        });
         Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
@@ -167,15 +184,8 @@ public class FrmCartelera extends javax.swing.JFrame {
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
-        // TODO add your handling code here:
-        
-        new FrmCartelera().setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_btnCarteleraActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
@@ -185,11 +195,12 @@ public class FrmCartelera extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnPromosActionPerformed
 
+    private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
+        dispose();
+    }//GEN-LAST:event_btn_closeMouseClicked
+
     private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
         // TODO add your handling code here:
-
-        new FrmMenu().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_panelRegresarMouseClicked
 
     /**
@@ -235,6 +246,8 @@ public class FrmCartelera extends javax.swing.JFrame {
     private javax.swing.JButton btnCartelera;
     private javax.swing.JButton btnPromos;
     private javax.swing.JPanel btnUsuario;
+    private javax.swing.JPanel btn_close;
+    private javax.swing.JLabel close_icon;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JButton jButton1;

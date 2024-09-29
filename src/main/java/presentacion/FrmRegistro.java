@@ -193,6 +193,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         getContentPane().add(mail_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, -1, -1));
 
         btnRegresar.setBackground(new java.awt.Color(47, 48, 55));
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegresarMouseClicked(evt);
@@ -303,7 +304,6 @@ public class FrmRegistro extends javax.swing.JFrame {
 
             // Revisa las validaciones de ControlRegistros
             if (verificacionValidacion == true) {
-                System.out.println("SE REGISTRA");
                 validarClienteDTO clienteAV = new validarClienteDTO(correo, contrasenia);
                 registrarClienteDTO cliente = new registrarClienteDTO(nombre, apellido, correo, ciudadSql, contrasenia, fechaSql);
                 // Revisa si el cliente existe
@@ -316,7 +316,7 @@ public class FrmRegistro extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "El cliente ya existe!");
                 }
             } else {
-                System.out.println("NO SE REGISTRA");
+
             }
         } catch (Exception ex) {
             Logger.getLogger(FrmRegistro.class.getName()).log(Level.SEVERE, null, ex);
