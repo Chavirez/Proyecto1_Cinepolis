@@ -148,6 +148,9 @@
             <Property name="text" type="java.lang.String" value="Cartelera"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCarteleraActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="90" y="40" width="-1" height="-1"/>
@@ -336,7 +339,7 @@
                 <Column editable="true" title="Nombre" type="java.lang.Object"/>
                 <Column editable="true" title="Duracion" type="java.lang.Object"/>
                 <Column editable="true" title="Genero" type="java.lang.Object"/>
-                <Column editable="true" title="Descripcion" type="java.lang.Object"/>
+                <Column editable="true" title="Sinopsis" type="java.lang.Object"/>
                 <Column editable="true" title="Trailer" type="java.lang.Object"/>
                 <Column editable="true" title="Pais" type="java.lang.Object"/>
               </Table>

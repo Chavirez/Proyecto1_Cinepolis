@@ -108,6 +108,11 @@ public class FrmMenu extends javax.swing.JFrame {
         btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
         btnCartelera.setText("Cartelera");
         btnCartelera.setBorderPainted(false);
+        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarteleraActionPerformed(evt);
+            }
+        });
         Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
@@ -199,6 +204,14 @@ public class FrmMenu extends javax.swing.JFrame {
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
         dispose();
     }//GEN-LAST:event_btn_closeMouseClicked
+
+    private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
+        // TODO add your handling code here:
+        
+        new FrmCartelera().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnCarteleraActionPerformed
 
     /**
      * @param args the command line arguments

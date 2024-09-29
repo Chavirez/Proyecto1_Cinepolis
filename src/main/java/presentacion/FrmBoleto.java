@@ -95,19 +95,19 @@ public class FrmBoleto extends javax.swing.JFrame {
         tablaBoleto.setBackground(new java.awt.Color(54, 54, 54));
         tablaBoleto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Duracion", "Genero", "Descripcion", "Trailer", "Pais", "Horario"
+                "Nombre", "Duracion", "Sala", "Ciudad", "Comprar"
             }
         ));
         tablaBoleto.setGridColor(new java.awt.Color(50, 50, 50));
         jScrollPane1.setViewportView(tablaBoleto);
 
-        Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 760, 330));
+        Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 760, 330));
 
         jButton1.setBackground(new java.awt.Color(54, 54, 54));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N

@@ -59,6 +59,7 @@ com\mycompany\proyecto1_ia\Proyecto1_IA.class
 presentacion\Catálogos\FrmCatalogoPeliculas$8.class
 presentacion\Catálogos\Clientes\FrmCatalogoClientes$3.class
 dtos\registrarClienteDTO.class
+presentacion\FrmCartelera$5.class
 negocio\FuncionNegocio.class
 presentacion\Catálogos\Clientes\FrmCatalogoClientes$4.class
 entidades\ReporteTipoPagoEntidad.class
@@ -123,6 +124,7 @@ presentacion\FrmCartelera$2.class
 dtos\ciudadDTO.class
 entidades\ClienteEntidad.class
 presentacion\FrmBoleto$2.class
+presentacion\FrmMenu$5.class
 presentacion\FrmMenuAdmin$6.class
 dtos\validarClienteDTO.class
 presentacion\FrmRegistro.class

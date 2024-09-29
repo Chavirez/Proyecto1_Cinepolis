@@ -89,6 +89,11 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
         btnCartelera.setText("Cartelera");
         btnCartelera.setBorderPainted(false);
+        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarteleraActionPerformed(evt);
+            }
+        });
         Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
@@ -169,7 +174,7 @@ public class FrmCartelera extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Duracion", "Genero", "Descripcion", "Trailer", "Pais"
+                "Nombre", "Duracion", "Genero", "Sinopsis", "Trailer", "Pais"
             }
         ));
         tablaCartelera.setGridColor(new java.awt.Color(50, 50, 50));
@@ -202,6 +207,13 @@ public class FrmCartelera extends javax.swing.JFrame {
     private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_panelRegresarMouseClicked
+
+    private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
+        // TODO add your handling code here:
+        new FrmMenu().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnCarteleraActionPerformed
 
     /**
      * @param args the command line arguments
