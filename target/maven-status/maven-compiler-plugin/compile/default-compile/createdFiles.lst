@@ -1,5 +1,6 @@
 negocio\ClienteNegocio.class
 presentacion\FrmInicioSesion$4.class
+presentacion\FrmCartelera$4.class
 presentacion\Catálogos\FrmCatalogoPeliculas.class
 presentacion\FrmInicioSesion.class
 presentacion\FrmMenu.class
@@ -45,12 +46,13 @@ negocio\NegocioException.class
 presentacion\Catálogos\FrmCatalogoFunciones$6.class
 negocio\IFuncionNegocio.class
 com\mycompany\proyecto1_ia\Proyecto1_IA.class
+presentacion\Catálogos\FrmCatalogoPeliculas$8.class
 dtos\registrarClienteDTO.class
 presentacion\Catálogos\FrmCatalogoClientes$3.class
 negocio\FuncionNegocio.class
 presentacion\Catálogos\FrmCatalogoPeliculas$2.class
 presentacion\Catálogos\FrmCatalogoSalas$5.class
-presentacion\FrmHorario$4.class
+presentacion\Catálogos\FrmCatalogoFunciones$7.class
 entidades\ReportePeliculaEntidad.class
 dtos\ClienteDTO.class
 presentacion\FrmSinopsis$4.class
@@ -74,6 +76,7 @@ persistencia\IClienteDAO.class
 presentacion\Catálogos\FrmCatalogoSalas$1.class
 persistencia\ICiudadDAO.class
 persistencia\CiudadDAO.class
+presentacion\Catálogos\FrmCatalogoClientes$8.class
 presentacion\FrmMenuAdmin$1.class
 presentacion\FrmSinopsis$3.class
 presentacion\FrmMenuAdmin$4.class
@@ -96,14 +99,12 @@ presentacion\FrmSinopsis$1.class
 dtos\PeliculaDTO.class
 dtos\ciudadDTO.class
 entidades\ClienteEntidad.class
-presentacion\FrmBoleto$2.class
+presentacion\FrmMenu$5.class
 presentacion\FrmMenuAdmin$6.class
 dtos\validarClienteDTO.class
 presentacion\Catálogos\FrmCatalogoFunciones$3.class
 presentacion\Catálogos\FrmCatalogoPeliculas$5.class
-presentacion\FrmHorario.class
-presentacion\FrmHorario$2.class
-presentacion\FrmHorario$1.class
+presentacion\Catálogos\FrmCatalogoSalas$8.class
 presentacion\Catálogos\FrmCatalogoClientes$6.class
 persistencia\PersistenciaException.class
 persistencia\IReporteDAO.class
