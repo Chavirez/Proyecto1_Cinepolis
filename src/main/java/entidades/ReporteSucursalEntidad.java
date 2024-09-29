@@ -49,5 +49,11 @@ public class ReporteSucursalEntidad {
     public void setCosto(int costo) {
         this.costo = costo;
     }   
+
+    @Override
+    public String toString() {
+        return "ReporteSucursalEntidad{" + "nombreSucursal=" + nombreSucursal + ", cantidadBoletos=" + cantidadBoletos + ", costo=" + costo + '}';
+    }
+    
     
 }

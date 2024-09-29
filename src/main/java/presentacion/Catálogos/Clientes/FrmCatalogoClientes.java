@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion.Catálogos;
+package presentacion.Catálogos.Clientes;
 
 import dtos.ClienteDTO;
 import presentacion.*;
@@ -19,7 +19,7 @@ import persistencia.ClienteDAO;
 import persistencia.ConexionBD;
 import persistencia.IClienteDAO;
 import persistencia.IConexionBD;
-import presentacion.Catálogos.FrmCatalogoClientes;
+import presentacion.Catálogos.Clientes.FrmCatalogoClientes;
 
 /**
  *
@@ -27,34 +27,35 @@ import presentacion.Catálogos.FrmCatalogoClientes;
  */
 public class FrmCatalogoClientes extends javax.swing.JFrame {
 
-    IConexionBD conexionBD = new ConexionBD();
-    IClienteDAO clienteDAO = new ClienteDAO(conexionBD);
-    IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);
-    private int pagina = 0;
-    private int LIMITE = 3;
-
+        IConexionBD conexionBD = new ConexionBD();
+        IClienteDAO clienteDAO =  new ClienteDAO(conexionBD);
+        IClienteNegocio clienteNegocio = new ClienteNegocio(clienteDAO);       
+        private int pagina=0;
+        private int LIMITE=3;
+    
     /**
      * Creates new form FrmInicioSesion
      */
     public FrmCatalogoClientes() {
         initComponents();
-
+        
         llenarTablaClientes(obtenerPagina(pagina, LIMITE));
     }
 
-    private List<ClienteDTO> buscarClientesTabla() {
+    private List<ClienteDTO> buscarClientesTabla(){
         List<ClienteDTO> clientesLista = null;
         try {
-
+            
             clientesLista = this.clienteNegocio.buscarClientesTabla();
+
 
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
         }
 
         return clientesLista;
-    }
-
+    }          
+    
     private void llenarTablaClientes(List<ClienteDTO> clientesLista) {
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblClientes.getModel();
 
@@ -78,18 +79,18 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
                 modeloTabla.addRow(fila);
             });
         }
-    }
-
+    }    
+    
     private List<ClienteDTO> obtenerPagina(int indiceInicio, int indiceFin) {
-        List<ClienteDTO> todas = buscarClientesTabla();
+        List<ClienteDTO> todas= buscarClientesTabla();
         List<ClienteDTO> todasLasPaginas = new ArrayList<>();
         indiceFin = Math.min(indiceFin, todas.size());
         for (int i = indiceInicio; i < indiceFin; i++) {
             todasLasPaginas.add(todas.get(i));
         }
         return todasLasPaginas;
-    }
-
+    }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -107,21 +108,12 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         content = new javax.swing.JPanel();
-        btnRegresar2 = new javax.swing.JPanel();
-        Regresar2 = new javax.swing.JLabel();
         btn_Atras = new javax.swing.JPanel();
         lbl_atras = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
+        logo_img = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        fondoEncabezado = new javax.swing.JLabel();
-        fondoEncabezado1 = new javax.swing.JLabel();
-        fondoEncabezado2 = new javax.swing.JLabel();
-        fondoEncabezado3 = new javax.swing.JLabel();
-        fondoEncabezado4 = new javax.swing.JLabel();
-        fondoEncabezado5 = new javax.swing.JLabel();
-        fondoEncabezado6 = new javax.swing.JLabel();
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -133,6 +125,9 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         btn_Agregar = new javax.swing.JPanel();
         lblAgregar = new javax.swing.JLabel();
         lblfondoTabla = new javax.swing.JLabel();
+        lblatras = new javax.swing.JLabel();
+        btn_anterior = new javax.swing.JPanel();
+        fondoEncabezado6 = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
 
         lbl_continuar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -192,24 +187,6 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar2.setBackground(new java.awt.Color(47, 48, 55));
-        btnRegresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegresar2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegresar2MouseClicked(evt);
-            }
-        });
-        btnRegresar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Regresar2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Regresar2.setForeground(new java.awt.Color(255, 255, 255));
-        Regresar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Regresar2.setText("<");
-        Regresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegresar2.add(Regresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -5, 20, 20));
-
-        content.add(btnRegresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 20, 20));
-
         btn_Atras.setBackground(new java.awt.Color(83, 85, 96));
         btn_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -255,37 +232,14 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
 
+        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
+        content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cPeliculas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Cinépolis");
-        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
-
-        fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
 
         btn_Siguiente.setBackground(new java.awt.Color(83, 85, 96));
         btn_Siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -412,8 +366,29 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
 
         content.add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTabla.png"))); // NOI18N
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
         content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 790, 500));
+
+        lblatras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblatras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblatras.setText("<");
+        lblatras.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        content.add(lblatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
+
+        btn_anterior.setBackground(new java.awt.Color(47, 48, 55));
+        btn_anterior.setForeground(new java.awt.Color(47, 48, 55));
+        btn_anterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_anterior.setPreferredSize(new java.awt.Dimension(20, 20));
+        btn_anterior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_anteriorMouseClicked(evt);
+            }
+        });
+        btn_anterior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content.add(btn_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
+
+        fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
+        content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
@@ -441,13 +416,16 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
 
     private void btn_AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AtrasMouseClicked
         // TODO add your handling code here:
-        if (pagina - 3 < 0) {
+        if (pagina -3 < 0)
+        {
             JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
-        } else {
-            pagina -= 3;
-            LIMITE -= 3;
-            llenarTablaClientes(obtenerPagina(pagina, LIMITE));
         }
+        else
+        {
+        pagina -= 3;
+        LIMITE -= 3;   
+        llenarTablaClientes(obtenerPagina(pagina, LIMITE));
+        } 
 
 
     }//GEN-LAST:event_btn_AtrasMouseClicked
@@ -455,7 +433,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
     private void btn_SiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SiguienteMouseClicked
         // TODO add your handling code here:
         pagina += 3;
-        LIMITE += 3;
+        LIMITE += 3;   
         llenarTablaClientes(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_btn_SiguienteMouseClicked
 
@@ -471,12 +449,11 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_EditarMouseClicked
 
-    private void btnRegresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar2MouseClicked
+    private void btn_anteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anteriorMouseClicked
         // TODO add your handling code here:
-
         new FrmMenuAdmin().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnRegresar2MouseClicked
+    }//GEN-LAST:event_btn_anteriorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -521,32 +498,20 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Regresar;
-    private javax.swing.JLabel Regresar1;
-    private javax.swing.JLabel Regresar2;
     private javax.swing.JLabel background_img;
-    private javax.swing.JPanel btnRegresar;
-    private javax.swing.JPanel btnRegresar1;
-    private javax.swing.JPanel btnRegresar2;
     private javax.swing.JPanel btn_Agregar;
     private javax.swing.JPanel btn_Atras;
     private javax.swing.JPanel btn_Editar;
     private javax.swing.JPanel btn_Eliminar;
     private javax.swing.JPanel btn_Siguiente;
+    private javax.swing.JPanel btn_anterior;
     private javax.swing.JPanel btn_close;
     private javax.swing.JPanel btn_continuar1;
     private javax.swing.JLabel close_icon;
     private javax.swing.JPanel content;
-    private javax.swing.JLabel fondoEncabezado;
-    private javax.swing.JLabel fondoEncabezado1;
-    private javax.swing.JLabel fondoEncabezado2;
-    private javax.swing.JLabel fondoEncabezado3;
-    private javax.swing.JLabel fondoEncabezado4;
-    private javax.swing.JLabel fondoEncabezado5;
     private javax.swing.JLabel fondoEncabezado6;
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
@@ -558,7 +523,9 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_cPeliculas1;
     private javax.swing.JLabel lbl_continuar1;
     private javax.swing.JLabel lbl_continuar2;
+    private javax.swing.JLabel lblatras;
     private javax.swing.JLabel lblfondoTabla;
+    private javax.swing.JLabel logo_img;
     private javax.swing.JTable tblClientes;
     // End of variables declaration//GEN-END:variables
 }
