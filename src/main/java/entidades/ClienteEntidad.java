@@ -96,7 +96,7 @@ public class ClienteEntidad {
 
     @Override
     public String toString() {
-        return "ClienteEntidad{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", idCiudad=" + idCiudad + ", contrase\u00f1a=" + contraseña + ", fechaNacimiento=" + fechaNacimiento + ", coordenadas=" + coordenadas + '}';
+        return "ClienteEntidad{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", idCiudad=" + idCiudad + ", contrase\u00f1a=" + contraseña + ", fechaNacimiento=" + fechaNacimiento + ", coordenadas=" + idCliente + '}';
     }
 
     

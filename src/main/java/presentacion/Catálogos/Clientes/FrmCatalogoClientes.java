@@ -453,6 +453,8 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
 
     private void btn_EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarMouseClicked
         // TODO add your handling code here:
+        new FrmEditarCatalogoClientes().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_EditarMouseClicked
 
     private void btn_anteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anteriorMouseClicked

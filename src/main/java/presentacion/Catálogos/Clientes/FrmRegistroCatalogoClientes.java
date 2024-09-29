@@ -4,6 +4,7 @@
  */
 package presentacion.Catálogos.Clientes;
 
+import dtos.ClienteDTO;
 import presentacion.*;
 import dtos.ciudadDTO;
 import dtos.registrarClienteDTO;
@@ -32,7 +33,7 @@ import persistencia.IConexionBD;
  *
  * @author nomar
  */
-public class FrmRegistroCatalogo extends javax.swing.JFrame {
+public class FrmRegistroCatalogoClientes extends javax.swing.JFrame {
 
     // Conexion obligatoria cuando se interactua con la base de datos.
     IConexionBD conexionBD = new ConexionBD();
@@ -44,7 +45,7 @@ public class FrmRegistroCatalogo extends javax.swing.JFrame {
     /**
      * Creates new form FrmRegistro
      */
-    public FrmRegistroCatalogo() {
+    public FrmRegistroCatalogoClientes() {
         initComponents();
         llenarBoxCiudades(buscarCiudadTabla());
     }
@@ -52,8 +53,9 @@ public class FrmRegistroCatalogo extends javax.swing.JFrame {
     /**
      * Metodo que se encarga de llenar de informacion el comboBox de Ciudad.
      *
-     * @param ciudadLista lista con las ciudades.
+     * @param clientesLista lista con las ciudades.
      */
+    
     private void llenarBoxCiudades(List<ciudadDTO> ciudadLista) {
         int i = 0;
         while (ciudadLista.size() > i) {
@@ -79,7 +81,7 @@ public class FrmRegistroCatalogo extends javax.swing.JFrame {
         }
 
         return ciudadLista;
-    }
+    }    
 
     /**
      * Metodo que convierte el texto de la fecha en un formato fecha para SQL.
@@ -218,8 +220,9 @@ public class FrmRegistroCatalogo extends javax.swing.JFrame {
 
         lbl_registro.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_registro.setText("Registro");
-        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
+        lbl_registro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_registro.setText("Registro Clientes");
+        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 100, 300, -1));
 
         btnRegistro.setBackground(new java.awt.Color(53, 53, 53));
         btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -320,7 +323,7 @@ public class FrmRegistroCatalogo extends javax.swing.JFrame {
 
             }
         } catch (Exception ex) {
-            Logger.getLogger(FrmRegistroCatalogo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmRegistroCatalogoClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnRegistroActionPerformed
@@ -350,7 +353,7 @@ public class FrmRegistroCatalogo extends javax.swing.JFrame {
     private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
         // TODO add your handling code here:
 
-        new FrmInicioSesion().setVisible(true);
+        new FrmCatalogoClientes().setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnRegresarMouseClicked

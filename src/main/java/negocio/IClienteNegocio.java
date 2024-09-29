@@ -28,5 +28,7 @@ public interface IClienteNegocio {
     public List<ClienteDTO> buscarClientesTabla() throws NegocioException;
 
     public List<ClienteDTO> convertirClientesTablaDTO(List<ClienteBuscarEntidad> clientes) throws NegocioException;
+    
+    public void editarCliente(registrarClienteDTO cliente) throws NegocioException;
 
 }
