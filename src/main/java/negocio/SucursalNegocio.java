@@ -22,10 +22,20 @@ public class SucursalNegocio implements ISucursalNegocio{
     
     private ISucursalDAO SucursalDAO;
 
+    
+    /** Constructor que inicializa una nueva instancia de SucursalNegocio con el DAO de sucursales
+
+@param SucursalDAO El objeto que maneja la persistencia de las sucursales */
     public SucursalNegocio(ISucursalDAO SucursalDAO) {
         this.SucursalDAO = SucursalDAO;
     }
     
+    
+    /** Busca sucursales en la base de datos
+
+@param sucursal El objeto SucursalDTO que contiene criterios de busqueda 
+* @return Una lista de objetos SucursalDTO que representa las sucursales obtenidas 
+* @throws NegocioException Si ocurre un error durante la busqueda en la base de datos */
     @Override
     public List<SucursalDTO> buscarSucursalTabla(SucursalDTO sucursal) throws NegocioException {
          try {
@@ -38,6 +48,12 @@ public class SucursalNegocio implements ISucursalNegocio{
         }
     }
     
+    
+    /** Convierte una lista de objetos SucursalEntidad en una lista de objetos SucursalDTO
+
+@param sucursales La lista de objetos SucursalEntidad que representan las sucursales obtenidas de la base de datos 
+* @return Una lista de objetos SucursalDTO que contiene la informacion de las sucursales convertidas para su visualizacion 
+* @throws NegocioException Si la lista de sucursales es null, lanzara una excepcion indicando que no se pudieron obtener las sucursales */
     public List<SucursalDTO> convertirSucursalTablaDTO(List<SucursalEntidad> sucursales) throws NegocioException {
         if (sucursales == null) {
             throw new NegocioException("No se pudieron obtener las sucursales");
