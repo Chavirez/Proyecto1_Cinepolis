@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion;
+package presentacion.Catálogos.Clientes;
 
+import presentacion.*;
 import dtos.ciudadDTO;
 import dtos.registrarClienteDTO;
 import dtos.validarClienteDTO;
@@ -31,7 +32,7 @@ import persistencia.IConexionBD;
  *
  * @author nomar
  */
-public class FrmRegistro extends javax.swing.JFrame {
+public class FrmRegistroCatalogo extends javax.swing.JFrame {
 
     // Conexion obligatoria cuando se interactua con la base de datos.
     IConexionBD conexionBD = new ConexionBD();
@@ -43,7 +44,7 @@ public class FrmRegistro extends javax.swing.JFrame {
     /**
      * Creates new form FrmRegistro
      */
-    public FrmRegistro() {
+    public FrmRegistroCatalogo() {
         initComponents();
         llenarBoxCiudades(buscarCiudadTabla());
     }
@@ -319,7 +320,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
             }
         } catch (Exception ex) {
-            Logger.getLogger(FrmRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmRegistroCatalogo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnRegistroActionPerformed
@@ -353,7 +354,6 @@ public class FrmRegistro extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnRegresarMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Apellido;
