@@ -8,6 +8,7 @@ presentacion\FrmCartelera.class
 presentacion\FrmMenu.class
 presentacion\FrmCartelera$1.class
 presentacion\FrmInicioSesion$1.class
+persistencia\IBoletoDAO.class
 presentacion\Catálogos\FrmCatalogoSalas.class
 persistencia\IPeliculasDAO.class
 negocio\ICiudadNegocio.class
@@ -19,8 +20,8 @@ negocio\SalasNegocio.class
 presentacion\FrmInicioSesion$7.class
 presentacion\FrmSinopsis$2.class
 presentacion\Catálogos\FrmCatalogoPeliculas$4.class
+entidades\BoletoEntidad.class
 presentacion\Catálogos\FrmCatalogoSalas$3.class
-presentacion\FrmHorario$6.class
 negocio\ISucursalNegocio.class
 dtos\ReporteSucursalDTO.class
 presentacion\Reportes\FrmReportes$2.class
@@ -54,6 +55,7 @@ presentacion\Catálogos\FrmCatalogoSalas$6.class
 presentacion\FrmInicioSesion$2.class
 presentacion\FrmRegistro$3.class
 negocio\ISalasNegocio.class
+persistencia\BoletoDAO.class
 negocio\NegocioException.class
 presentacion\Catálogos\FrmCatalogoFunciones$6.class
 presentacion\Reportes\FrmReportes$4.class
@@ -75,6 +77,7 @@ presentacion\Catálogos\Clientes\FrmRegistroCatalogo$3.class
 entidades\ReportePeliculaEntidad.class
 dtos\ClienteDTO.class
 presentacion\FrmSinopsis$4.class
+negocio\BoletoNegocio.class
 presentacion\FrmMenuAdmin$2.class
 entidades\ClienteBuscarEntidad.class
 persistencia\ConexionBD.class
@@ -95,6 +98,7 @@ presentacion\Catálogos\FrmCatalogoSalas$1.class
 persistencia\ICiudadDAO.class
 presentacion\Reportes\FrmReportes$6.class
 persistencia\CiudadDAO.class
+dtos\BoletoDTO.class
 presentacion\Catálogos\Clientes\FrmRegistroCatalogo$1.class
 utilerias\JButtonCellEditor.class
 presentacion\FrmMenuAdmin$1.class
@@ -119,6 +123,7 @@ presentacion\Catálogos\FrmCatalogoSalas$7.class
 presentacion\FrmCartelera$3.class
 presentacion\FrmRegistro$2.class
 presentacion\FrmBoleto$6.class
+negocio\IBoletoNegocio.class
 negocio\IReporteNegocio.class
 presentacion\Reportes\FrmReportes$8.class
 presentacion\FrmInicioSesion$6.class

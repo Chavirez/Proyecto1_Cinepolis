@@ -4,18 +4,18 @@
  */
 package presentacion;
 
-import dtos.FuncionDTO;
+import dtos.BoletoDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import negocio.FuncionNegocio;
-import negocio.IFuncionNegocio;
+import negocio.BoletoNegocio;
+import negocio.IBoletoNegocio;
 import negocio.NegocioException;
+import persistencia.BoletoDAO;
 import persistencia.ConexionBD;
+import persistencia.IBoletoDAO;
 import persistencia.IConexionBD;
-import persistencia.IFuncionDAO;
-import persistencia.funcionDAO;
 
 /**
  *
@@ -24,8 +24,8 @@ import persistencia.funcionDAO;
 public class FrmBoleto extends javax.swing.JFrame {
 
     IConexionBD conexionBD = new ConexionBD();
-    IFuncionDAO funcionDAO = new funcionDAO(conexionBD);
-    IFuncionNegocio funcionNegocio = new FuncionNegocio(funcionDAO);
+    IBoletoDAO boletoDAO = new BoletoDAO(conexionBD);
+    IBoletoNegocio boletoNegocio = new BoletoNegocio(boletoDAO);
     private int pagina = 0;
     private int LIMITE = 3;
 
@@ -34,52 +34,53 @@ public class FrmBoleto extends javax.swing.JFrame {
      */
     public FrmBoleto() {
         initComponents();
-        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
     }
 
-    private List<FuncionDTO> buscarFuncionesTabla() {
-        List<FuncionDTO> funcionesLista = null;
+    private List<BoletoDTO> buscarBoletosTabla() {
+        List<BoletoDTO> boletosLista = null;
         try {
-
-            funcionesLista = this.funcionNegocio.buscarFuncionesTablaT();
-
+            boletosLista = this.boletoNegocio.buscarBoletosTablaT(); // Asumiendo que tienes el método buscarTodosBoletos en BoletoNegocio
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
         }
 
-        return funcionesLista;
+        return boletosLista;
     }
 
-    private void llenarTablaFunciones(List<FuncionDTO> funcionesLista) {
-        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaBoleto.getModel();
+    private void llenarTablaBoletos(List<BoletoDTO> boletosLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaBoleto.getModel(); // Asumiendo que tienes una tabla tblBoletos
 
+        // Limpiar la tabla
         if (modeloTabla.getRowCount() > 0) {
             for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
                 modeloTabla.removeRow(i);
             }
         }
 
-        if (funcionesLista != null) {
-            funcionesLista.forEach(row -> {
-                Object[] fila = new Object[8];
-                fila[0] = row.getTitulo();
-                fila[1] = row.getHoraInicio();
-                fila[2] = row.getHoraFin();
-                fila[3] = row.getSala();
+        // Llenar la tabla con los datos de boletos
+        if (boletosLista != null) {
+            boletosLista.forEach(row -> {
+                Object[] fila = new Object[7];
+                fila[0] = row.getNombrePelicula(); // Título de la película
+                fila[2] = row.getHoraInicio(); // Hora de inicio de la función
+                fila[3] = row.getHoraFin(); // Hora de fin de la función
+                fila[4] = row.getSala(); // Nombre del boleto
+                fila[5] = row.getSucursal(); // Sucursal del cine
+                fila[6] = row.getPrecio(); // Costo del boleto
 
                 modeloTabla.addRow(fila);
             });
         }
     }
 
-    private List<FuncionDTO> obtenerPagina(int indiceInicio, int indiceFin) {
-        List<FuncionDTO> todas = buscarFuncionesTabla();
-        List<FuncionDTO> todasLasPaginas = new ArrayList<>();
-        indiceFin = Math.min(indiceFin, todas.size());
+    private List<BoletoDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<BoletoDTO> todos = buscarBoletosTabla(); // Obtener todos los boletos
+        List<BoletoDTO> boletosPagina = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todos.size());
         for (int i = indiceInicio; i < indiceFin; i++) {
-            todasLasPaginas.add(todas.get(i));
+            boletosPagina.add(todos.get(i));
         }
-        return todasLasPaginas;
+        return boletosPagina;
     }
 
     /**
@@ -162,13 +163,13 @@ public class FrmBoleto extends javax.swing.JFrame {
         tablaBoleto.setForeground(new java.awt.Color(255, 255, 255));
         tablaBoleto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Hora Inicio", "Hora Fin", "Sala", "Comprar"
+                "Pelicula", "Hora Inicio", "Hora Fin", "Sala", "Sucursal", "Costo"
             }
         ));
         tablaBoleto.setGridColor(new java.awt.Color(50, 50, 50));
@@ -271,7 +272,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         // TODO add your handling code here:
         pagina += 3;
         LIMITE += 3;
-        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+        llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -281,7 +282,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         } else {
             pagina -= 3;
             LIMITE -= 3;
-            llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+            llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

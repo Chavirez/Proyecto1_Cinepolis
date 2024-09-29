@@ -1,6 +1,7 @@
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\negocio\ClienteNegocio.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\utilerias\JButtonCellEditor.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\dtos\registrarClienteDTO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\BoletoDAO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\negocio\FuncionNegocio.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\entidades\ClienteEntidad.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\presentacion\Catálogos\Clientes\FrmCatalogoClientes.java
@@ -23,8 +24,11 @@ C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\com\mycomp
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\dtos\validarClienteDTO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\negocio\IPeliculaNegocio.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\presentacion\FrmCartelera.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\negocio\IBoletoNegocio.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\IConexionBD.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\ISalasDAO.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\entidades\BoletoEntidad.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\IBoletoDAO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\IFuncionDAO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\entidades\ClienteBuscarEntidad.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\dtos\ReportePeliculaDTO.java
@@ -45,8 +49,10 @@ C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\negocio\IS
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\IClienteDAO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\dtos\PeliculaDTO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\ConexionBD.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\dtos\BoletoDTO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\entidades\SalaEntidad.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\entidades\PeliculaEntidad.java
+C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\negocio\BoletoNegocio.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\persistencia\IPeliculasDAO.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\entidades\SucursalEntidad.java
 C:\Users\PC\Desktop\Cosas\Git Repositories\Proyecto1_IA\src\main\java\presentacion\Catálogos\FrmCatalogoPeliculas.java

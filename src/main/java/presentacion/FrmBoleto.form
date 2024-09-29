@@ -183,16 +183,22 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="4">
-                    <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="4">
+                    <Column editable="true" title="Pelicula" type="java.lang.Object"/>
                     <Column editable="true" title="Hora Inicio" type="java.lang.Object"/>
                     <Column editable="true" title="Hora Fin" type="java.lang.Object"/>
                     <Column editable="true" title="Sala" type="java.lang.Object"/>
-                    <Column editable="true" title="Comprar" type="java.lang.Object"/>
+                    <Column editable="true" title="Sucursal" type="java.lang.Object"/>
+                    <Column editable="true" title="Costo" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
