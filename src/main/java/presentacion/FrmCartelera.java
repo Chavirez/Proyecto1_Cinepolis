@@ -4,17 +4,86 @@
  */
 package presentacion;
 
+import dtos.PeliculaDTO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.IPeliculaNegocio;
+import negocio.NegocioException;
+import negocio.PeliculaNegocio;
+import persistencia.ConexionBD;
+import persistencia.IConexionBD;
+import persistencia.IPeliculasDAO;
+import persistencia.peliculasDAO;
+
 /**
  *
  * @author nomar
  */
 public class FrmCartelera extends javax.swing.JFrame {
 
+    IConexionBD conexionBD = new ConexionBD();
+    IPeliculasDAO peliculasDAO = new peliculasDAO(conexionBD);
+    IPeliculaNegocio peliculasNegocio = new PeliculaNegocio(peliculasDAO);
+    private int pagina = 0;
+    private int LIMITE = 3;
+
     /**
      * Creates new form FrmCartelera
      */
     public FrmCartelera() {
         initComponents();
+
+        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
+    }
+
+    private List<PeliculaDTO> buscarPeliculasTabla() {
+        List<PeliculaDTO> PeliculasLista = null;
+        try {
+
+            PeliculasLista = this.peliculasNegocio.buscarPeliculaTablaT();
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return PeliculasLista;
+    }
+
+    private void llenarTablaPeliculas(List<PeliculaDTO> PeliculasLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaCartelera.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (PeliculasLista != null) {
+            PeliculasLista.forEach(row -> {
+                Object[] fila = new Object[7];
+                fila[0] = row.getTitulo();
+                fila[1] = row.getClasificacion();
+                fila[2] = row.getGenero();
+                fila[3] = row.getDuracion();
+                fila[6] = row.getSinopsis();
+                fila[4] = row.getPais();
+                fila[5] = row.getTrailer();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }
+
+    private List<PeliculaDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<PeliculaDTO> todas = buscarPeliculasTabla();
+        List<PeliculaDTO> todasLasPaginas = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todas.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            todasLasPaginas.add(todas.get(i));
+        }
+        return todasLasPaginas;
     }
 
     /**
@@ -167,6 +236,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 140, 30));
 
         tablaCartelera.setBackground(new java.awt.Color(54, 54, 54));
+        tablaCartelera.setForeground(new java.awt.Color(255, 255, 255));
         tablaCartelera.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -179,6 +249,7 @@ public class FrmCartelera extends javax.swing.JFrame {
             }
         ));
         tablaCartelera.setGridColor(new java.awt.Color(50, 50, 50));
+        tablaCartelera.setRowHeight(81);
         jScrollPane1.setViewportView(tablaCartelera);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 760, 330));
@@ -216,7 +287,6 @@ public class FrmCartelera extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnCarteleraActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
