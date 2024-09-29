@@ -7,6 +7,7 @@ presentacion\FrmInicioSesion.class
 presentacion\FrmCartelera.class
 presentacion\FrmMenu.class
 presentacion\FrmCartelera$1.class
+presentacion\FrmMenuAdmin$8.class
 presentacion\FrmInicioSesion$1.class
 presentacion\Catálogos\FrmCatalogoSalas.class
 persistencia\IPeliculasDAO.class
@@ -17,6 +18,7 @@ presentacion\FrmMenu$3.class
 presentacion\FrmSinopsis.class
 presentacion\FrmRegistro$1.class
 negocio\SalasNegocio.class
+presentacion\FrmInicioSesion$7.class
 presentacion\FrmSinopsis$2.class
 presentacion\Catálogos\FrmCatalogoPeliculas$4.class
 presentacion\Catálogos\FrmCatalogoSalas$3.class

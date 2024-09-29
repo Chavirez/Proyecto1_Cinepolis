@@ -53,17 +53,13 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         lbl_cClientes = new javax.swing.JLabel();
         btn_cFunciones = new javax.swing.JPanel();
         lbl_cFunciones = new javax.swing.JLabel();
-        lblfondoTabla = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblfondoTabla = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
-        fondoEncabezado = new javax.swing.JLabel();
-        background_img = new javax.swing.JLabel();
-        fondoEncabezado1 = new javax.swing.JLabel();
-        fondoEncabezado2 = new javax.swing.JLabel();
-        fondoEncabezado3 = new javax.swing.JLabel();
-        fondoEncabezado4 = new javax.swing.JLabel();
-        fondoEncabezado5 = new javax.swing.JLabel();
+        btnRegresar3 = new javax.swing.JPanel();
+        Regresar3 = new javax.swing.JLabel();
         fondoEncabezado6 = new javax.swing.JLabel();
+        background_img = new javax.swing.JLabel();
 
         lbl_continuar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_continuar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -273,13 +269,13 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         content.add(btn_cFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 200, 80));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
-        content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 790, 500));
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cinépolis");
         content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
+        content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 790, 500));
 
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_cPeliculas1.setForeground(new java.awt.Color(255, 0, 51));
@@ -287,31 +283,31 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
-        fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
+        btnRegresar3.setBackground(new java.awt.Color(47, 48, 55));
+        btnRegresar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresar3MouseClicked(evt);
+            }
+        });
+        btnRegresar3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Regresar3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Regresar3.setForeground(new java.awt.Color(255, 255, 255));
+        Regresar3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Regresar3.setText("<");
+        Regresar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar3.add(Regresar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -5, 20, 20));
+
+        content.add(btnRegresar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 20, 20));
+
+        fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
+        content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
         content.add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
-
-        fondoEncabezado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
-
-        fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
-        content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -362,6 +358,12 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         this.dispose();   
     }//GEN-LAST:event_btn_ReportesMouseClicked
 
+    private void btnRegresar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar3MouseClicked
+        // TODO add your handling code here:
+        new FrmInicioSesion().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresar3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -399,7 +401,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Regresar2;
+    private javax.swing.JLabel Regresar3;
     private javax.swing.JLabel background_img;
+    private javax.swing.JPanel btnRegresar2;
+    private javax.swing.JPanel btnRegresar3;
     private javax.swing.JPanel btn_Reportes;
     private javax.swing.JPanel btn_cClientes;
     private javax.swing.JPanel btn_cFunciones;
@@ -409,12 +415,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel btn_continuar1;
     private javax.swing.JLabel close_icon;
     private javax.swing.JPanel content;
-    private javax.swing.JLabel fondoEncabezado;
-    private javax.swing.JLabel fondoEncabezado1;
-    private javax.swing.JLabel fondoEncabezado2;
-    private javax.swing.JLabel fondoEncabezado3;
-    private javax.swing.JLabel fondoEncabezado4;
-    private javax.swing.JLabel fondoEncabezado5;
     private javax.swing.JLabel fondoEncabezado6;
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;

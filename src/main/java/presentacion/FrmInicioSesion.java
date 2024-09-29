@@ -112,6 +112,8 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         lbl_continuar = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
+        btn_MenuAdmin = new javax.swing.JPanel();
+        lbl_continuar1 = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,7 +177,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         btn_continuar.setLayout(btn_continuarLayout);
         btn_continuarLayout.setHorizontalGroup(
             btn_continuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_continuar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(lbl_continuar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
         btn_continuarLayout.setVerticalGroup(
             btn_continuarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,6 +202,32 @@ public class FrmInicioSesion extends javax.swing.JFrame {
             }
         });
         content.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 100, 30));
+
+        btn_MenuAdmin.setBackground(new java.awt.Color(83, 85, 96));
+        btn_MenuAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_MenuAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_MenuAdminMouseClicked(evt);
+            }
+        });
+
+        lbl_continuar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_continuar1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_continuar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_continuar1.setText("Menú de Administrador");
+
+        javax.swing.GroupLayout btn_MenuAdminLayout = new javax.swing.GroupLayout(btn_MenuAdmin);
+        btn_MenuAdmin.setLayout(btn_MenuAdminLayout);
+        btn_MenuAdminLayout.setHorizontalGroup(
+            btn_MenuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_continuar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+        );
+        btn_MenuAdminLayout.setVerticalGroup(
+            btn_MenuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_continuar1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        content.add(btn_MenuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
@@ -241,7 +269,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
                 // PLACEHOLDER
                 // Aqui se agregara que se desea que se realiza cuando el
                 // usuario inicialize sesion.
-                JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Se inicia la sesion");
                 FrmMenu menu = new FrmMenu();
                 menu.setVisible(true);
@@ -264,6 +292,13 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnRegistrarseActionPerformed
+
+    private void btn_MenuAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MenuAdminMouseClicked
+        // TODO add your handling code here:
+        
+        new FrmMenuAdmin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_MenuAdminMouseClicked
 
     /**
      * @param args the command line arguments
@@ -303,12 +338,14 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_img;
     private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JPanel btn_MenuAdmin;
     private javax.swing.JPanel btn_close;
     private javax.swing.JPanel btn_continuar;
     private javax.swing.JLabel close_icon;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbl_continuar;
+    private javax.swing.JLabel lbl_continuar1;
     private javax.swing.JLabel lbl_o;
     private javax.swing.JLabel lock_icon;
     private javax.swing.JLabel mail_icon;
