@@ -89,11 +89,6 @@ public class FrmCartelera extends javax.swing.JFrame {
         btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
         btnCartelera.setText("Cartelera");
         btnCartelera.setBorderPainted(false);
-        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarteleraActionPerformed(evt);
-            }
-        });
         Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
@@ -186,21 +181,11 @@ public class FrmCartelera extends javax.swing.JFrame {
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
         fondo.setMinimumSize(new java.awt.Dimension(800, 600));
         fondo.setPreferredSize(new java.awt.Dimension(800, 600));
-        Contenedor.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 801, 500));
-
-        getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 500));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
-        // TODO add your handling code here:
-        
-        new FrmCartelera().setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_btnCarteleraActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
@@ -213,6 +198,10 @@ public class FrmCartelera extends javax.swing.JFrame {
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
         dispose();
     }//GEN-LAST:event_btn_closeMouseClicked
+
+    private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelRegresarMouseClicked
 
     /**
      * @param args the command line arguments

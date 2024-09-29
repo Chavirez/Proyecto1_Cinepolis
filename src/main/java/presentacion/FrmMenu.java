@@ -87,7 +87,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
-        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 10, 10));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
 
@@ -108,11 +108,6 @@ public class FrmMenu extends javax.swing.JFrame {
         btnCartelera.setForeground(new java.awt.Color(255, 255, 255));
         btnCartelera.setText("Cartelera");
         btnCartelera.setBorderPainted(false);
-        btnCartelera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarteleraActionPerformed(evt);
-            }
-        });
         Encabezado.add(btnCartelera, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         btnPromos.setBackground(new java.awt.Color(54, 54, 54));
