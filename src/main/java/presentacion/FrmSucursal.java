@@ -4,6 +4,10 @@
  */
 package presentacion;
 
+import dtos.SucursalDTO;
+import dtos.ciudadDTO;
+import java.util.List;
+
 /**
  *
  * @author nomar
@@ -17,6 +21,24 @@ public class FrmSucursal extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void llenarBoxCiudades(List<ciudadDTO> ciudadLista) {
+        int i = 0;
+        while (ciudadLista.size() > i) {
+            boxCiudad.addItem(ciudadLista.get(i).getNombre());
+            i++;
+        }
+    }
+    
+    private void llenarBoxSucursales(List<SucursalDTO> sucursalLista) {
+        int i = 0;
+        while (sucursalLista.size() > i) {
+            boxSucursal.addItem(sucursalLista.get(i).getNombre());
+            i++;
+        }
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

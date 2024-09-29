@@ -11,6 +11,7 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\C
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\IClienteDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\ISalasDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmMetodoDePago.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\Funciones\FrmRegistroCatalogoFunciones.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\ReporteSucursalDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\CiudadDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\FrmCatalogoSalas.java
@@ -51,7 +52,6 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\IFunci
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Reportes\FrmReportes.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\SucursalNegocio.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\FrmCatalogoPeliculas.java
-C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\FrmCatalogoFunciones.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmInicioSesion.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\SucursalDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\utilerias\JButtonCellEditor.java
@@ -73,3 +73,4 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\Func
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\IConexionBD.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\SucursalEntidad.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\IFuncionDAO.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\Funciones\FrmCatalogoFunciones.java
