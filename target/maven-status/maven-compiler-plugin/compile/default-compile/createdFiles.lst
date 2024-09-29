@@ -27,6 +27,7 @@ negocio\ISucursalNegocio.class
 presentacion\Catálogos\Clientes\FrmEditarCatalogoClientes.class
 dtos\ReporteSucursalDTO.class
 presentacion\Reportes\FrmReportes$2.class
+presentacion\FrmMetodoDePago$1.class
 persistencia\ClienteDAO.class
 presentacion\Catálogos\FrmCatalogoFunciones$5.class
 dtos\SucursalDTO.class
@@ -61,6 +62,7 @@ presentacion\Reportes\FrmReportes$4.class
 negocio\IFuncionNegocio.class
 presentacion\Catálogos\Clientes\FrmCatalogoClientes$3.class
 dtos\registrarClienteDTO.class
+utilerias\JButtonRenderer.class
 negocio\FuncionNegocio.class
 presentacion\Catálogos\Clientes\FrmCatalogoClientes$4.class
 entidades\ReporteTipoPagoEntidad.class
@@ -73,6 +75,7 @@ dtos\ClienteDTO.class
 presentacion\FrmSinopsis$4.class
 presentacion\FrmMenuAdmin$2.class
 entidades\ClienteBuscarEntidad.class
+presentacion\FrmMetodoDePago$2.class
 persistencia\ConexionBD.class
 presentacion\Catálogos\FrmCatalogoFunciones$4.class
 negocio\CiudadNegocio.class
@@ -92,6 +95,7 @@ presentacion\Catálogos\FrmCatalogoSalas$1.class
 persistencia\ICiudadDAO.class
 presentacion\Reportes\FrmReportes$6.class
 persistencia\CiudadDAO.class
+utilerias\JButtonCellEditor.class
 presentacion\FrmMenuAdmin$1.class
 presentacion\FrmSinopsis$3.class
 presentacion\Catálogos\Clientes\FrmEliminarCatalogoClientes$1.class
@@ -141,6 +145,7 @@ presentacion\Catálogos\Clientes\FrmRegistroCatalogoClientes$2.class
 persistencia\PersistenciaException.class
 persistencia\IReporteDAO.class
 presentacion\FrmInicioSesion$5.class
+presentacion\FrmMetodoDePago.class
 persistencia\SucursalDAO.class
 dtos\ReporteTipoPagoDTO.class
 presentacion\Catálogos\FrmCatalogoPeliculas$6.class

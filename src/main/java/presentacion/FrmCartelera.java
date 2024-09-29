@@ -4,6 +4,12 @@
  */
 package presentacion;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.table.TableColumnModel;
+import utilerias.JButtonCellEditor;
+import utilerias.JButtonRenderer;
+
 /**
  *
  * @author nomar
@@ -15,8 +21,26 @@ public class FrmCartelera extends javax.swing.JFrame {
      */
     public FrmCartelera() {
         initComponents();
+        cargarConfiguracionInicialTablaCartelera();
     }
 
+    private void cargarConfiguracionInicialTablaCartelera() { 
+        
+        ActionListener onVerSinopsisClickListener = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+
+                
+            }               
+        };
+            
+        TableColumnModel modeloColumnas = this.tablaCartelera.getColumnModel();
+        modeloColumnas.getColumn(3).setCellRenderer(new JButtonRenderer("Ver Sinopsis"));
+        modeloColumnas.getColumn(3).setCellEditor(new JButtonCellEditor("Ver Sinopsis",onVerSinopsisClickListener));
+    }        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,6 +200,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         tablaCartelera.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
+                {"a", "a", "a", "a", "a", "a"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
