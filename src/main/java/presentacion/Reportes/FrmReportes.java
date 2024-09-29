@@ -74,6 +74,7 @@ public class FrmReportes extends javax.swing.JFrame {
         btn_gReporte.setVisible(Boolean.FALSE);
         fldDesde.setVisible(Boolean.FALSE);
         fldHasta.setVisible(Boolean.FALSE);
+        lblFiltroS.setVisible(Boolean.FALSE);
 
     }
 
@@ -86,6 +87,7 @@ public class FrmReportes extends javax.swing.JFrame {
         btn_gReporte.setVisible(Boolean.TRUE);
         fldDesde.setVisible(Boolean.TRUE);
         fldHasta.setVisible(Boolean.TRUE);
+        lblFiltroS.setVisible(Boolean.TRUE);
         
     }
 
@@ -295,11 +297,12 @@ public class FrmReportes extends javax.swing.JFrame {
         btn_gReporte = new javax.swing.JPanel();
         lbl_gReporte = new javax.swing.JLabel();
         btn_anterior = new javax.swing.JPanel();
-        lblfondoTabla = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         btn_close2 = new javax.swing.JPanel();
         close_icon3 = new javax.swing.JLabel();
         fondoEncabezado6 = new javax.swing.JLabel();
+        lblFiltroS = new javax.swing.JLabel();
+        lblfondoTabla = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
 
         lbl_continuar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -545,9 +548,6 @@ public class FrmReportes extends javax.swing.JFrame {
         btn_anterior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         content.add(btn_anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
 
-        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
-        content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 790, 500));
-
         btn_close.setBackground(new java.awt.Color(47, 48, 55));
         btn_close.setForeground(new java.awt.Color(47, 48, 55));
         btn_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -579,6 +579,16 @@ public class FrmReportes extends javax.swing.JFrame {
         fondoEncabezado6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
         content.add(fondoEncabezado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, -1));
 
+        lblFiltroS.setBackground(new java.awt.Color(255, 255, 255));
+        lblFiltroS.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblFiltroS.setForeground(new java.awt.Color(255, 255, 255));
+        lblFiltroS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFiltroS.setText("PLACEHOLDER");
+        content.add(lblFiltroS, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 376, 710, 80));
+
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
+        content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 790, 500));
+
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
@@ -604,16 +614,19 @@ public class FrmReportes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_closeMouseClicked
 
     private void btn_pSucursalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pSucursalMouseClicked
+        lblFiltroS.setText("Sucursal");
         activarFields();
         tipo = 0;
     }//GEN-LAST:event_btn_pSucursalMouseClicked
 
     private void btn_pPeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pPeliculaMouseClicked
+        lblFiltroS.setText("Película");
         activarFields();    
         tipo = 1;
     }//GEN-LAST:event_btn_pPeliculaMouseClicked
 
     private void btn_tipopagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tipopagoMouseClicked
+        lblFiltroS.setText("Tipo de Pago");
         activarFields();
         tipo = 2;
     }//GEN-LAST:event_btn_tipopagoMouseClicked
@@ -727,6 +740,7 @@ public class FrmReportes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblDesde;
+    private javax.swing.JLabel lblFiltroS;
     private javax.swing.JLabel lblHasta;
     private javax.swing.JLabel lbl_cPeliculas1;
     private javax.swing.JLabel lbl_continuar1;

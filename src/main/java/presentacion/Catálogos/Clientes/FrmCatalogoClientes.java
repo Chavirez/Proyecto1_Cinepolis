@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion.Catálogos;
+package presentacion.Catálogos.Clientes;
 
 import dtos.ClienteDTO;
 import presentacion.*;
@@ -19,7 +19,7 @@ import persistencia.ClienteDAO;
 import persistencia.ConexionBD;
 import persistencia.IClienteDAO;
 import persistencia.IConexionBD;
-import presentacion.Catálogos.FrmCatalogoClientes;
+import presentacion.Catálogos.Clientes.FrmCatalogoClientes;
 
 /**
  *
@@ -365,6 +365,8 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         );
 
         content.add(btn_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
+
+        lblfondoTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondoTablas.png"))); // NOI18N
         content.add(lblfondoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 790, 500));
 
         lblatras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
