@@ -18,17 +18,27 @@ import java.util.logging.Logger;
  *
  * @author santi
  */
-public class CiudadDAO implements ICiudadDAO{
-    
+public class CiudadDAO implements ICiudadDAO {
+
     private IConexionBD conexionBD;
 
+    /**
+     * Constructor de la conexion
+     *
+     * @param conexionBD
+     */
     public CiudadDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
-    
-    
-        @Override
-        public List<CiudadEntidad> buscarCiudadTabla() throws PersistenciaException {
+
+    /**
+     * Metodo que busca la ciudad en la tabla
+     *
+     * @return lista de ciudades
+     * @throws PersistenciaException Posible Excepcion
+     */
+    @Override
+    public List<CiudadEntidad> buscarCiudadTabla() throws PersistenciaException {
         try {
             List<CiudadEntidad> ciudadLista = null;
 
@@ -52,8 +62,13 @@ public class CiudadDAO implements ICiudadDAO{
         }
     }
 
-        
-        
+    /**
+     * Metodo que convierte los datos de la base de datos a entidad
+     *
+     * @param resultado informacion de la base de datos
+     * @return informacion de la base de datos encapsulada
+     * @throws PersistenciaException Posible Excepcion
+     */
     @Override
     public CiudadEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException {
         try {
@@ -65,6 +80,6 @@ public class CiudadDAO implements ICiudadDAO{
             Logger.getLogger(CiudadDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new PersistenciaException("Error al convertir la ciudad a Entidad");
         }
-    }    
-    
+    }
+
 }

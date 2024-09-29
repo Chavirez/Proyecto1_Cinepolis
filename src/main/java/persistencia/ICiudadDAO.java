@@ -10,12 +10,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * Clase con los metodos abstractos para la Ciudad
  *
  * @author santi
  */
 public interface ICiudadDAO {
-    
+
     List<CiudadEntidad> buscarCiudadTabla() throws PersistenciaException;
-    
-    CiudadEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException;    
+
+    CiudadEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException;
 }

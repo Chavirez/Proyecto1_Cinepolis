@@ -10,12 +10,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * Clase con los metodos abstractos para la clase PeliculasDAO
  *
  * @author santi
  */
 public interface IPeliculasDAO {
-    
-    public PeliculaEntidad convertirAEntidad(ResultSet resultado) throws SQLException ;
-    public List<PeliculaEntidad> buscarPeliculasTabla(int idSucursal) throws PersistenciaException ;    
-    public List<PeliculaEntidad> buscarPeliculasTablaT() throws PersistenciaException ;    
+
+    public PeliculaEntidad convertirAEntidad(ResultSet resultado) throws SQLException;
+
+    public List<PeliculaEntidad> buscarPeliculasTabla(int idSucursal) throws PersistenciaException;
+
+    public List<PeliculaEntidad> buscarPeliculasTablaT() throws PersistenciaException;
 }

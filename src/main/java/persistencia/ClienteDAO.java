@@ -21,18 +21,24 @@ import java.util.logging.Logger;
  *
  * @author eduar, ssanchez
  */
-public class ClienteDAO implements IClienteDAO{
-    
+public class ClienteDAO implements IClienteDAO {
+
     private IConexionBD conexionBD;
 
     public ClienteDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
-    
+
+    /**
+     * Método para registrar un nuevo cliente en la base de datos
+     *
+     * @param cliente entidad del cliente
+     * @throws PersistenciaException posible excepcion
+     */
     @Override
     public void registrarCliente(ClienteEntidad cliente) throws PersistenciaException {
-        try{
-                        
+        try {
+
             Connection conexion = this.conexionBD.crearConexion();
             conexion.setAutoCommit(false);
             String codigoSQL = "insert into clientes (nombre,apellido,email, contraseña, fecha_nacimiento, idCiudad) values (?,?,?,?,?,?); ";
@@ -46,16 +52,22 @@ public class ClienteDAO implements IClienteDAO{
             preparedStatement.execute();
             conexion.commit();
             conexion.close();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            throw new PersistenciaException("Ocurrió un error al Insertar la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema."); 
+            throw new PersistenciaException("Ocurrió un error al Insertar la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         };
     }
-    
+
+    /**
+     * Método para editar los datos de un cliente existente
+     *
+     * @param cliente entidad del cliente
+     * @throws PersistenciaException posible excepcion
+     */
     @Override
     public void editarCliente(ClienteEntidad cliente) throws PersistenciaException {
-        try{
-               
+        try {
+
             System.out.println(cliente.toString());
             Connection conexion = this.conexionBD.crearConexion();
             conexion.setAutoCommit(false);
@@ -71,16 +83,22 @@ public class ClienteDAO implements IClienteDAO{
             preparedStatement.execute();
             conexion.commit();
             conexion.close();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            throw new PersistenciaException("Ocurrió un error al editar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema."); 
+            throw new PersistenciaException("Ocurrió un error al editar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         };
-    }    
-    
+    }
+
+    /**
+     * Método para eliminar un cliente de la base de datos
+     *
+     * @param cliente entidad del cliente
+     * @throws PersistenciaException posible excepcion
+     */
     @Override
     public void eliminarCliente(ClienteEntidad cliente) throws PersistenciaException {
-        try{
-               
+        try {
+
             System.out.println(cliente.toString());
             Connection conexion = this.conexionBD.crearConexion();
             conexion.setAutoCommit(false);
@@ -90,15 +108,20 @@ public class ClienteDAO implements IClienteDAO{
             preparedStatement.execute();
             conexion.commit();
             conexion.close();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            throw new PersistenciaException("Ocurrió un error al editar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema."); 
+            throw new PersistenciaException("Ocurrió un error al editar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         };
-    }    
-        
-    
-        @Override
-        public int buscarIdCliente(ClienteEntidad cliente) throws PersistenciaException {
+    }
+
+    /**
+     * Método para buscar el ID de un cliente basado en su email y contraseña
+     *
+     * @param cliente entidad del cliente
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public int buscarIdCliente(ClienteEntidad cliente) throws PersistenciaException {
         try {
 
             Connection conexion = this.conexionBD.crearConexion();
@@ -116,12 +139,18 @@ public class ClienteDAO implements IClienteDAO{
             throw new PersistenciaException("Ocurrió un error al leer la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         }
     }
-    
-    public boolean validarCliente(ClienteEntidad cliente) throws PersistenciaException{
-    try{
-        
-        Connection conexion = this.conexionBD.crearConexion();
-        String codigoSQL = "CALL validarUsuario(?,?,?);";
+
+    /**
+     * Método para validar un cliente mediante un procedimiento almacenado
+     *
+     * @param cliente entidad del cliente
+     * @throws PersistenciaException posible excepcion
+     */
+    public boolean validarCliente(ClienteEntidad cliente) throws PersistenciaException {
+        try {
+
+            Connection conexion = this.conexionBD.crearConexion();
+            String codigoSQL = "CALL validarUsuario(?,?,?);";
             try (CallableStatement callableStatement = conexion.prepareCall(codigoSQL)) {
                 callableStatement.setString(1, cliente.getEmail());
                 callableStatement.setString(2, cliente.getContraseña());
@@ -132,15 +161,22 @@ public class ClienteDAO implements IClienteDAO{
                 return validado;
             }
 
-    }catch(SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            throw new PersistenciaException("Ocurrió un error al Validar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");   
-    }
+            throw new PersistenciaException("Ocurrió un error al Validar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
+        }
     }
 
-        @Override
-        public void comprarBoleto(int id, int cant) throws PersistenciaException {
-            
+    /**
+     * Método para realizar la compra de boletos
+     *
+     * @param id id del boleto
+     * @param cant cantidad de boleto
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public void comprarBoleto(int id, int cant) throws PersistenciaException {
+
         try {
 
             Connection conexion = this.conexionBD.crearConexion();
@@ -159,16 +195,20 @@ public class ClienteDAO implements IClienteDAO{
             throw new PersistenciaException("Ocurrió un error al leer la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         }
     }
-        
-        @Override
-        public List<ClienteBuscarEntidad> buscarClientesTabla() throws PersistenciaException {
+
+    /**
+     * Método para buscar todos los clientes y devolver una lista
+     *
+     */
+    @Override
+    public List<ClienteBuscarEntidad> buscarClientesTabla() throws PersistenciaException {
         try {
             List<ClienteBuscarEntidad> clienteLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "Select idCliente, cl.nombre,apellido,contraseña,fecha_nacimiento,email,c.nombre as nc \n" +
-                            "from clientes cl\n" +
-                            "left join ciudades c on cl.idCiudad = c.idCiudad;";
+            String codigoSQL = "Select idCliente, cl.nombre,apellido,contraseña,fecha_nacimiento,email,c.nombre as nc \n"
+                    + "from clientes cl\n"
+                    + "left join ciudades c on cl.idCiudad = c.idCiudad;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
             ResultSet resultado = preparedStatement.executeQuery();
             while (resultado.next()) {
@@ -185,11 +225,18 @@ public class ClienteDAO implements IClienteDAO{
             System.out.println(ex.getMessage());
             throw new PersistenciaException("Ocurrió un error al leer la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         }
-      
+
     }
-    
-        @Override
-        public ClienteEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException {
+
+    /**
+     * Convierte la info de la base de datos a entidad
+     *
+     * @param resultado
+     * @return info de la base de datos encaposulada
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public ClienteEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException {
         try {
             int idCliente = resultado.getInt("idCliente");
             String nombre = resultado.getString("nombre");
@@ -198,18 +245,17 @@ public class ClienteDAO implements IClienteDAO{
             String contraseña = resultado.getString("contraseña");
             String email = resultado.getString("email");
 
-
             return new ClienteEntidad(idCliente, nombre, apellido, email, idCliente, contraseña, fn);
         } catch (SQLException ex) {
-             throw new PersistenciaException("Error al convertir de Resultado a Entidad");
+            throw new PersistenciaException("Error al convertir de Resultado a Entidad");
         }
-    }  
-        
-        @Override
-        public ClienteBuscarEntidad convertirCBAEntidad(ResultSet resultado) throws PersistenciaException {
+    }
+
+    @Override
+    public ClienteBuscarEntidad convertirCBAEntidad(ResultSet resultado) throws PersistenciaException {
         try {
             int idCliente = resultado.getInt("idCliente");
-            
+
             String nombre = resultado.getString("nombre");
             String apellido = resultado.getString("apellido");
             Date fn = resultado.getDate("fecha_nacimiento");
@@ -219,7 +265,7 @@ public class ClienteDAO implements IClienteDAO{
 
             return new ClienteBuscarEntidad(idCliente, nombre, apellido, email, ciudad, contraseña, fn, 0.0);
         } catch (SQLException ex) {
-             throw new PersistenciaException("Error al convertir de Resultado a Entidad");
+            throw new PersistenciaException("Error al convertir de Resultado a Entidad");
         }
-    }          
+    }
 }

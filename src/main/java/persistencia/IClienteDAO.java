@@ -11,27 +11,28 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * Clase con los metodos abstractos para el CLienteDAO
  *
  * @author eduar
  */
 public interface IClienteDAO {
-    
+
     void registrarCliente(ClienteEntidad cliente) throws PersistenciaException;
-    
-    void editarCliente(ClienteEntidad cliente) throws PersistenciaException;  
-    
-    void eliminarCliente(ClienteEntidad cliente) throws PersistenciaException;    
-    
+
+    void editarCliente(ClienteEntidad cliente) throws PersistenciaException;
+
+    void eliminarCliente(ClienteEntidad cliente) throws PersistenciaException;
+
     boolean validarCliente(ClienteEntidad cliente) throws PersistenciaException;
-    
+
     public int buscarIdCliente(ClienteEntidad cliente) throws PersistenciaException;
-    
+
     public void comprarBoleto(int id, int cant) throws PersistenciaException;
-    
+
     public List<ClienteBuscarEntidad> buscarClientesTabla() throws PersistenciaException;
 
     public ClienteEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException;
-    
+
     public ClienteBuscarEntidad convertirCBAEntidad(ResultSet resultado) throws PersistenciaException;
-    
+
 }

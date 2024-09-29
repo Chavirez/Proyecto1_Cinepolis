@@ -11,13 +11,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * Clase con los metodos abstractos para la clase SucursalDAO
  *
  * @author santi
  */
 public interface ISucursalDAO {
-    
-    public List<SucursalEntidad> buscarSucursalTabla(SucursalDTO sucursal) throws PersistenciaException;    
-    
-    public SucursalEntidad convertirAEntidad(ResultSet resultado) throws SQLException;    
-    
+
+    public List<SucursalEntidad> buscarSucursalTabla(SucursalDTO sucursal) throws PersistenciaException;
+
+    public SucursalEntidad convertirAEntidad(ResultSet resultado) throws SQLException;
+
 }

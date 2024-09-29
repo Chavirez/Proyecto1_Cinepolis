@@ -18,17 +18,24 @@ import java.util.List;
  *
  * @author santi
  */
-public class SucursalDAO implements ISucursalDAO{
-    
+public class SucursalDAO implements ISucursalDAO {
+
     private IConexionBD conexionBD;
 
     public SucursalDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
-    
-    
-        @Override
-        public List<SucursalEntidad> buscarSucursalTabla(SucursalDTO sucursal) throws PersistenciaException {
+
+    /**
+     * Metodo que busca las sucursales en la base de datos y la convierte en una
+     * tabla
+     *
+     * @param sucursal sucrusales en la base de datos
+     * @return lista de todas las sucursales en la base de datos
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public List<SucursalEntidad> buscarSucursalTabla(SucursalDTO sucursal) throws PersistenciaException {
         try {
             List<SucursalEntidad> sucursalLista = null;
 
@@ -40,7 +47,7 @@ public class SucursalDAO implements ISucursalDAO{
             while (resultado.next()) {
                 if (sucursalLista == null) {
                     sucursalLista = new ArrayList<>();
- 
+
                 }
                 SucursalEntidad sucursales = this.convertirAEntidad(resultado);
                 sucursalLista.add(sucursales);
@@ -54,6 +61,13 @@ public class SucursalDAO implements ISucursalDAO{
         }
     }
 
+    /**
+     * Metodo que convierte las sucursales a entidad
+     *
+     * @param resultado info de la base de datos encapsulada
+     * @return info de la base de datos encapsulada
+     * @throws SQLException posible excepcion
+     */
     @Override
     public SucursalEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         int idSucursal = resultado.getInt("idSucursal");
@@ -62,6 +76,6 @@ public class SucursalDAO implements ISucursalDAO{
         int idCiudad = resultado.getInt("idCiudad");
         System.out.println(idSucursal);
         return new SucursalEntidad(idSucursal, nombre, idCiudad);
-    }    
-    
+    }
+
 }

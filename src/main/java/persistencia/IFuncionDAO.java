@@ -12,16 +12,17 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
+ * Clase con los metodos abstractos para la clase FuncionDAO
  *
  * @author santi
  */
 public interface IFuncionDAO {
-    
-        public List<FuncionEntidad> buscarFuncionesTabla(FuncionDTO funcion) throws PersistenciaException;
-        
-        public FuncionEntidad convertirAEntidad(ResultSet resultado) throws SQLException;
-            
-        public FuncionEntidad buscarIdFuncion(FuncionDTO funcion) throws PersistenciaException ;
-        
-        public List<FuncionEntidad> buscarFuncionesTablaT() throws PersistenciaException;
+
+    public List<FuncionEntidad> buscarFuncionesTabla(FuncionDTO funcion) throws PersistenciaException;
+
+    public FuncionEntidad convertirAEntidad(ResultSet resultado) throws SQLException;
+
+    public FuncionEntidad buscarIdFuncion(FuncionDTO funcion) throws PersistenciaException;
+
+    public List<FuncionEntidad> buscarFuncionesTablaT() throws PersistenciaException;
 }

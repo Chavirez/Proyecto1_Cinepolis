@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
+ * Interfaz de Boletos Dao que crea los metodos abstractos
  *
  * @author PC
  */
@@ -21,6 +22,6 @@ public interface IBoletoDAO {
     public List<BoletoEntidad> buscarTodosBoletos() throws PersistenciaException;
 
     public BoletoEntidad convertirAEntidad(ResultSet resultado) throws SQLException;
-    
+
     public BoletoEntidad buscarIdBoleto(BoletoDTO boleto) throws PersistenciaException;
 }
