@@ -40,6 +40,7 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\F
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\salasDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\CiudadNegocio.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\ClienteBuscarEntidad.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmPostPago.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\ReporteDAO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\ReportePeliculaEntidad.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\negocio\IPeliculaNegocio.java
@@ -65,6 +66,7 @@ C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\Clie
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\FuncionDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\SucursalDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\persistencia\IPeliculasDAO.java
+C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\FrmSucursal.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\presentacion\Catálogos\Clientes\FrmCatalogoClientes.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\dtos\ReportePeliculaDTO.java
 C:\Users\santi\Documents\GitHub\Proyecto1_Cinepolis\src\main\java\entidades\FuncionEntidad.java

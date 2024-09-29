@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion.Catálogos.Clientes;
+package presentacion.Catálogos.Funciones;
 
+import presentacion.Catálogos.Clientes.*;
 import dtos.ClienteDTO;
 import presentacion.*;
 import dtos.ciudadDTO;
@@ -33,7 +34,7 @@ import persistencia.IConexionBD;
  *
  * @author nomar
  */
-public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
+public class FrmRegistroCatalogoFunciones extends javax.swing.JFrame {
 
     // Conexion obligatoria cuando se interactua con la base de datos.
     IConexionBD conexionBD = new ConexionBD();
@@ -45,44 +46,17 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
     /**
      * Creates new form FrmRegistro
      */
-    public FrmEliminarCatalogoClientes() {
+    public FrmRegistroCatalogoFunciones() {
         initComponents();
         llenarBoxCiudades(buscarCiudadTabla());
-        llenarBoxClientes(buscarClienteTabla());
     }
 
-    private void llenarBoxClientes(List<ClienteDTO> clientesLista) {
-        int i = 0;
-        while (clientesLista.size() > i) {
-            boxClientes.addItem(clientesLista.get(i).getNombre());
-            i++;
-        }
-    }
-
-    /**
-     * Metodo que se encarga de hacer la lista de las ciudades con la info de la
-     * base de datos.
-     *
-     * @return lista con las ciudades de la base de datos.
-     */
-    private List<ClienteDTO> buscarClienteTabla() {
-        List<ClienteDTO> clientesLista = null;
-        try {
-
-            clientesLista = this.clienteNegocio.buscarClientesTabla();
-
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
-        }
-
-        return clientesLista;
-    }    
-    
     /**
      * Metodo que se encarga de llenar de informacion el comboBox de Ciudad.
      *
-     * @param ciudadLista lista con las ciudades.
+     * @param clientesLista lista con las ciudades.
      */
+    
     private void llenarBoxCiudades(List<ciudadDTO> ciudadLista) {
         int i = 0;
         while (ciudadLista.size() > i) {
@@ -108,7 +82,7 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
         }
 
         return ciudadLista;
-    }
+    }    
 
     /**
      * Metodo que convierte el texto de la fecha en un formato fecha para SQL.
@@ -137,15 +111,26 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
      * @param cliente clienteDTO
      * @throws NegocioException Posible Excepcion
      */
-    private void eliminarCliente(registrarClienteDTO cliente) throws NegocioException {
+    private void registrarCliente(registrarClienteDTO cliente) throws NegocioException {
         try {
-            clienteNegocio.eliminarCliente(cliente);
+            clienteNegocio.registrarCliente(cliente);
         } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(this, "No se pudo editar a el cliente \n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se pudo registrar el cliente \n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    
+    /**
+     * Metodo para verificar si el cliente existe en la base de datos.
+     *
+     * @param cliente clienteDTO
+     * @return true si el cliente existe en la base de datos, false en caso
+     * contrario.
+     * @throws NegocioException Posible Excepcion
+     */
+    private boolean validarCliente(validarClienteDTO cliente) throws NegocioException {
+        return clienteNegocio.validarCliente(cliente);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,7 +162,6 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
         lbl_ciudad = new javax.swing.JLabel();
         boxCiudad = new javax.swing.JComboBox<>();
         logo = new javax.swing.JLabel();
-        boxClientes = new javax.swing.JComboBox<>();
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,20 +222,20 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
         lbl_registro.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_registro.setText("Eliminar Cliente");
-        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 100, 310, -1));
+        lbl_registro.setText("Registro Clientes");
+        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 100, 300, -1));
 
         btnRegistro.setBackground(new java.awt.Color(53, 53, 53));
         btnRegistro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistro.setText("Eliminar");
+        btnRegistro.setText("Registrarse");
         btnRegistro.setBorderPainted(false);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, -1, -1));
+        getContentPane().add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, -1, -1));
         getContentPane().add(txtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 300, 30));
 
         lbl_fecha_nacimiento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -292,13 +276,6 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
         logo.setText("Cinépolis");
         getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
-        boxClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxClientesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(boxClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 210, -1));
-
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
@@ -323,9 +300,6 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
             Date fechaSql = getSQLDate(fechaTexto);
             int ciudad = boxCiudad.getSelectedIndex();
             int ciudadSql = 1 + boxCiudad.getSelectedIndex();
-            int idCliente = 1 + boxClientes.getSelectedIndex();
-            System.out.println(idCliente);
-            System.out.println(boxClientes.getSelectedIndex());
 
             ControlRegistros cRegistro = new ControlRegistros();
             //cRegistro.validarCampos(correo, contrasenia, nombre, apellido, fechaTexto, ciudad);
@@ -335,17 +309,22 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
 
             // Revisa las validaciones de ControlRegistros
             if (verificacionValidacion == true) {
-
-                registrarClienteDTO cliente = new registrarClienteDTO(nombre, apellido, correo, ciudadSql, contrasenia, fechaSql, idCliente);
-
-              
-                    eliminarCliente(cliente);
-                    JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente");
-
+                validarClienteDTO clienteAV = new validarClienteDTO(correo, contrasenia);
+                registrarClienteDTO cliente = new registrarClienteDTO(nombre, apellido, correo, ciudadSql, contrasenia, fechaSql);
+                // Revisa si el cliente existe
+                if (validarCliente(clienteAV) != true) {
+                    registrarCliente(cliente);
+                    JOptionPane.showMessageDialog(this, "Cliente agregado correctamente");
+                    new FrmInicioSesion().setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "El cliente ya existe!");
                 }
-            
+            } else {
+
+            }
         } catch (Exception ex) {
-            Logger.getLogger(FrmEliminarCatalogoClientes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmRegistroCatalogoFunciones.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnRegistroActionPerformed
@@ -380,30 +359,6 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegresarMouseClicked
 
-    private void boxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxClientesActionPerformed
-        // TODO add your handling code here:
-        int selectedIndex = boxClientes.getSelectedIndex();
-        if (selectedIndex != -1)
-        {
-            try
-            {
-                // Obtener el ID del chat seleccionado usando el índice
-                List<ClienteDTO> chats = clienteNegocio.buscarClientesTabla();
-                ClienteDTO clienteSeleccionado = chats.get(selectedIndex);
-                txtCorreo.setText(clienteSeleccionado.getEmail());
-                txtContraseña.setText(clienteSeleccionado.getContraseña());
-                txtNombre.setText(clienteSeleccionado.getNombre());
-                txtApellido.setText(clienteSeleccionado.getApellido());
-                txtNacimiento.setText(clienteSeleccionado.getFechaNacimiento().toString());
-
-            } catch (NegocioException ex)
-            {
-                Logger.getLogger(FrmEliminarCatalogoClientes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }        
-        
-    }//GEN-LAST:event_boxClientesActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Apellido;
     private javax.swing.JLabel Contraseña;
@@ -411,7 +366,6 @@ public class FrmEliminarCatalogoClientes extends javax.swing.JFrame {
     private javax.swing.JLabel Regresar;
     private javax.swing.JLabel background_img;
     private javax.swing.JComboBox<String> boxCiudad;
-    private javax.swing.JComboBox<String> boxClientes;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JPanel btnRegresar;
     private javax.swing.JPanel btn_close2;

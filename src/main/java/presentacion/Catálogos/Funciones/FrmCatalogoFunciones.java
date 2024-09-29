@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion.Catálogos;
+package presentacion.Catálogos.Funciones;
 
 import dtos.ClienteDTO;
 import dtos.FuncionDTO;
@@ -24,7 +24,7 @@ import persistencia.IClienteDAO;
 import persistencia.IConexionBD;
 import persistencia.IFuncionDAO;
 import persistencia.funcionDAO;
-import presentacion.Catálogos.FrmCatalogoFunciones;
+import presentacion.Catálogos.Funciones.FrmCatalogoFunciones;
 
 /**
  *
