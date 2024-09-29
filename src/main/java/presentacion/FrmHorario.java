@@ -43,6 +43,7 @@ public class FrmHorario extends javax.swing.JFrame {
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,6 +132,7 @@ public class FrmHorario extends javax.swing.JFrame {
         getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 140, 30));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
+        panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelRegresarMouseClicked(evt);
@@ -162,7 +164,7 @@ public class FrmHorario extends javax.swing.JFrame {
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
-        getContentPane().add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+        getContentPane().add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 801, -1));
 
         pack();
         setLocationRelativeTo(null);
