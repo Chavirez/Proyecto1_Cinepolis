@@ -218,7 +218,7 @@ public class FrmCartelera extends javax.swing.JFrame {
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
-        new FrmMenu().setVisible(true);
+        new FrmSucursal().setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnCarteleraActionPerformed

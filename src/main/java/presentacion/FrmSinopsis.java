@@ -129,6 +129,10 @@ public class FrmSinopsis extends javax.swing.JFrame {
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
+        
+        new FrmSucursal().setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnCarteleraActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed

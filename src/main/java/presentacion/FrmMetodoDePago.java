@@ -38,6 +38,8 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panelTarjeta = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        panelRegresar = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,6 +148,36 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
 
         getContentPane().add(panelTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 430, 100));
 
+        panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
+        panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRegresarMouseClicked(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("<");
+
+        javax.swing.GroupLayout panelRegresarLayout = new javax.swing.GroupLayout(panelRegresar);
+        panelRegresar.setLayout(panelRegresarLayout);
+        panelRegresarLayout.setHorizontalGroup(
+            panelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRegresarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelRegresarLayout.setVerticalGroup(
+            panelRegresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRegresarLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panelRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 40, 40));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
         fondo.setMinimumSize(new java.awt.Dimension(800, 600));
@@ -158,10 +190,14 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
+        new FrmSucursal().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCarteleraActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
+        new FrmMenu().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnPromosActionPerformed
 
     private void panelEfectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEfectivoMouseClicked
@@ -176,6 +212,11 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
         new FrmPostPago().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelTarjetaMouseClicked
+
+    private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
+        new FrmBoleto().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_panelRegresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,7 +234,9 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel panelEfectivo;
+    private javax.swing.JPanel panelRegresar;
     private javax.swing.JPanel panelTarjeta;
     // End of variables declaration//GEN-END:variables
 }

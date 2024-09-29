@@ -139,12 +139,13 @@ public class FrmSucursal extends javax.swing.JFrame {
         getContentPane().add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 800, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
 
-        new FrmCartelera().setVisible(true);
+        new FrmSucursal().setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnCarteleraActionPerformed
