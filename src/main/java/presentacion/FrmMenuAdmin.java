@@ -7,7 +7,7 @@ package presentacion;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import presentacion.Catálogos.Clientes.FrmCatalogoClientes;
-import presentacion.Catálogos.FrmCatalogoFunciones;
+import presentacion.Catálogos.Funciones.FrmCatalogoFunciones;
 import presentacion.Catálogos.FrmCatalogoPeliculas;
 import presentacion.Catálogos.FrmCatalogoSalas;
 import presentacion.Reportes.FrmReportes;

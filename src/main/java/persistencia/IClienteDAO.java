@@ -18,7 +18,9 @@ public interface IClienteDAO {
     
     void registrarCliente(ClienteEntidad cliente) throws PersistenciaException;
     
-    void editarCliente(ClienteEntidad cliente) throws PersistenciaException;    
+    void editarCliente(ClienteEntidad cliente) throws PersistenciaException;  
+    
+    void eliminarCliente(ClienteEntidad cliente) throws PersistenciaException;    
     
     boolean validarCliente(ClienteEntidad cliente) throws PersistenciaException;
     

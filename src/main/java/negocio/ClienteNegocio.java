@@ -50,6 +50,17 @@ public class ClienteNegocio implements IClienteNegocio{
     }    
     
     @Override
+    public void eliminarCliente(registrarClienteDTO cliente) throws NegocioException{
+            try {
+            this.clienteDAO.eliminarCliente(convertirDTOaEntidad(cliente));            
+            } catch (PersistenciaException ex) {
+            // hacer uso de Logger
+            System.out.println(ex.getMessage());
+            throw new NegocioException(ex.getMessage());
+        }
+    }    
+    
+    @Override
     public boolean validarCliente(validarClienteDTO cliente) throws NegocioException{
             try {
             return this.clienteDAO.validarCliente(convertirDTOaEntidad(cliente));            

@@ -4,19 +4,100 @@
  */
 package presentacion;
 
+import dtos.SucursalDTO;
+import dtos.ciudadDTO;
+import java.util.List;
+import javax.swing.JOptionPane;
+import negocio.CiudadNegocio;
+import negocio.ClienteNegocio;
+import negocio.ICiudadNegocio;
+import negocio.IClienteNegocio;
+import negocio.ISucursalNegocio;
+import negocio.NegocioException;
+import negocio.SucursalNegocio;
+import persistencia.CiudadDAO;
+import persistencia.ClienteDAO;
+import persistencia.ConexionBD;
+import persistencia.ICiudadDAO;
+import persistencia.SucursalDAO;
+import persistencia.IClienteDAO;
+import persistencia.IConexionBD;
+import persistencia.ISucursalDAO;
+
 /**
  *
  * @author nomar
  */
 public class FrmSucursal extends javax.swing.JFrame {
 
+    IConexionBD conexionBD = new ConexionBD();
+    ISucursalDAO clienteDAO = new SucursalDAO(conexionBD);
+    ICiudadDAO ciudadDAO = new CiudadDAO(conexionBD);
+    ISucursalNegocio sucursalNegocio = new SucursalNegocio(clienteDAO);
+    ICiudadNegocio ciudad = new CiudadNegocio(ciudadDAO);    
+    
     /**
      * Creates new form FrmSucursal
      */
     public FrmSucursal() {
         initComponents();
+        llenarBoxCiudades(buscarCiudadTabla());
     }
 
+    private void llenarBoxCiudades(List<ciudadDTO> ciudadLista) {
+        int i = 0;
+        while (ciudadLista.size() > i) {
+            boxCiudad.addItem(ciudadLista.get(i).getNombre());
+            i++;
+        }
+    }
+    
+    private void llenarBoxSucursales(List<SucursalDTO> sucursalLista) {
+        int i = 0;
+        while (sucursalLista.size() > i) {
+            boxSucursal.addItem(sucursalLista.get(i).getNombre());
+            i++;
+        }
+    }
+    
+/**
+     * Metodo que se encarga de hacer la lista de las ciudades con la info de la
+     * base de datos.
+     *
+     * @return lista con las ciudades de la base de datos.
+     */
+    private List<ciudadDTO> buscarCiudadTabla() {
+        List<ciudadDTO> ciudadLista = null;
+        try {
+
+            ciudadLista = ciudad.buscarCiudadTabla();
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return ciudadLista;
+    }    
+    
+/**
+     * Metodo que se encarga de hacer la lista de las ciudades con la info de la
+     * base de datos.
+     *
+     * @return lista con las ciudades de la base de datos.
+     */
+    private List<SucursalDTO> buscarSucursalTabla(SucursalDTO sucursal) {
+        List<SucursalDTO> sucursalLista = null;
+        try {
+
+            sucursalLista = sucursalNegocio.buscarSucursalTabla(sucursal);
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return sucursalLista;
+    }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,6 +245,9 @@ public class FrmSucursal extends javax.swing.JFrame {
 
     private void boxCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCiudadActionPerformed
         // TODO add your handling code here:
+        SucursalDTO sucursal = new SucursalDTO();
+        sucursal.setIdCiudad(boxCiudad.getSelectedIndex() +1);
+        llenarBoxSucursales(buscarSucursalTabla(sucursal));
     }//GEN-LAST:event_boxCiudadActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
