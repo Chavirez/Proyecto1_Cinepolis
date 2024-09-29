@@ -34,6 +34,7 @@ public class FrmBoleto extends javax.swing.JFrame {
      */
     public FrmBoleto() {
         initComponents();
+        llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
     }
 
     private List<BoletoDTO> buscarBoletosTabla() {
@@ -62,11 +63,11 @@ public class FrmBoleto extends javax.swing.JFrame {
             boletosLista.forEach(row -> {
                 Object[] fila = new Object[7];
                 fila[0] = row.getNombrePelicula(); // Título de la película
-                fila[2] = row.getHoraInicio(); // Hora de inicio de la función
-                fila[3] = row.getHoraFin(); // Hora de fin de la función
-                fila[4] = row.getSala(); // Nombre del boleto
-                fila[5] = row.getSucursal(); // Sucursal del cine
-                fila[6] = row.getPrecio(); // Costo del boleto
+                fila[1] = row.getHoraInicio(); // Hora de inicio de la función
+                fila[2] = row.getHoraFin(); // Hora de fin de la función
+                fila[3] = row.getSala(); // Nombre del boleto
+                fila[4] = row.getSucursal(); // Sucursal del cine
+                fila[5] = row.getPrecio(); // Costo del boleto
 
                 modeloTabla.addRow(fila);
             });
@@ -285,38 +286,6 @@ public class FrmBoleto extends javax.swing.JFrame {
             llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmBoleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmBoleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmBoleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmBoleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmBoleto().setVisible(true);
-            }
-        });
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -48,7 +48,6 @@ public class BoletoNegocio implements IBoletoNegocio {
             dto.setHoraInicio(boleto.getHoraInicio());
             dto.setHoraFin(boleto.getHoraFin());
             dto.setSala(boleto.getSala());
-            dto.setIdBoleto(boleto.getIdBoleto());
             dto.setSucursal(boleto.getSucursal());
             dto.setPrecio(boleto.getCosto());
             boletosDTO.add(dto);

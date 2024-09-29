@@ -21,12 +21,11 @@ public class BoletoEntidad {
     private int costo;
 
     // Constructor
-    public BoletoEntidad(String nombrePelicula, Timestamp horaInicio, Timestamp horaFin, String sala, int idBoleto, String sucursal, int costo) {
+    public BoletoEntidad(String nombrePelicula, Timestamp horaInicio, Timestamp horaFin, String sala, String sucursal, int costo) {
         this.nombrePelicula = nombrePelicula;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.sala = sala;
-        this.idBoleto = idBoleto;
         this.sucursal = sucursal;
         this.costo = costo;
     }

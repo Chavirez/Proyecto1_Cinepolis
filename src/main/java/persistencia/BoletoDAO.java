@@ -32,13 +32,14 @@ public class BoletoDAO implements IBoletoDAO {
             List<BoletoEntidad> boletosLista = null;
             Connection conexion = this.conexionBD.crearConexion();
 
-            String codigoSQL = "SELECT p.titulo, f.horaInicio, f.horaFin, s.nombre AS sala, b.nombre AS boleto, sa.nombre AS sucursal, p.costo "
-                    + "FROM venta b "
-                    + "INNER JOIN funciones f ON b.idFuncion = f.idFuncion "
+            String codigoSQL = "SELECT p.titulo, f.horaInicio, f.horaFin, "
+                    + "s.nombre AS sala, sa.nombre AS sucursal, p.costo "
+                    + "FROM funciones f "
                     + "INNER JOIN peliculas p ON f.idPelicula = p.idPelicula "
                     + "INNER JOIN salas s ON f.idSala = s.idSala "
                     + "INNER JOIN sucursales sa ON s.idSucursal = sa.idSucursal "
-                    + "WHERE ? = p.titulo AND ? = sa.nombre;";
+                    + "WHERE p.titulo = ? "
+                    + "AND sa.nombre = ?;";
 
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
             preparedStatement.setString(1, boleto.getNombrePelicula());
@@ -66,11 +67,10 @@ public class BoletoDAO implements IBoletoDAO {
         Timestamp horaInicio = resultado.getTimestamp("horaInicio");
         Timestamp horaFin = resultado.getTimestamp("horaFin");
         String sala = resultado.getString("sala");
-        int boletoNombre = resultado.getInt("boleto");
         String sucursal = resultado.getString("sucursal");
         int costo = resultado.getInt("costo");
 
-        return new BoletoEntidad(titulo, horaInicio, horaFin, sala, boletoNombre, sucursal, costo);
+        return new BoletoEntidad(titulo, horaInicio, horaFin, sala, sucursal, costo);
     }
 
     @Override
@@ -79,9 +79,9 @@ public class BoletoDAO implements IBoletoDAO {
             List<BoletoEntidad> boletosLista = null;
             Connection conexion = this.conexionBD.crearConexion();
 
-            String codigoSQL = "SELECT p.titulo, f.horaInicio, f.horaFin, s.nombre AS sala, b.nombre AS boleto, sa.nombre AS sucursal, p.costo "
-                    + "FROM venta b "
-                    + "INNER JOIN funciones f ON b.idFuncion = f.idFuncion "
+            String codigoSQL = "SELECT p.titulo, f.horaInicio, f.horaFin, "
+                    + "s.nombre AS sala, sa.nombre AS sucursal, p.costo "
+                    + "FROM funciones f "
                     + "INNER JOIN peliculas p ON f.idPelicula = p.idPelicula "
                     + "INNER JOIN salas s ON f.idSala = s.idSala "
                     + "INNER JOIN sucursales sa ON s.idSucursal = sa.idSucursal;";
@@ -111,11 +111,14 @@ public class BoletoDAO implements IBoletoDAO {
             Connection conexion = this.conexionBD.crearConexion();
 
             // Consulta SQL para obtener el ID del boleto
-            String codigoSQL = "SELECT b.idBoleto FROM venta b "
-                    + "INNER JOIN funciones f ON b.idFuncion = f.idFuncion "
+            String codigoSQL = "SELECT p.titulo, f.horaInicio, f.horaFin, "
+                    + "s.nombre AS sala, sa.nombre AS sucursal, p.costo "
+                    + "FROM funciones f "
                     + "INNER JOIN peliculas p ON f.idPelicula = p.idPelicula "
                     + "INNER JOIN salas s ON f.idSala = s.idSala "
-                    + "WHERE ? = b.fecha_hora AND ? = s.nombre AND ? = p.titulo;";
+                    + "WHERE f.fecha_hora = ? "
+                    + "AND s.nombre = ? "
+                    + "AND p.titulo = ?;";
 
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
             preparedStatement.setTimestamp(1, boleto.getHoraInicio());  // Fecha y hora del boleto
