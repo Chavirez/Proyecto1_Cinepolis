@@ -442,7 +442,6 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
             LIMITE -= 3;
             llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
         }
-
     }//GEN-LAST:event_btn_AtrasMouseClicked
 
 
