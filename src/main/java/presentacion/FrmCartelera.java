@@ -245,7 +245,7 @@ public class FrmCartelera extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Duracion", "Genero", "Sinopsis", "Trailer", "Pais"
+                "Nombre", "Clasificación", "Género", "Duración", "País", "Trailer"
             }
         ));
         tablaCartelera.setGridColor(new java.awt.Color(50, 50, 50));
