@@ -26,6 +26,7 @@ public class FrmHorario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         btnCatalago = new javax.swing.JButton();
@@ -45,6 +46,11 @@ public class FrmHorario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Horarios");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -96,28 +102,22 @@ public class FrmHorario extends javax.swing.JFrame {
         tablaHorario.setBackground(new java.awt.Color(54, 54, 54));
         tablaHorario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Pelicula", "Horario", "Sala", "Comprar"
             }
         ));
         jScrollPane1.setViewportView(tablaHorario);
-        if (tablaHorario.getColumnModel().getColumnCount() > 0) {
-            tablaHorario.getColumnModel().getColumn(2).setResizable(false);
-        }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 650, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 650, 280));
 
         btnAnterior.setBackground(new java.awt.Color(54, 54, 54));
         btnAnterior.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
         btnAnterior.setText("Anterior");
         btnAnterior.setBorderPainted(false);
-        getContentPane().add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 140, 30));
+        getContentPane().add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 140, 30));
 
         btnSiguiente.setBackground(new java.awt.Color(54, 54, 54));
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -129,7 +129,7 @@ public class FrmHorario extends javax.swing.JFrame {
                 btnSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 140, 30));
+        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 140, 30));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
         panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -211,6 +211,7 @@ public class FrmHorario extends javax.swing.JFrame {
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelRegresar;

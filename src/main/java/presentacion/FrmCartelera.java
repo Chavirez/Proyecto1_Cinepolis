@@ -26,6 +26,7 @@ public class FrmCartelera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JPanel();
@@ -51,6 +52,11 @@ public class FrmCartelera extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Cartelera");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
         btn_close.setBackground(new java.awt.Color(47, 48, 55));
         btn_close.setForeground(new java.awt.Color(47, 48, 55));
@@ -157,14 +163,14 @@ public class FrmCartelera extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Siguiente");
         jButton1.setBorderPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 140, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 540, 140, 30));
 
         jButton2.setBackground(new java.awt.Color(54, 54, 54));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Anterior");
         jButton2.setBorderPainted(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 140, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 140, 30));
 
         tablaCartelera.setBackground(new java.awt.Color(54, 54, 54));
         tablaCartelera.setModel(new javax.swing.table.DefaultTableModel(
@@ -181,7 +187,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         tablaCartelera.setGridColor(new java.awt.Color(50, 50, 50));
         jScrollPane1.setViewportView(tablaCartelera);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 760, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 760, 330));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
@@ -235,6 +241,7 @@ public class FrmCartelera extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelRegresar;
