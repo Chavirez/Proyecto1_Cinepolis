@@ -4,17 +4,82 @@
  */
 package presentacion;
 
+import dtos.FuncionDTO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.FuncionNegocio;
+import negocio.IFuncionNegocio;
+import negocio.NegocioException;
+import persistencia.ConexionBD;
+import persistencia.IConexionBD;
+import persistencia.IFuncionDAO;
+import persistencia.funcionDAO;
+
 /**
  *
  * @author nomar
  */
 public class FrmHorario extends javax.swing.JFrame {
 
+    IConexionBD conexionBD = new ConexionBD();
+    IFuncionDAO funcionDAO = new funcionDAO(conexionBD);
+    IFuncionNegocio funcionNegocio = new FuncionNegocio(funcionDAO);
+    private int pagina = 0;
+    private int LIMITE = 3;
+
     /**
      * Creates new form FrmHorario
      */
     public FrmHorario() {
         initComponents();
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+    }
+
+    private List<FuncionDTO> buscarFuncionesTabla() {
+        List<FuncionDTO> funcionesLista = null;
+        try {
+
+            funcionesLista = this.funcionNegocio.buscarFuncionesTablaT();
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return funcionesLista;
+    }
+
+    private void llenarTablaFunciones(List<FuncionDTO> funcionesLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaHorario.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (funcionesLista != null) {
+            funcionesLista.forEach(row -> {
+                Object[] fila = new Object[8];
+                fila[0] = row.getTitulo();
+                fila[1] = row.getHoraInicio();
+                fila[2] = row.getHoraFin();
+                fila[3] = row.getSala();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }
+
+    private List<FuncionDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<FuncionDTO> todas = buscarFuncionesTabla();
+        List<FuncionDTO> todasLasPaginas = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todas.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            todasLasPaginas.add(todas.get(i));
+        }
+        return todasLasPaginas;
     }
 
     /**
@@ -94,17 +159,19 @@ public class FrmHorario extends javax.swing.JFrame {
         jScrollPane1.setForeground(new java.awt.Color(54, 54, 54));
 
         tablaHorario.setBackground(new java.awt.Color(54, 54, 54));
+        tablaHorario.setForeground(new java.awt.Color(255, 255, 255));
         tablaHorario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Pelicula", "Horario", "Sala", "Comprar"
+                "Pelicula", "Hora Inicio", "Hora Fin", "Sala", "Comprar"
             }
         ));
+        tablaHorario.setRowHeight(81);
         jScrollPane1.setViewportView(tablaHorario);
         if (tablaHorario.getColumnModel().getColumnCount() > 0) {
             tablaHorario.getColumnModel().getColumn(2).setResizable(false);
@@ -117,6 +184,11 @@ public class FrmHorario extends javax.swing.JFrame {
         btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
         btnAnterior.setText("Anterior");
         btnAnterior.setBorderPainted(false);
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 140, 30));
 
         btnSiguiente.setBackground(new java.awt.Color(54, 54, 54));
@@ -187,17 +259,65 @@ public class FrmHorario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPromosActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
         // TODO add your handling code here:
-        
+
         new FrmCartelera().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_panelRegresarMouseClicked
 
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        // TODO add your handling code here:
+        if (pagina -3 < 0)
+        {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        }
+        else
+        {
+            pagina -= 3;
+            LIMITE -= 3;
+            llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+        }
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmHorario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmHorario().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Encabezado;

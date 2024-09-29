@@ -20,6 +20,7 @@ presentacion\FrmInicioSesion$7.class
 presentacion\FrmSinopsis$2.class
 presentacion\Catálogos\FrmCatalogoPeliculas$4.class
 presentacion\Catálogos\FrmCatalogoSalas$3.class
+presentacion\FrmHorario$6.class
 negocio\ISucursalNegocio.class
 dtos\ReporteSucursalDTO.class
 presentacion\Reportes\FrmReportes$2.class
@@ -42,6 +43,8 @@ persistencia\ReporteDAO.class
 presentacion\FrmBoleto.class
 presentacion\FrmMenu$1.class
 persistencia\ISalasDAO.class
+presentacion\FrmCartelera$6.class
+presentacion\FrmHorario$5.class
 entidades\FuncionEntidad.class
 dtos\FuncionDTO.class
 presentacion\FrmMenuAdmin$3.class
@@ -57,6 +60,7 @@ negocio\IFuncionNegocio.class
 com\mycompany\proyecto1_ia\Proyecto1_IA.class
 presentacion\Catálogos\Clientes\FrmCatalogoClientes$3.class
 dtos\registrarClienteDTO.class
+presentacion\FrmCartelera$5.class
 utilerias\JButtonRenderer.class
 negocio\FuncionNegocio.class
 presentacion\Catálogos\Clientes\FrmCatalogoClientes$4.class

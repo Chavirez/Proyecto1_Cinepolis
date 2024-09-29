@@ -66,10 +66,10 @@ public class FrmCartelera extends javax.swing.JFrame {
                 fila[0] = row.getTitulo();
                 fila[1] = row.getClasificacion();
                 fila[2] = row.getGenero();
-                fila[3] = row.getDuracion();
-                fila[6] = row.getSinopsis();
+                fila[3] = row.getDuracion();               
                 fila[4] = row.getPais();
                 fila[5] = row.getTrailer();
+                fila[6] = row.getSinopsis();
 
                 modeloTabla.addRow(fila);
             });
@@ -226,6 +226,11 @@ public class FrmCartelera extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Siguiente");
         jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 140, 30));
 
         jButton2.setBackground(new java.awt.Color(54, 54, 54));
@@ -233,19 +238,24 @@ public class FrmCartelera extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Anterior");
         jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 140, 30));
 
         tablaCartelera.setBackground(new java.awt.Color(54, 54, 54));
         tablaCartelera.setForeground(new java.awt.Color(255, 255, 255));
         tablaCartelera.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Clasificación", "Género", "Duración", "País", "Trailer"
+                "Nombre", "Clasificación", "Género", "Duración", "País", "Trailer", "Sinópsis"
             }
         ));
         tablaCartelera.setGridColor(new java.awt.Color(50, 50, 50));
@@ -287,6 +297,27 @@ public class FrmCartelera extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnCarteleraActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;
+        llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (pagina -3 < 0)
+        {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        }
+        else
+        {
+            pagina -= 3;
+            LIMITE -= 3;
+            llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
