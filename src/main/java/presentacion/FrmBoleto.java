@@ -4,21 +4,82 @@
  */
 package presentacion;
 
+import dtos.FuncionDTO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.FuncionNegocio;
+import negocio.IFuncionNegocio;
+import negocio.NegocioException;
+import persistencia.ConexionBD;
+import persistencia.IConexionBD;
+import persistencia.IFuncionDAO;
+import persistencia.funcionDAO;
+
 /**
  *
  * @author nomar
  */
 public class FrmBoleto extends javax.swing.JFrame {
 
+    IConexionBD conexionBD = new ConexionBD();
+    IFuncionDAO funcionDAO = new funcionDAO(conexionBD);
+    IFuncionNegocio funcionNegocio = new FuncionNegocio(funcionDAO);
+    private int pagina = 0;
+    private int LIMITE = 3;
+
     /**
      * Creates new form FrmBoleto
      */
     public FrmBoleto() {
         initComponents();
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
     }
-    
-    private void cargarConfiguracionInicialTablaBoleto(){
-        
+
+    private List<FuncionDTO> buscarFuncionesTabla() {
+        List<FuncionDTO> funcionesLista = null;
+        try {
+
+            funcionesLista = this.funcionNegocio.buscarFuncionesTablaT();
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return funcionesLista;
+    }
+
+    private void llenarTablaFunciones(List<FuncionDTO> funcionesLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaBoleto.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (funcionesLista != null) {
+            funcionesLista.forEach(row -> {
+                Object[] fila = new Object[8];
+                fila[0] = row.getTitulo();
+                fila[1] = row.getHoraInicio();
+                fila[2] = row.getHoraFin();
+                fila[3] = row.getSala();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }
+
+    private List<FuncionDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<FuncionDTO> todas = buscarFuncionesTabla();
+        List<FuncionDTO> todasLasPaginas = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todas.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            todasLasPaginas.add(todas.get(i));
+        }
+        return todasLasPaginas;
     }
 
     /**
@@ -98,6 +159,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         Contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaBoleto.setBackground(new java.awt.Color(54, 54, 54));
+        tablaBoleto.setForeground(new java.awt.Color(255, 255, 255));
         tablaBoleto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -106,10 +168,11 @@ public class FrmBoleto extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Duracion", "Sala", "Ciudad", "Comprar"
+                "Nombre", "Hora Inicio", "Hora Fin", "Sala", "Comprar"
             }
         ));
         tablaBoleto.setGridColor(new java.awt.Color(50, 50, 50));
+        tablaBoleto.setRowHeight(81);
         jScrollPane1.setViewportView(tablaBoleto);
 
         Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 760, 330));
@@ -119,6 +182,11 @@ public class FrmBoleto extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Siguiente");
         jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         Contenedor.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 140, 30));
 
         jButton2.setBackground(new java.awt.Color(54, 54, 54));
@@ -126,6 +194,11 @@ public class FrmBoleto extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Anterior");
         jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         Contenedor.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 140, 30));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
@@ -194,7 +267,25 @@ public class FrmBoleto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_panelRegresarMouseClicked
 
-public static void main(String args[]) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;
+        llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (pagina - 3 < 0) {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        } else {
+            pagina -= 3;
+            LIMITE -= 3;
+            llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -225,8 +316,8 @@ public static void main(String args[]) {
             }
         });
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contenedor;
     private javax.swing.JPanel Encabezado;

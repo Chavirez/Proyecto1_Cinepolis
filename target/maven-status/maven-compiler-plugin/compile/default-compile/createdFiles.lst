@@ -39,6 +39,7 @@ presentacion\Catálogos\FrmCatalogoFunciones$2.class
 persistencia\IConexionBD.class
 negocio\ReporteNegocio.class
 presentacion\Reportes\FrmReportes$5.class
+presentacion\FrmBoleto$5.class
 persistencia\ReporteDAO.class
 presentacion\FrmBoleto.class
 presentacion\FrmMenu$1.class
@@ -117,6 +118,7 @@ presentacion\FrmMenuAdmin.class
 presentacion\Catálogos\FrmCatalogoSalas$7.class
 presentacion\FrmCartelera$3.class
 presentacion\FrmRegistro$2.class
+presentacion\FrmBoleto$6.class
 negocio\IReporteNegocio.class
 presentacion\Reportes\FrmReportes$8.class
 presentacion\FrmInicioSesion$6.class
