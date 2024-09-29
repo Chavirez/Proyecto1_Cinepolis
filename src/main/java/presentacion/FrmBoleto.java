@@ -44,6 +44,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,6 +125,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         Contenedor.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 140, 30));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
+        panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelRegresarMouseClicked(evt);
@@ -156,7 +158,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
         fondo.setMinimumSize(new java.awt.Dimension(800, 600));
         fondo.setPreferredSize(new java.awt.Dimension(800, 600));
-        Contenedor.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
+        Contenedor.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 810, -1));
 
         getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 500));
 

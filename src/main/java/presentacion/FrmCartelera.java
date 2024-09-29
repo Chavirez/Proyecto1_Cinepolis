@@ -123,6 +123,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         getContentPane().add(Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
+        panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelRegresarMouseClicked(evt);
@@ -186,7 +187,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
         fondo.setMinimumSize(new java.awt.Dimension(800, 600));
         fondo.setPreferredSize(new java.awt.Dimension(800, 600));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, -1, -1));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 801, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -194,10 +195,10 @@ public class FrmCartelera extends javax.swing.JFrame {
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
-        
+
         new FrmMenu().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnPromosActionPerformed
 
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked
@@ -205,14 +206,15 @@ public class FrmCartelera extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_closeMouseClicked
 
     private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
-        // TODO add your handling code here:
+        new FrmMenu().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_panelRegresarMouseClicked
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
         new FrmMenu().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnCarteleraActionPerformed
 
     /**
