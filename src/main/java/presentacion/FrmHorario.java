@@ -262,7 +262,8 @@ public class FrmHorario extends javax.swing.JFrame {
     private void panelRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegresarMouseClicked
         // TODO add your handling code here:
 
-        new FrmCartelera().setVisible(true);
+        new FrmSucursal().setVisible(true);
+//        new FrmCartelera().setVisible(true); 
         this.dispose();
 
     }//GEN-LAST:event_panelRegresarMouseClicked

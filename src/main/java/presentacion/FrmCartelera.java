@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import negocio.IPeliculaNegocio;
@@ -37,7 +38,8 @@ public class FrmCartelera extends javax.swing.JFrame {
     /**
      * Creates new form FrmCartelera
      */
-    public FrmCartelera() {
+    public FrmCartelera(List<PeliculaDTO> pelicula) {
+        
         initComponents();
 
         llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
@@ -89,8 +91,10 @@ public class FrmCartelera extends javax.swing.JFrame {
             todasLasPaginas.add(todas.get(i));
         }
         return todasLasPaginas;
+        
     }
 
+    
     private void cargarConfiguracionInicialTablaCartelera() { 
         
         ActionListener onVerSinopsisClickListener = new ActionListener() {
