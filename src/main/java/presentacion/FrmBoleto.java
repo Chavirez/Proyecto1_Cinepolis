@@ -106,6 +106,7 @@ public class FrmBoleto extends javax.swing.JFrame {
         tablaBoleto = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         panelRegresar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
@@ -177,31 +178,26 @@ public class FrmBoleto extends javax.swing.JFrame {
         tablaBoleto.setRowHeight(81);
         jScrollPane1.setViewportView(tablaBoleto);
 
-        Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 760, 330));
+        Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 760, 330));
 
         jButton1.setBackground(new java.awt.Color(54, 54, 54));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Siguiente");
         jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        Contenedor.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 140, 30));
+        Contenedor.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 140, 30));
 
         jButton2.setBackground(new java.awt.Color(54, 54, 54));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Anterior");
         jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        Contenedor.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 140, 30));
+        Contenedor.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 140, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Boleto");
+        Contenedor.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
         panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -248,7 +244,7 @@ public class FrmBoleto extends javax.swing.JFrame {
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
 
-        new FrmCartelera().setVisible(true);
+        new FrmSucursal().setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnCarteleraActionPerformed
@@ -301,6 +297,7 @@ public class FrmBoleto extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelRegresar;

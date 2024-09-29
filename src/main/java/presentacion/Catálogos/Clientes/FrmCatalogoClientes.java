@@ -19,7 +19,6 @@ import persistencia.ClienteDAO;
 import persistencia.ConexionBD;
 import persistencia.IClienteDAO;
 import persistencia.IConexionBD;
-import presentacion.Catálogos.Clientes.FrmCatalogoClientes;
 
 /**
  *
@@ -68,11 +67,10 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         if (clientesLista != null) {
             clientesLista.forEach(row -> {
                 Object[] fila = new Object[7];
-                fila[0] = row.getIdCliente();
-                fila[1] = row.getNombre();
-                fila[2] = row.getApellido();
-                fila[3] = row.getContraseña();
-                fila[6] = row.getFechaNacimiento();
+                fila[0] = row.getNombre();
+                fila[1] = row.getApellido();
+                fila[2] = row.getContraseña();
+                fila[3] = row.getFechaNacimiento();
                 fila[4] = row.getEmail();
                 fila[5] = row.getCiudad();
 
@@ -445,14 +443,20 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
 
     private void btn_AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarMouseClicked
         // TODO add your handling code here:
+        new FrmRegistroCatalogoClientes().setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_btn_AgregarMouseClicked
 
     private void btn_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EliminarMouseClicked
         // TODO add your handling code here:
+        new FrmEliminarCatalogoClientes().setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_btn_EliminarMouseClicked
 
     private void btn_EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EditarMouseClicked
         // TODO add your handling code here:
+        new FrmEditarCatalogoClientes().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_EditarMouseClicked
 
     private void btn_anteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anteriorMouseClicked

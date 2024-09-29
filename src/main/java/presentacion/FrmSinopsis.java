@@ -4,6 +4,8 @@
  */
 package presentacion;
 
+import entidades.PeliculaEntidad;
+
 /**
  *
  * @author nomar
@@ -16,7 +18,7 @@ public class FrmSinopsis extends javax.swing.JFrame {
     public FrmSinopsis() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +39,6 @@ public class FrmSinopsis extends javax.swing.JFrame {
         labelTitulo = new javax.swing.JLabel();
         labelDescripcion = new javax.swing.JLabel();
         btnComprarBoletos = new javax.swing.JButton();
-        btnTrailer = new javax.swing.JButton();
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,7 +94,7 @@ public class FrmSinopsis extends javax.swing.JFrame {
 
         labelDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         labelDescripcion.setText("Descripcion");
-        getContentPane().add(labelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 310, 100));
+        getContentPane().add(labelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 310, 100));
 
         btnComprarBoletos.setBackground(new java.awt.Color(54, 54, 54));
         btnComprarBoletos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -107,17 +108,6 @@ public class FrmSinopsis extends javax.swing.JFrame {
         });
         getContentPane().add(btnComprarBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
-        btnTrailer.setBackground(new java.awt.Color(54, 54, 54));
-        btnTrailer.setForeground(new java.awt.Color(255, 255, 255));
-        btnTrailer.setText("Trailer");
-        btnTrailer.setBorderPainted(false);
-        btnTrailer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTrailerActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnTrailer, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 120, -1));
-
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
@@ -129,15 +119,15 @@ public class FrmSinopsis extends javax.swing.JFrame {
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
+        
+        new FrmSucursal().setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnCarteleraActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPromosActionPerformed
-
-    private void btnTrailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrailerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTrailerActionPerformed
 
     private void btnComprarBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarBoletosActionPerformed
         // TODO add your handling code here:
@@ -152,7 +142,6 @@ public class FrmSinopsis extends javax.swing.JFrame {
     private javax.swing.JButton btnCartelera;
     private javax.swing.JButton btnComprarBoletos;
     private javax.swing.JButton btnPromos;
-    private javax.swing.JButton btnTrailer;
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelDescripcion;

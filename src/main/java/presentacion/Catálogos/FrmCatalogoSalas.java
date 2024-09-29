@@ -118,6 +118,7 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
         close_icon = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -247,6 +248,11 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Catalago Sala");
+        content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+
         btn_Siguiente.setBackground(new java.awt.Color(83, 85, 96));
         btn_Siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -293,7 +299,7 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
         tblSalas.setRowHeight(81);
         jScrollPane2.setViewportView(tblSalas);
 
-        content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
+        content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 212, 650, 240));
 
         btn_Editar.setBackground(new java.awt.Color(83, 85, 96));
         btn_Editar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -479,6 +485,7 @@ public class FrmCatalogoSalas extends javax.swing.JFrame {
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

@@ -52,6 +52,51 @@ public class ClienteDAO implements IClienteDAO{
         };
     }
     
+    @Override
+    public void editarCliente(ClienteEntidad cliente) throws PersistenciaException {
+        try{
+               
+            System.out.println(cliente.toString());
+            Connection conexion = this.conexionBD.crearConexion();
+            conexion.setAutoCommit(false);
+            String codigoSQL = "UPDATE clientes SET nombre = ?, apellido = ?, email = ?, contraseña = ?, fecha_nacimiento = ?, idCiudad = ? WHERE idCliente = ?;";
+            PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
+            preparedStatement.setString(1, cliente.getNombre());
+            preparedStatement.setString(2, cliente.getApellido());
+            preparedStatement.setString(3, cliente.getEmail());
+            preparedStatement.setString(4, cliente.getContraseña());
+            preparedStatement.setDate(5, cliente.getFechaNacimiento());
+            preparedStatement.setInt(6, cliente.getIdCiudad());
+            preparedStatement.setInt(7, cliente.getIdCliente());
+            preparedStatement.execute();
+            conexion.commit();
+            conexion.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            throw new PersistenciaException("Ocurrió un error al editar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema."); 
+        };
+    }    
+    
+    @Override
+    public void eliminarCliente(ClienteEntidad cliente) throws PersistenciaException {
+        try{
+               
+            System.out.println(cliente.toString());
+            Connection conexion = this.conexionBD.crearConexion();
+            conexion.setAutoCommit(false);
+            String codigoSQL = "DELETE FROM clientes WHERE idCliente = ?;";
+            PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
+            preparedStatement.setInt(1, cliente.getIdCliente());
+            preparedStatement.execute();
+            conexion.commit();
+            conexion.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            throw new PersistenciaException("Ocurrió un error al editar en la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema."); 
+        };
+    }    
+        
+    
         @Override
         public int buscarIdCliente(ClienteEntidad cliente) throws PersistenciaException {
         try {
@@ -170,7 +215,6 @@ public class ClienteDAO implements IClienteDAO{
             Date fn = resultado.getDate("fecha_nacimiento");
             String contraseña = resultado.getString("contraseña");
             String email = resultado.getString("email");
-            System.out.println(idCliente + nombre + apellido + email + fn.toString());
             String ciudad = resultado.getString("nc");
 
             return new ClienteBuscarEntidad(idCliente, nombre, apellido, email, ciudad, contraseña, fn, 0.0);

@@ -91,11 +91,10 @@ public class FrmHorario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         Encabezado = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         btnCatalago = new javax.swing.JButton();
         btnPromos = new javax.swing.JButton();
-        UbicacionIcon = new javax.swing.JLabel();
         LogoC = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
@@ -111,11 +110,12 @@ public class FrmHorario extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Horarios");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(54, 54, 54));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(54, 54, 54)));
-        Encabezado.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
+        Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCatalago.setBackground(new java.awt.Color(54, 54, 54));
         btnCatalago.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -140,9 +140,6 @@ public class FrmHorario extends javax.swing.JFrame {
             }
         });
         Encabezado.add(btnPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-
-        UbicacionIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gps_icon.png"))); // NOI18N
-        Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
         Encabezado.add(LogoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -173,11 +170,8 @@ public class FrmHorario extends javax.swing.JFrame {
         ));
         tablaHorario.setRowHeight(81);
         jScrollPane1.setViewportView(tablaHorario);
-        if (tablaHorario.getColumnModel().getColumnCount() > 0) {
-            tablaHorario.getColumnModel().getColumn(2).setResizable(false);
-        }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 650, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 650, 280));
 
         btnAnterior.setBackground(new java.awt.Color(54, 54, 54));
         btnAnterior.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -201,7 +195,7 @@ public class FrmHorario extends javax.swing.JFrame {
                 btnSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, 140, 30));
+        getContentPane().add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, 140, 30));
 
         panelRegresar.setBackground(new java.awt.Color(34, 35, 41));
         panelRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -245,7 +239,7 @@ public class FrmHorario extends javax.swing.JFrame {
     private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
         // TODO add your handling code here:
 
-        new FrmCartelera().setVisible(true);
+        new FrmSucursal().setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnCatalagoActionPerformed
@@ -291,7 +285,6 @@ public class FrmHorario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Encabezado;
     private javax.swing.JLabel LogoC;
-    private javax.swing.JLabel UbicacionIcon;
     private javax.swing.JLabel background_img;
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnCatalago;
@@ -300,8 +293,8 @@ public class FrmHorario extends javax.swing.JFrame {
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelRegresar;
     private javax.swing.JTable tablaHorario;
     // End of variables declaration//GEN-END:variables

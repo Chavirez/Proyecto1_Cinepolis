@@ -86,6 +86,23 @@ public class FrmCartelera extends javax.swing.JFrame {
         return todasLasPaginas;
     }
 
+    private void cargarConfiguracionInicialTablaCartelera() { 
+        
+        ActionListener onVerSinopsisClickListener = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+
+                
+            }               
+        };
+            
+        TableColumnModel modeloColumnas = this.tablaCartelera.getColumnModel();
+        modeloColumnas.getColumn(3).setCellRenderer(new JButtonRenderer("Ver Sinopsis"));
+        modeloColumnas.getColumn(3).setCellEditor(new JButtonCellEditor("Ver Sinopsis",onVerSinopsisClickListener));
+    }        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,6 +112,7 @@ public class FrmCartelera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JPanel();
@@ -120,6 +138,11 @@ public class FrmCartelera extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Cartelera");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
         btn_close.setBackground(new java.awt.Color(47, 48, 55));
         btn_close.setForeground(new java.awt.Color(47, 48, 55));
@@ -262,7 +285,7 @@ public class FrmCartelera extends javax.swing.JFrame {
         tablaCartelera.setRowHeight(81);
         jScrollPane1.setViewportView(tablaCartelera);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 760, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 760, 330));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
@@ -293,7 +316,7 @@ public class FrmCartelera extends javax.swing.JFrame {
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
-        new FrmMenu().setVisible(true);
+        new FrmSucursal().setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_btnCarteleraActionPerformed
@@ -336,6 +359,7 @@ public class FrmCartelera extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelRegresar;

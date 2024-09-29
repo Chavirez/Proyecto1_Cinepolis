@@ -15,6 +15,7 @@ public class registrarClienteDTO {
     private String contraseña;
     private Date fechaNacimiento;
     private Double coordenadas;
+    private int idCliente;
 
     public registrarClienteDTO() {
     }
@@ -30,6 +31,16 @@ public class registrarClienteDTO {
         //this.coordenadas = coordenadas;
     }
 
+    public registrarClienteDTO(String nombre, String apellido, String email, int ciudad, String contraseña, Date fechaNacimiento, int idCliente) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.ciudad = ciudad;
+        this.contraseña = contraseña;
+        this.fechaNacimiento = fechaNacimiento;
+        this.idCliente = idCliente;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -86,4 +97,12 @@ public class registrarClienteDTO {
         this.coordenadas = coordenadas;
     }
 
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+    
 }

@@ -17,10 +17,9 @@ public class SucursalEntidad {
     public SucursalEntidad() {
     }
 
-    public SucursalEntidad(int idSucursal, String nombre, Double direccion, int idCiudad) {
+    public SucursalEntidad(int idSucursal, String nombre, int idCiudad) {
         this.idSucursal = idSucursal;
         this.nombre = nombre;
-        this.direccion = direccion;
         this.idCiudad = idCiudad;
     }
 

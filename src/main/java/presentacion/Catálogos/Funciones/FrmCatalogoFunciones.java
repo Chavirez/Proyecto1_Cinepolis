@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package presentacion.Catálogos;
+package presentacion.Catálogos.Funciones;
 
 import dtos.ClienteDTO;
 import dtos.FuncionDTO;
@@ -24,7 +24,7 @@ import persistencia.IClienteDAO;
 import persistencia.IConexionBD;
 import persistencia.IFuncionDAO;
 import persistencia.funcionDAO;
-import presentacion.Catálogos.FrmCatalogoFunciones;
+import presentacion.Catálogos.Funciones.FrmCatalogoFunciones;
 
 /**
  *
@@ -106,6 +106,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         lbl_continuar1 = new javax.swing.JLabel();
         btn_continuar1 = new javax.swing.JPanel();
         lbl_continuar2 = new javax.swing.JLabel();
@@ -120,6 +121,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         close_icon = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -133,6 +135,10 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         btn_anterior = new javax.swing.JPanel();
         fondoEncabezado6 = new javax.swing.JLabel();
         background_img = new javax.swing.JLabel();
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Horarios");
 
         lbl_continuar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_continuar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,6 +254,11 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Catalago Funciones");
+        content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
+
         btn_Siguiente.setBackground(new java.awt.Color(83, 85, 96));
         btn_Siguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -295,7 +306,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         tblFunciones.setRowHeight(81);
         jScrollPane2.setViewportView(tblFunciones);
 
-        content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
+        content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 202, 650, 250));
 
         btn_Eliminar.setBackground(new java.awt.Color(83, 85, 96));
         btn_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -431,7 +442,6 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
             LIMITE -= 3;
             llenarTablaFunciones(obtenerPagina(pagina, LIMITE));
         }
-
     }//GEN-LAST:event_btn_AtrasMouseClicked
 
 
@@ -451,6 +461,8 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
