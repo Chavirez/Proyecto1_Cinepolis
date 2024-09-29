@@ -21,24 +21,30 @@ import java.util.logging.Logger;
  *
  * @author santi
  */
-public class salasDAO implements ISalasDAO{
-    
+public class salasDAO implements ISalasDAO {
+
     private IConexionBD conexionBD;
 
     public salasDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
-    
-    
-        @Override
-        public List<SalaEntidad> buscarSalasTabla() throws PersistenciaException {
+
+    /**
+     * Metodo que busca las salas de la base de datos y las almacena en una
+     * tabla
+     *
+     * @return tabla de las salas de la base de datos
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public List<SalaEntidad> buscarSalasTabla() throws PersistenciaException {
         try {
             List<SalaEntidad> salaLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select s.nombre as 'nSala', s.capacidad, su.nombre as 'nSucursal', c.nombre as 'nCiudad' from salas s\n" +
-                                "inner join sucursales su on s.idSucursal = su.idSucursal\n" +
-                                "inner join ciudades c on su.idCiudad = c.idCiudad;";
+            String codigoSQL = "select s.nombre as 'nSala', s.capacidad, su.nombre as 'nSucursal', c.nombre as 'nCiudad' from salas s\n"
+                    + "inner join sucursales su on s.idSucursal = su.idSucursal\n"
+                    + "inner join ciudades c on su.idCiudad = c.idCiudad;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
             ResultSet resultado = preparedStatement.executeQuery();
             while (resultado.next()) {
@@ -57,8 +63,13 @@ public class salasDAO implements ISalasDAO{
         }
     }
 
-        
-        
+    /**
+     * Metodo que convierte a la entidad
+     *
+     * @param resultado info de la base de datos encapsulada
+     * @return info de la base de datos encapsulada
+     * @throws PersistenciaException posible excepcion
+     */
     @Override
     public SalaEntidad convertirAEntidad(ResultSet resultado) throws PersistenciaException {
         try {
@@ -70,6 +81,6 @@ public class salasDAO implements ISalasDAO{
         } catch (SQLException ex) {
             throw new PersistenciaException("Ocurrió un error al convertir el resultado a entidad");
         }
-    }    
-    
+    }
+
 }

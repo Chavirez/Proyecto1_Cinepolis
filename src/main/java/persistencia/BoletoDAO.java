@@ -26,6 +26,14 @@ public class BoletoDAO implements IBoletoDAO {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Metodo que implementa una query para buscar los boletos por Funcion en la
+     * base de datos.
+     *
+     * @param boleto boleto
+     * @return una lista de todas las funciones.
+     * @throws PersistenciaException posible excepcion
+     */
     @Override
     public List<BoletoEntidad> buscarBoletosPorFuncion(BoletoDTO boleto) throws PersistenciaException {
         try {
@@ -61,6 +69,14 @@ public class BoletoDAO implements IBoletoDAO {
         }
     }
 
+    /**
+     * Metodo que convierte la funcion obtenida de la base de datos a una
+     * entidad.
+     *
+     * @param resultado el resultado obtenido de la base de datos
+     * @return datos seguros para la entidad
+     * @throws SQLException Posible excepcion
+     */
     @Override
     public BoletoEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         String titulo = resultado.getString("titulo");
@@ -73,6 +89,12 @@ public class BoletoDAO implements IBoletoDAO {
         return new BoletoEntidad(titulo, horaInicio, horaFin, sala, sucursal, costo);
     }
 
+    /**
+     * Metodo que busca todos los boletos en la base de datos.
+     *
+     * @return lista de boletos en base de datos.
+     * @throws PersistenciaException Posible excepcion
+     */
     @Override
     public List<BoletoEntidad> buscarTodosBoletos() throws PersistenciaException {
         try {
@@ -104,6 +126,13 @@ public class BoletoDAO implements IBoletoDAO {
         }
     }
 
+    /**
+     * Metodo que sirve para buscar un Boleto con el ID
+     *
+     * @param boleto boleto DTO
+     * @return regresa un boleto por su id
+     * @throws PersistenciaException Posible excepcion
+     */
     @Override
     public BoletoEntidad buscarIdBoleto(BoletoDTO boleto) throws PersistenciaException {
         try {

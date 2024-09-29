@@ -21,7 +21,12 @@ public class ConexionBD implements IConexionBD {
     final String USUARIO = "root";
     final String CONTRASEÑA = "root";
 
-
+    /**
+     * Metodo que crea la conexion con la base de datos
+     *
+     * @return conexion con la base de datos
+     * @throws SQLException Posible excepcion
+     */
     @Override
     public Connection crearConexion() throws SQLException {
         Connection conexion = DriverManager.getConnection(CADENA_CONEXION, USUARIO, CONTRASEÑA);

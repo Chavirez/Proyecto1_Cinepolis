@@ -21,26 +21,33 @@ import java.util.List;
  *
  * @author santi
  */
-public class funcionDAO implements IFuncionDAO{
-    
+public class funcionDAO implements IFuncionDAO {
+
     private IConexionBD conexionBD;
 
     public funcionDAO(IConexionBD conexionBD) {
         this.conexionBD = conexionBD;
     }
-    
-    
-        @Override
-        public List<FuncionEntidad> buscarFuncionesTabla(FuncionDTO funcion) throws PersistenciaException {
+
+    /**
+     * Metodo que busca las funciones en la base de datos y las conviete a una
+     * tabla.
+     *
+     * @param funcion funciones en la base de datos
+     * @return lista de todas las funciones en la base de datos encapsulada
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public List<FuncionEntidad> buscarFuncionesTabla(FuncionDTO funcion) throws PersistenciaException {
         try {
             List<FuncionEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select p.titulo, f.dia, f.horaFin, f.horaInicio, f.horaFinPelicula, f.disponibilidad, s.nombre, p.costo, f.idFuncion, f.dia, f.horaInicio, f.horaFin, f.horaFinPelicula from peliculas p\n" +
-                               "inner join funciones f on p.idPelicula = f.idPelicula\n" +
-                               "inner join salas s on s.idSala = f.idSala\n" +
-                               "inner join sucursales sa on s.idSucursal = sa.idSucursal\n" + 
-                                "where ? = p.titulo and ? = sa.nombre;";
+            String codigoSQL = "select p.titulo, f.dia, f.horaFin, f.horaInicio, f.horaFinPelicula, f.disponibilidad, s.nombre, p.costo, f.idFuncion, f.dia, f.horaInicio, f.horaFin, f.horaFinPelicula from peliculas p\n"
+                    + "inner join funciones f on p.idPelicula = f.idPelicula\n"
+                    + "inner join salas s on s.idSala = f.idSala\n"
+                    + "inner join sucursales sa on s.idSucursal = sa.idSucursal\n"
+                    + "where ? = p.titulo and ? = sa.nombre;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
             preparedStatement.setString(1, funcion.getTitulo());
             preparedStatement.setString(2, funcion.getSala());
@@ -61,25 +68,32 @@ public class funcionDAO implements IFuncionDAO{
         }
     }
 
-        @Override
-        public FuncionEntidad buscarIdFuncion(FuncionDTO funcion) throws PersistenciaException {
+    /**
+     * Metodo que busca las funciones en la base de datos mediante su id
+     *
+     * @param funcion funcionDTO en la que se buscara en la base de datos
+     * @return informacion de la funcion encapsulada
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public FuncionEntidad buscarIdFuncion(FuncionDTO funcion) throws PersistenciaException {
         try {
 
-            int idFuncion;    
+            int idFuncion;
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select idFuncion from funciones f\n" +
-                                "inner join salas s on s.idSala = f.idSala\n" +
-                                "inner join peliculas p on p.idPelicula = f.idPelicula\n" +
-                                "where ? = f.fecha_hora and ? = s.nombre and ? = p.titulo;";
+            String codigoSQL = "select idFuncion from funciones f\n"
+                    + "inner join salas s on s.idSala = f.idSala\n"
+                    + "inner join peliculas p on p.idPelicula = f.idPelicula\n"
+                    + "where ? = f.fecha_hora and ? = s.nombre and ? = p.titulo;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
             preparedStatement.setTimestamp(1, funcion.getHoraInicio());
             preparedStatement.setString(2, funcion.getSala());
             preparedStatement.setString(3, funcion.getTitulo());
             ResultSet resultado = preparedStatement.executeQuery();
             idFuncion = resultado.getInt("idFuncion");
-            
+
             conexion.close();
-            
+
             FuncionEntidad funcionID = new FuncionEntidad();
             funcionID.setIdFuncion(idFuncion);
             return funcionID;
@@ -88,8 +102,15 @@ public class funcionDAO implements IFuncionDAO{
             System.out.println(ex.getMessage());
             throw new PersistenciaException("Ocurrió un error al leer la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         }
-    }        
-        
+    }
+
+    /**
+     * Metodo que convierte las funciones en una entidad
+     *
+     * @param resultado informacion encapsulada de la base de datos
+     * @returninformacion encapsulada de la base de datos
+     * @throws SQLException posible excepcion
+     */
     @Override
     public FuncionEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         String titulo = resultado.getString("titulo");
@@ -102,18 +123,24 @@ public class funcionDAO implements IFuncionDAO{
         int costo = resultado.getInt("costo");
         int idFuncion = resultado.getInt("idFuncion");
         return new FuncionEntidad(idFuncion, titulo, dia, horaInicio, horaFin, horaFinPelicula, disponibilidad, sala, costo);
-    }    
-    
-        @Override
-        public List<FuncionEntidad> buscarFuncionesTablaT() throws PersistenciaException {
+    }
+
+    /**
+     * Metodo que busca las funciones y las convierte en una Tabla
+     *
+     * @return tabla de las funciones
+     * @throws PersistenciaException posible excepcion
+     */
+    @Override
+    public List<FuncionEntidad> buscarFuncionesTablaT() throws PersistenciaException {
         try {
             List<FuncionEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select p.titulo, f.dia, f.horaFin, f.horaInicio, f.horaFinPelicula, f.disponibilidad, s.nombre, p.costo, f.idFuncion from peliculas p\n" +
-                               "inner join funciones f on p.idPelicula = f.idPelicula\n" +
-                               "inner join salas s on s.idSala = f.idSala\n" +
-                               "inner join sucursales sa on s.idSucursal = sa.idSucursal";
+            String codigoSQL = "select p.titulo, f.dia, f.horaFin, f.horaInicio, f.horaFinPelicula, f.disponibilidad, s.nombre, p.costo, f.idFuncion from peliculas p\n"
+                    + "inner join funciones f on p.idPelicula = f.idPelicula\n"
+                    + "inner join salas s on s.idSala = f.idSala\n"
+                    + "inner join sucursales sa on s.idSucursal = sa.idSucursal";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
 
             ResultSet resultado = preparedStatement.executeQuery();
@@ -131,6 +158,6 @@ public class funcionDAO implements IFuncionDAO{
             System.out.println(ex.getMessage());
             throw new PersistenciaException("Ocurrió un error al leer la base de datos, inténtelo de nuevo y si el error persiste comuníquese con el encargado del sistema.");
         }
-    }    
-    
+    }
+
 }
