@@ -8,12 +8,12 @@ package presentacion;
  *
  * @author nomar
  */
-public class FrmSinopsis extends javax.swing.JFrame {
+public class FrmSucursal extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmSinopsis
+     * Creates new form FrmSucursal
      */
-    public FrmSinopsis() {
+    public FrmSucursal() {
         initComponents();
     }
 
@@ -26,24 +26,53 @@ public class FrmSinopsis extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        boxCiudad = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        boxSucursal = new javax.swing.JComboBox<>();
         Encabezado = new javax.swing.JPanel();
         LogoC = new javax.swing.JLabel();
         btnCartelera = new javax.swing.JButton();
         btnPromos = new javax.swing.JButton();
-        UbicacionIcon = new javax.swing.JLabel();
-        txtUbicacion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
-        labelTitulo = new javax.swing.JLabel();
-        labelDescripcion = new javax.swing.JLabel();
-        btnComprarBoletos = new javax.swing.JButton();
-        btnTrailer = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         background_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sinopsis");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Escoge tu ciudad");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, -1));
+
+        boxCiudad.setBackground(new java.awt.Color(102, 102, 102));
+        boxCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxCiudadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boxCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 150, 40));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Escoge tu sucursal");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
+
+        boxSucursal.setBackground(new java.awt.Color(102, 102, 102));
+        boxSucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxSucursalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boxSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 150, 40));
+
+        Encabezado.setMinimumSize(new java.awt.Dimension(800, 100));
+        Encabezado.setPreferredSize(new java.awt.Dimension(800, 100));
         Encabezado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Encabezado.add(LogoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
@@ -70,11 +99,6 @@ public class FrmSinopsis extends javax.swing.JFrame {
             }
         });
         Encabezado.add(btnPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-        Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
-
-        txtUbicacion.setBackground(new java.awt.Color(54, 54, 54));
-        txtUbicacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(54, 54, 54)));
-        Encabezado.add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,46 +106,37 @@ public class FrmSinopsis extends javax.swing.JFrame {
         Encabezado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
         fondoEncabezado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EncabezadoBackground.png"))); // NOI18N
+        fondoEncabezado.setMaximumSize(new java.awt.Dimension(800, 102));
         Encabezado.add(fondoEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         getContentPane().add(Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
 
-        labelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        labelTitulo.setText("TITULO");
-        getContentPane().add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 420, -1));
-
-        labelDescripcion.setForeground(new java.awt.Color(255, 255, 255));
-        labelDescripcion.setText("Descripcion");
-        getContentPane().add(labelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 310, 100));
-
-        btnComprarBoletos.setBackground(new java.awt.Color(54, 54, 54));
-        btnComprarBoletos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnComprarBoletos.setForeground(new java.awt.Color(255, 255, 255));
-        btnComprarBoletos.setText("Comprar boletos");
-        btnComprarBoletos.setBorderPainted(false);
-        btnComprarBoletos.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setBackground(new java.awt.Color(54, 54, 54));
+        btnAceptar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComprarBoletosActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnComprarBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
+        getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, -1, -1));
 
-        btnTrailer.setBackground(new java.awt.Color(54, 54, 54));
-        btnTrailer.setForeground(new java.awt.Color(255, 255, 255));
-        btnTrailer.setText("Trailer");
-        btnTrailer.setBorderPainted(false);
-        btnTrailer.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(54, 54, 54));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTrailerActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTrailer, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 120, -1));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, -1, -1));
 
         background_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         background_img.setMaximumSize(new java.awt.Dimension(815, 600));
         background_img.setPreferredSize(new java.awt.Dimension(815, 600));
-        getContentPane().add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+        getContentPane().add(background_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 800, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -129,38 +144,56 @@ public class FrmSinopsis extends javax.swing.JFrame {
 
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
-        
+
         new FrmSucursal().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnCarteleraActionPerformed
 
     private void btnPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPromosActionPerformed
 
-    private void btnTrailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrailerActionPerformed
+    private void boxSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxSucursalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTrailerActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_boxSucursalActionPerformed
 
-    private void btnComprarBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarBoletosActionPerformed
+    private void boxCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCiudadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnComprarBoletosActionPerformed
+    }//GEN-LAST:event_boxCiudadActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        
+        dispose();
+        
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Encabezado;
     private javax.swing.JLabel LogoC;
-    private javax.swing.JLabel UbicacionIcon;
     private javax.swing.JLabel background_img;
+    private javax.swing.JComboBox<String> boxCiudad;
+    private javax.swing.JComboBox<String> boxSucursal;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCartelera;
-    private javax.swing.JButton btnComprarBoletos;
     private javax.swing.JButton btnPromos;
-    private javax.swing.JButton btnTrailer;
     private javax.swing.JLabel fondoEncabezado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel labelDescripcion;
-    private javax.swing.JLabel labelTitulo;
-    private javax.swing.JTextField txtUbicacion;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

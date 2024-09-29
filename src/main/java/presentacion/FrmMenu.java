@@ -52,7 +52,6 @@ public class FrmMenu extends javax.swing.JFrame {
         btnCartelera = new javax.swing.JButton();
         btnPromos = new javax.swing.JButton();
         UbicacionIcon = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
         ConoceLaRopa = new javax.swing.JLabel();
@@ -130,10 +129,6 @@ public class FrmMenu extends javax.swing.JFrame {
         UbicacionIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gps_icon.png"))); // NOI18N
         Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
 
-        jTextField1.setBackground(new java.awt.Color(54, 54, 54));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(54, 54, 54)));
-        Encabezado.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cinépolis");
@@ -208,7 +203,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private void btnCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarteleraActionPerformed
         // TODO add your handling code here:
         
-        new FrmCartelera().setVisible(true);
+        new FrmSucursal().setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_btnCarteleraActionPerformed
@@ -232,7 +227,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel fondoEncabezado;
     private javax.swing.JLabel imgPromo;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel todasTus;
     // End of variables declaration//GEN-END:variables
 }
