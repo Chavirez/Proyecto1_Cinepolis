@@ -19,10 +19,25 @@ public class CiudadNegocio implements ICiudadNegocio{
     
     private ICiudadDAO ciudadDAO;
 
+    
+    /**
+ * Constructor de la clase CiudadNegocio que inicializa el objeto con
+ * la implementación de la interfaz ICiudadDAO
+ * 
+ * @param ciudadDAO La instancia de la interfaz  ICiudadDAO que proporciona
+ *                  los métodos para interactuar con la capa de persistencia de ciudades.
+ */
     public CiudadNegocio(ICiudadDAO ciudadDAO) {
         this.ciudadDAO = ciudadDAO;
     }
     
+    
+    /**
+ * Busca todas las ciudades en la base de datos y las convierte en una lista de objetos ciudadDTO
+ * 
+ * @return Una lista de objetos ciudadDTO que representa las ciudades obtenidas de la base de datos.
+ * @throws NegocioException Si ocurre un error durante la búsqueda en la base de datos o la conversión de las ciudades a DTO.
+ */
     @Override
     public List<ciudadDTO> buscarCiudadTabla() throws NegocioException {
          try {
@@ -35,6 +50,18 @@ public class CiudadNegocio implements ICiudadNegocio{
         }
     }
     
+    
+    /**
+ * Convierte una lista de objetos en una lista de objetos 
+ * para ser utilizados en la presentación de datos, como en una tabla
+ * 
+ * @param ciudades La lista de objetos CiudadEntidad que representan las ciudades
+ *                 obtenidas de la base de datos
+ * @return Una lista de objetos ciudadDTO que contiene la información de las ciudades
+ *         convertidas para su visualizacion
+ * @throws NegocioException Si la lista de ciudades es null, lanzara una excepcion
+ *                          de negocio indicando que no se pudieron obtener las ciudades
+ */
     private List<ciudadDTO> convertirCiudadTablaDTO(List<CiudadEntidad> ciudades) throws NegocioException {
         if (ciudades == null) {
             throw new NegocioException("No se pudieron obtener los alumnos");
