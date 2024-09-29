@@ -4,17 +4,84 @@
  */
 package presentacion;
 
+import dtos.BoletoDTO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.BoletoNegocio;
+import negocio.IBoletoNegocio;
+import negocio.NegocioException;
+import persistencia.BoletoDAO;
+import persistencia.ConexionBD;
+import persistencia.IBoletoDAO;
+import persistencia.IConexionBD;
+
 /**
  *
  * @author nomar
  */
 public class FrmBoleto extends javax.swing.JFrame {
 
+    IConexionBD conexionBD = new ConexionBD();
+    IBoletoDAO boletoDAO = new BoletoDAO(conexionBD);
+    IBoletoNegocio boletoNegocio = new BoletoNegocio(boletoDAO);
+    private int pagina = 0;
+    private int LIMITE = 3;
+
     /**
      * Creates new form FrmBoleto
      */
     public FrmBoleto() {
         initComponents();
+        llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
+    }
+
+    private List<BoletoDTO> buscarBoletosTabla() {
+        List<BoletoDTO> boletosLista = null;
+        try {
+            boletosLista = this.boletoNegocio.buscarBoletosTablaT(); // Asumiendo que tienes el método buscarTodosBoletos en BoletoNegocio
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return boletosLista;
+    }
+
+    private void llenarTablaBoletos(List<BoletoDTO> boletosLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaBoleto.getModel(); // Asumiendo que tienes una tabla tblBoletos
+
+        // Limpiar la tabla
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        // Llenar la tabla con los datos de boletos
+        if (boletosLista != null) {
+            boletosLista.forEach(row -> {
+                Object[] fila = new Object[7];
+                fila[0] = row.getNombrePelicula(); // Título de la película
+                fila[1] = row.getHoraInicio(); // Hora de inicio de la función
+                fila[2] = row.getHoraFin(); // Hora de fin de la función
+                fila[3] = row.getSala(); // Nombre del boleto
+                fila[4] = row.getSucursal(); // Sucursal del cine
+                fila[5] = row.getPrecio(); // Costo del boleto
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }
+
+    private List<BoletoDTO> obtenerPagina(int indiceInicio, int indiceFin) {
+        List<BoletoDTO> todos = buscarBoletosTabla(); // Obtener todos los boletos
+        List<BoletoDTO> boletosPagina = new ArrayList<>();
+        indiceFin = Math.min(indiceFin, todos.size());
+        for (int i = indiceInicio; i < indiceFin; i++) {
+            boletosPagina.add(todos.get(i));
+        }
+        return boletosPagina;
     }
 
     /**
@@ -95,18 +162,20 @@ public class FrmBoleto extends javax.swing.JFrame {
         Contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaBoleto.setBackground(new java.awt.Color(54, 54, 54));
+        tablaBoleto.setForeground(new java.awt.Color(255, 255, 255));
         tablaBoleto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Duracion", "Sala", "Ciudad", "Comprar"
+                "Pelicula", "Hora Inicio", "Hora Fin", "Sala", "Sucursal", "Costo"
             }
         ));
         tablaBoleto.setGridColor(new java.awt.Color(50, 50, 50));
+        tablaBoleto.setRowHeight(81);
         jScrollPane1.setViewportView(tablaBoleto);
 
         Contenedor.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 760, 330));
@@ -195,6 +264,24 @@ public class FrmBoleto extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_panelRegresarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        pagina += 3;
+        LIMITE += 3;
+        llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (pagina - 3 < 0) {
+            JOptionPane.showMessageDialog(this, "No hay más páginas atrás");
+        } else {
+            pagina -= 3;
+            LIMITE -= 3;
+            llenarTablaBoletos(obtenerPagina(pagina, LIMITE));
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
