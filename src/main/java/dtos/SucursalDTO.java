@@ -17,10 +17,9 @@ public class SucursalDTO {
     public SucursalDTO() {
     }
 
-    public SucursalDTO(int idSucursal, String nombre, Double direccion, int idCiudad) {
+    public SucursalDTO(int idSucursal, String nombre, int idCiudad) {
         this.idSucursal = idSucursal;
         this.nombre = nombre;
-        this.direccion = direccion;
         this.idCiudad = idCiudad;
     }
 

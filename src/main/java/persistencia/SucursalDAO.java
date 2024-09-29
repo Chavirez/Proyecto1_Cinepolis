@@ -33,13 +33,14 @@ public class SucursalDAO implements ISucursalDAO{
             List<SucursalEntidad> sucursalLista = null;
 
             Connection conexion = this.conexionBD.crearConexion();
-            String codigoSQL = "select idSucursal, nombre, direccion, idCiudad from sucursales where idCiudad = ?;";
+            String codigoSQL = "select idSucursal, nombre, idCiudad from sucursales where idCiudad = ?;";
             PreparedStatement preparedStatement = conexion.prepareStatement(codigoSQL);
-            preparedStatement.setInt(1, sucursal.getIdSucursal());
+            preparedStatement.setInt(1, sucursal.getIdCiudad());
             ResultSet resultado = preparedStatement.executeQuery();
             while (resultado.next()) {
                 if (sucursalLista == null) {
                     sucursalLista = new ArrayList<>();
+ 
                 }
                 SucursalEntidad sucursales = this.convertirAEntidad(resultado);
                 sucursalLista.add(sucursales);
@@ -57,9 +58,10 @@ public class SucursalDAO implements ISucursalDAO{
     public SucursalEntidad convertirAEntidad(ResultSet resultado) throws SQLException {
         int idSucursal = resultado.getInt("idSucursal");
         String nombre = resultado.getString("nombre");
-        Double direccion = resultado.getDouble("nombre");
+        Double a = 00.00;
         int idCiudad = resultado.getInt("idCiudad");
-        return new SucursalEntidad(idSucursal, nombre, direccion, idCiudad);
+        System.out.println(idSucursal);
+        return new SucursalEntidad(idSucursal, nombre, idCiudad);
     }    
     
 }

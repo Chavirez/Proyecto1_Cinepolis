@@ -82,6 +82,8 @@ public class FrmRegistroCatalogoClientes extends javax.swing.JFrame {
 
         return ciudadLista;
     }    
+    
+    
 
     /**
      * Metodo que convierte el texto de la fecha en un formato fecha para SQL.
