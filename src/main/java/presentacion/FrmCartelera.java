@@ -5,10 +5,13 @@
 package presentacion;
 
 import dtos.PeliculaDTO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import negocio.IPeliculaNegocio;
 import negocio.NegocioException;
 import negocio.PeliculaNegocio;
@@ -16,6 +19,8 @@ import persistencia.ConexionBD;
 import persistencia.IConexionBD;
 import persistencia.IPeliculasDAO;
 import persistencia.peliculasDAO;
+import utilerias.JButtonCellEditor;
+import utilerias.JButtonRenderer;
 
 /**
  *
