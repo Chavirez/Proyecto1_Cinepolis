@@ -72,12 +72,16 @@ presentacion\Catálogos\FrmCatalogoPeliculas$2.class
 presentacion\Catálogos\FrmCatalogoSalas$5.class
 presentacion\FrmBoleto$4.class
 presentacion\FrmMenu$2.class
+<<<<<<< Updated upstream
 presentacion\FrmHorario$4.class
 presentacion\Catálogos\Clientes\FrmRegistroCatalogo$3.class
 entidades\ReportePeliculaEntidad.class
 dtos\ClienteDTO.class
 presentacion\FrmSinopsis$4.class
 negocio\BoletoNegocio.class
+=======
+presentacion\Catálogos\Funciones\FrmRegistroCatalogoFunciones$1.class
+>>>>>>> Stashed changes
 presentacion\FrmMenuAdmin$2.class
 entidades\ClienteBuscarEntidad.class
 persistencia\ConexionBD.class

@@ -4,16 +4,20 @@
  */
 package presentacion;
 
+import dtos.PeliculaDTO;
 import dtos.SucursalDTO;
 import dtos.ciudadDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import negocio.CiudadNegocio;
 import negocio.ClienteNegocio;
 import negocio.ICiudadNegocio;
 import negocio.IClienteNegocio;
+import negocio.IPeliculaNegocio;
 import negocio.ISucursalNegocio;
 import negocio.NegocioException;
+import negocio.PeliculaNegocio;
 import negocio.SucursalNegocio;
 import persistencia.CiudadDAO;
 import persistencia.ClienteDAO;
@@ -22,7 +26,10 @@ import persistencia.ICiudadDAO;
 import persistencia.SucursalDAO;
 import persistencia.IClienteDAO;
 import persistencia.IConexionBD;
+import persistencia.IPeliculasDAO;
 import persistencia.ISucursalDAO;
+import persistencia.SucursalDAO;
+import persistencia.peliculasDAO;
 
 /**
  *
@@ -30,9 +37,12 @@ import persistencia.ISucursalDAO;
  */
 public class FrmSucursal extends javax.swing.JFrame {
 
+    List<SucursalDTO> su = new ArrayList();
     IConexionBD conexionBD = new ConexionBD();
     ISucursalDAO clienteDAO = new SucursalDAO(conexionBD);
     ICiudadDAO ciudadDAO = new CiudadDAO(conexionBD);
+    IPeliculasDAO peliculaDAO = new peliculasDAO(conexionBD);
+    IPeliculaNegocio peliculaNegocio = new PeliculaNegocio(peliculaDAO);
     ISucursalNegocio sucursalNegocio = new SucursalNegocio(clienteDAO);
     ICiudadNegocio ciudad = new CiudadNegocio(ciudadDAO);    
     
@@ -90,7 +100,7 @@ public class FrmSucursal extends javax.swing.JFrame {
         try {
 
             sucursalLista = sucursalNegocio.buscarSucursalTabla(sucursal);
-
+            this.su = sucursalLista;
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
         }
@@ -98,6 +108,20 @@ public class FrmSucursal extends javax.swing.JFrame {
         return sucursalLista;
     }    
     
+    private List<PeliculaDTO> buscarPeliculasTabla(int i){
+        List<PeliculaDTO> PeliculasLista = null;
+        try {
+            
+            PeliculasLista = this.peliculaNegocio.buscarPeliculaTabla(i);
+
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Información", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return PeliculasLista;
+    }          
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -247,6 +271,7 @@ public class FrmSucursal extends javax.swing.JFrame {
         // TODO add your handling code here:
         SucursalDTO sucursal = new SucursalDTO();
         sucursal.setIdCiudad(boxCiudad.getSelectedIndex() +1);
+        boxSucursal.removeAllItems();
         llenarBoxSucursales(buscarSucursalTabla(sucursal));
     }//GEN-LAST:event_boxCiudadActionPerformed
 
@@ -259,6 +284,10 @@ public class FrmSucursal extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        int i = boxSucursal.getSelectedIndex();
+        su.get(i).getIdSucursal();
+        new FrmCartelera(buscarPeliculasTabla(su.get(i).getIdSucursal())).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**

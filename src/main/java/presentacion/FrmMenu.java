@@ -191,9 +191,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPromosActionPerformed
 
     private void btnCatalagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalagoActionPerformed
-        FrmCartelera cartelera = new FrmCartelera();
-        cartelera.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_btnCatalagoActionPerformed
 
     private void btn_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseClicked

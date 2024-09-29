@@ -7,9 +7,13 @@ package presentacion;
 import dtos.PeliculaDTO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+=======
+import java.util.List;
+>>>>>>> Stashed changes
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import negocio.IPeliculaNegocio;
@@ -37,8 +41,10 @@ public class FrmCartelera extends javax.swing.JFrame {
     /**
      * Creates new form FrmCartelera
      */
-    public FrmCartelera() {
+    public FrmCartelera(List<PeliculaDTO> pelicula) {
+        
         initComponents();
+<<<<<<< Updated upstream
 
         llenarTablaPeliculas(obtenerPagina(pagina, LIMITE));
     }
@@ -89,8 +95,39 @@ public class FrmCartelera extends javax.swing.JFrame {
             todasLasPaginas.add(todas.get(i));
         }
         return todasLasPaginas;
+=======
+        cargarConfiguracionInicialTablaCartelera();
+        llenarTablaPeliculas(pelicula);
+        
+>>>>>>> Stashed changes
     }
 
+    private void llenarTablaPeliculas(List<PeliculaDTO> PeliculasLista) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaCartelera.getModel();
+
+        if (modeloTabla.getRowCount() > 0) {
+            for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                modeloTabla.removeRow(i);
+            }
+        }
+
+        if (PeliculasLista != null) {
+            PeliculasLista.forEach(row -> {
+                Object[] fila = new Object[7];
+                fila[0] = row.getTitulo();
+                fila[1] = row.getClasificacion();
+                fila[2] = row.getGenero();
+                fila[3] = row.getDuracion();
+                fila[6] = row.getSinopsis();
+                fila[4] = row.getPais();
+                fila[5] = row.getTrailer();
+
+                modeloTabla.addRow(fila);
+            });
+        }
+    }    
+    
+    
     private void cargarConfiguracionInicialTablaCartelera() { 
         
         ActionListener onVerSinopsisClickListener = new ActionListener() {
