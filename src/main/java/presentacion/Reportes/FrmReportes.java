@@ -379,6 +379,7 @@ public class FrmReportes extends javax.swing.JFrame {
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_pSucursal.setBackground(new java.awt.Color(83, 85, 96));
+        btn_pSucursal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_pSucursal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_pSucursalMouseClicked(evt);
@@ -411,6 +412,7 @@ public class FrmReportes extends javax.swing.JFrame {
         content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         btn_tipopago.setBackground(new java.awt.Color(83, 85, 96));
+        btn_tipopago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_tipopago.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_tipopagoMouseClicked(evt);
@@ -447,6 +449,7 @@ public class FrmReportes extends javax.swing.JFrame {
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
         btn_pPelicula.setBackground(new java.awt.Color(83, 85, 96));
+        btn_pPelicula.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_pPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_pPeliculaMouseClicked(evt);
@@ -463,8 +466,8 @@ public class FrmReportes extends javax.swing.JFrame {
         btn_pPeliculaLayout.setHorizontalGroup(
             btn_pPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_pPeliculaLayout.createSequentialGroup()
-                .addComponent(lbl_pelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addComponent(lbl_pelicula)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         btn_pPeliculaLayout.setVerticalGroup(
             btn_pPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,7 +476,7 @@ public class FrmReportes extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        content.add(btn_pPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 240, -1));
+        content.add(btn_pPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 200, -1));
 
         fldDesde.setBackground(new java.awt.Color(186, 219, 186));
         fldDesde.setForeground(new java.awt.Color(186, 219, 186));
@@ -504,9 +507,11 @@ public class FrmReportes extends javax.swing.JFrame {
         lblatras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblatras.setText("<");
         lblatras.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         content.add(lblatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
 
         btn_gReporte.setBackground(new java.awt.Color(83, 85, 96));
+        btn_gReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gReporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_gReporteMouseClicked(evt);
@@ -523,9 +528,9 @@ public class FrmReportes extends javax.swing.JFrame {
         btn_gReporteLayout.setHorizontalGroup(
             btn_gReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_gReporteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_gReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(213, 213, 213)
+                .addComponent(lbl_gReporte)
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         btn_gReporteLayout.setVerticalGroup(
             btn_gReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

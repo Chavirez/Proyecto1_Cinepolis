@@ -118,7 +118,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         lbl_atras = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
         close_icon = new javax.swing.JLabel();
-        logo_img = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lbl_cPeliculas1 = new javax.swing.JLabel();
         btn_Siguiente = new javax.swing.JPanel();
         lbl_atras2 = new javax.swing.JLabel();
@@ -192,6 +192,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Atras.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AtrasMouseClicked(evt);
@@ -236,16 +237,19 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
 
         content.add(btn_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 20, 20));
 
-        logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoCinepolis.png"))); // NOI18N
-        content.add(logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Cinépolis");
+        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
         lbl_cPeliculas1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cPeliculas1.setForeground(new java.awt.Color(255, 0, 0));
         lbl_cPeliculas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cPeliculas1.setText("Administrador");
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
         btn_Siguiente.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Siguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_SiguienteMouseClicked(evt);
@@ -261,10 +265,10 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         btn_Siguiente.setLayout(btn_SiguienteLayout);
         btn_SiguienteLayout.setHorizontalGroup(
             btn_SiguienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_SiguienteLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_SiguienteLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(lbl_atras2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap())
         );
         btn_SiguienteLayout.setVerticalGroup(
             btn_SiguienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,6 +298,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
 
         btn_Eliminar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_EliminarMouseClicked(evt);
@@ -319,6 +324,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         content.add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, -1));
 
         btn_Agregar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Agregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AgregarMouseClicked(evt);
@@ -350,6 +356,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
         lblatras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblatras.setText("<");
         lblatras.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         content.add(lblatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
 
         btn_anterior.setBackground(new java.awt.Color(47, 48, 55));
@@ -491,6 +498,7 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel fondoEncabezado6;
     private javax.swing.JLabel fondoTablas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
@@ -503,7 +511,6 @@ public class FrmCatalogoFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_continuar2;
     private javax.swing.JLabel lblatras;
     private javax.swing.JLabel lblfondoTabla;
-    private javax.swing.JLabel logo_img;
     private javax.swing.JTable tblFunciones;
     // End of variables declaration//GEN-END:variables
 }

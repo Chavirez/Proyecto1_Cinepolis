@@ -188,6 +188,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Atras.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AtrasMouseClicked(evt);
@@ -242,6 +243,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.add(lbl_cPeliculas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 800, 20));
 
         btn_Siguiente.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Siguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_SiguienteMouseClicked(evt);
@@ -260,7 +262,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
             .addGroup(btn_SiguienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_atras2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btn_SiguienteLayout.setVerticalGroup(
             btn_SiguienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +271,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        content.add(btn_Siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 470, 240, -1));
+        content.add(btn_Siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 470, 220, -1));
 
         tblClientes.setBackground(java.awt.SystemColor.controlDkShadow);
         tblClientes.setForeground(java.awt.SystemColor.controlShadow);
@@ -290,6 +292,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
 
         btn_Editar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Editar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_EditarMouseClicked(evt);
@@ -317,6 +320,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.add(btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
 
         btn_Eliminar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_EliminarMouseClicked(evt);
@@ -342,6 +346,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         content.add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, -1));
 
         btn_Agregar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Agregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AgregarMouseClicked(evt);
@@ -373,6 +378,7 @@ public class FrmCatalogoClientes extends javax.swing.JFrame {
         lblatras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblatras.setText("<");
         lblatras.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         content.add(lblatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
 
         btn_anterior.setBackground(new java.awt.Color(47, 48, 55));

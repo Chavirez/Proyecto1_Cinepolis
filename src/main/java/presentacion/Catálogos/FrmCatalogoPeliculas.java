@@ -113,8 +113,6 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         content = new javax.swing.JPanel();
-        btnRegresar2 = new javax.swing.JPanel();
-        Regresar2 = new javax.swing.JLabel();
         btn_Atras = new javax.swing.JPanel();
         lbl_atras = new javax.swing.JLabel();
         btn_close = new javax.swing.JPanel();
@@ -194,25 +192,8 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         content.setPreferredSize(new java.awt.Dimension(800, 600));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar2.setBackground(new java.awt.Color(47, 48, 55));
-        btnRegresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegresar2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegresar2MouseClicked(evt);
-            }
-        });
-        btnRegresar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Regresar2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Regresar2.setForeground(new java.awt.Color(255, 255, 255));
-        Regresar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Regresar2.setText("<");
-        Regresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegresar2.add(Regresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -5, 20, 20));
-
-        content.add(btnRegresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 20, 20));
-
         btn_Atras.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Atras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AtrasMouseClicked(evt);
@@ -279,15 +260,16 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         lbl_atras2.setForeground(new java.awt.Color(255, 255, 255));
         lbl_atras2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_atras2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btnSiguiente.png"))); // NOI18N
+        lbl_atras2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout btn_SiguienteLayout = new javax.swing.GroupLayout(btn_Siguiente);
         btn_Siguiente.setLayout(btn_SiguienteLayout);
         btn_SiguienteLayout.setHorizontalGroup(
             btn_SiguienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_SiguienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_atras2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_SiguienteLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(lbl_atras2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         btn_SiguienteLayout.setVerticalGroup(
             btn_SiguienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,6 +299,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         content.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 650, 272));
 
         btn_Editar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Editar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_EditarMouseClicked(evt);
@@ -344,6 +327,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         content.add(btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
 
         btn_Eliminar.setBackground(new java.awt.Color(83, 85, 96));
+        btn_Eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_EliminarMouseClicked(evt);
@@ -400,6 +384,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         lblatras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblatras.setText("<");
         lblatras.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblatras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         content.add(lblatras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 20, 20));
 
         btn_anterior.setBackground(new java.awt.Color(47, 48, 55));
@@ -481,13 +466,6 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_anteriorMouseClicked
 
-    private void btnRegresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar2MouseClicked
-        // TODO add your handling code here:
-
-        new FrmMenuAdmin().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRegresar2MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -539,9 +517,7 @@ public class FrmCatalogoPeliculas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Regresar2;
     private javax.swing.JLabel background_img;
-    private javax.swing.JPanel btnRegresar2;
     private javax.swing.JPanel btn_Agregar;
     private javax.swing.JPanel btn_Atras;
     private javax.swing.JPanel btn_Editar;

@@ -87,7 +87,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UsuarioIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UsuarioIcon.png"))); // NOI18N
-        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 10, 10));
+        btnUsuario.add(UsuarioIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 30, 25));
 
