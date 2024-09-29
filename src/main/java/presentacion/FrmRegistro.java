@@ -263,7 +263,6 @@ public class FrmRegistro extends javax.swing.JFrame {
         lbl_ciudad.setText("Ciudad *");
         getContentPane().add(lbl_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, -1, -1));
 
-        boxCiudad.setSelectedIndex(-1);
         getContentPane().add(boxCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 300, 30));
 
         logo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -326,6 +325,7 @@ public class FrmRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
 
 
+
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
@@ -353,10 +353,6 @@ public class FrmRegistro extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnRegresarMouseClicked
-
-    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
