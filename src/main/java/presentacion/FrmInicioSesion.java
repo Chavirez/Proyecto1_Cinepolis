@@ -269,7 +269,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
                 // PLACEHOLDER
                 // Aqui se agregara que se desea que se realiza cuando el
                 // usuario inicialize sesion.
-                JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(this, "Sesión iniciada", "AVISO", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Se inicia la sesion");
                 FrmMenu menu = new FrmMenu();
                 menu.setVisible(true);
