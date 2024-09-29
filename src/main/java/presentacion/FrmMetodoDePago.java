@@ -31,14 +31,11 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
         btnCartelera = new javax.swing.JButton();
         btnPromos = new javax.swing.JButton();
         UbicacionIcon = new javax.swing.JLabel();
-        txtUbicacion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fondoEncabezado = new javax.swing.JLabel();
-        metodoDePago = new javax.swing.JLabel();
+        panelTarjeta1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         panelTarjeta = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        panelEfectivo = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,10 +69,6 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
         Encabezado.add(btnPromos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
         Encabezado.add(UbicacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 20, 30));
 
-        txtUbicacion.setBackground(new java.awt.Color(54, 54, 54));
-        txtUbicacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(54, 54, 54)));
-        Encabezado.add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 30));
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cinépolis");
@@ -86,72 +79,40 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
 
         getContentPane().add(Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
 
-        metodoDePago.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        metodoDePago.setForeground(new java.awt.Color(255, 255, 255));
-        metodoDePago.setText("MÉTODO DE PAGO");
-        getContentPane().add(metodoDePago, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        panelTarjeta1.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout panelTarjeta1Layout = new javax.swing.GroupLayout(panelTarjeta1);
+        panelTarjeta1.setLayout(panelTarjeta1Layout);
+        panelTarjeta1Layout.setHorizontalGroup(
+            panelTarjeta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 430, Short.MAX_VALUE)
+        );
+        panelTarjeta1Layout.setVerticalGroup(
+            panelTarjeta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panelTarjeta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, 100));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("MÉTODO DE PAGO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
         panelTarjeta.setBackground(new java.awt.Color(102, 102, 102));
-        panelTarjeta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelTarjeta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelTarjetaMouseClicked(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Crédito/Débito");
 
         javax.swing.GroupLayout panelTarjetaLayout = new javax.swing.GroupLayout(panelTarjeta);
         panelTarjeta.setLayout(panelTarjetaLayout);
         panelTarjetaLayout.setHorizontalGroup(
             panelTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTarjetaLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jLabel3)
-                .addContainerGap(94, Short.MAX_VALUE))
+            .addGap(0, 430, Short.MAX_VALUE)
         );
         panelTarjetaLayout.setVerticalGroup(
             panelTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTarjetaLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel3)
-                .addContainerGap(37, Short.MAX_VALUE))
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panelTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 430, 120));
-
-        panelEfectivo.setBackground(new java.awt.Color(102, 102, 102));
-        panelEfectivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelEfectivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelEfectivoMouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Efectivo");
-
-        javax.swing.GroupLayout panelEfectivoLayout = new javax.swing.GroupLayout(panelEfectivo);
-        panelEfectivo.setLayout(panelEfectivoLayout);
-        panelEfectivoLayout.setHorizontalGroup(
-            panelEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEfectivoLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel4)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
-        panelEfectivoLayout.setVerticalGroup(
-            panelEfectivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEfectivoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel4)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(panelEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 430, -1));
+        getContentPane().add(panelTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 430, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         fondo.setMaximumSize(new java.awt.Dimension(800, 600));
@@ -171,26 +132,40 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPromosActionPerformed
 
-    private void panelTarjetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTarjetaMouseClicked
-        // TODO add your handling code here:
-        
-        new FrmPostPago().setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_panelTarjetaMouseClicked
-
-    private void panelEfectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEfectivoMouseClicked
-        // TODO add your handling code here:
-        
-        new FrmPostPago().setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_panelEfectivoMouseClicked
-
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmMetodoDePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmMetodoDePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmMetodoDePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmMetodoDePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmMetodoDePago().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Encabezado;
@@ -200,12 +175,9 @@ public class FrmMetodoDePago extends javax.swing.JFrame {
     private javax.swing.JButton btnPromos;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondoEncabezado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel metodoDePago;
-    private javax.swing.JPanel panelEfectivo;
     private javax.swing.JPanel panelTarjeta;
-    private javax.swing.JTextField txtUbicacion;
+    private javax.swing.JPanel panelTarjeta1;
     // End of variables declaration//GEN-END:variables
 }
