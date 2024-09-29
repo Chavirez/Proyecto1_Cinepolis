@@ -20,6 +20,11 @@ import persistencia.PersistenciaException;
  */
 public interface ICiudadNegocio {
     
+    
+    /** Busca ciudades en la base de datos y las devuelve como una lista de objetos ciudadDTO
+
+@return Una lista de objetos ciudadDTO que representa las ciudades obtenidas de la base de datos 
+* @throws NegocioException Si ocurre un error durante la busqueda en la base de datos */
     List<ciudadDTO> buscarCiudadTabla() throws NegocioException;
 
     
