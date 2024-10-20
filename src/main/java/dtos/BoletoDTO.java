@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 
 /**
  *
- * @author PC
+ * @author PCa
  */
 public class BoletoDTO {
 
@@ -21,7 +21,7 @@ public class BoletoDTO {
     private int precio;
     
     
-    /** Constructor por defecto que inicializa una nueva instancia de BoletoDTO */
+    /** Constructor por defeacto que inicializa una nueva instancia de BoletoDTO */
     public BoletoDTO() {}
 
     
